@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <script>
+        // Crear un arreglo con 10 elementos aleatorios entre 0 y 50
+        let arreglo = [];
+
+        for (let i = 0; i < 10; i++) {
+            let aleatorio = Math.floor(Math.random() * 51); // 0 a 50 inclusive
+            arreglo.push(aleatorio);
+        }
+
+        // Mostrar el arreglo generado
+        document.write("Arreglo generado: " + arreglo + "<br><br>");
+
+        // Verificar si se generó al menos un 15
+        let cantidad15 = 0;
+        for (let i = 0; i < arreglo.length; i++) {
+            if (arreglo[i] === 15) {
+                cantidad15++;
+            }
+        }
+
+        if (cantidad15 > 0) {
+            document.write("✅ Existe el número 15 dentro del arreglo y se repite " + cantidad15 + " veces.<br>");
+        } else {
+            document.write("❌ No existe el número 15 dentro del arreglo.<br>");
+        }
+
+        // Verificar si alguno es mayor a 40
+        let mayor40 = arreglo.some(elemento => elemento > 40);
+
+        if (mayor40) {
+            document.write("✅ Hay al menos un número mayor a 40.<br>");
+        } else {
+            document.write("❌ No hay ningún número mayor a 40.<br>");
+        }
+    </script>
+</body>
+</html>
