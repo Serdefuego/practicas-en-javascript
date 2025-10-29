@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let matriz = [];
+
+  const carga = (matriz) => {
+    let filas = parseInt(prompt("Ingrese cantidad de filas:"));
+    let columnas = parseInt(prompt("Ingrese cantidad de columnas:"));
+
+    // Crear la matriz y llenarla con 0 usando fill()
+    for (let i = 0; i < filas; i++) {
+      matriz[i] = new Array(columnas).fill(0);
+    }
+
+    // Mostrar la matriz en pantalla
+    document.write("<h3>Matriz generada:</h3>");
+    for (let i = 0; i < filas; i++) {
+      document.write(matriz[i].join(" | ") + "<br>");
+    }
+  };
+
+  carga(matriz);
+    </script>
+</body>
+</html>
