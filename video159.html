@@ -7,8 +7,12 @@
 <body>
     <h1> video</h1>
     <script>
-        
-
+        let arreglo=[["manzana",10],["pera",80],["limon",30],["banana",40]]
+        let index=arreglo.findIndex((Element)=>Element[0]=="banana")
+        document.write(index)
+if (index){
+    document.write("banana es el "+(index+1)+"º elemento de la posicion")
+}else("banana no se encuentra")
     </script>
 </body>
 </html>
