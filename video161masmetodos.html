@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //crear un  bolillero de loteria con 50 numeros aleatorios diferentes , creando un arreglo
+        //de 1 a 50 si dicho arreglo ya contiene el nuemro crear otro numero e ir cargandolo con el
+        //metodo push, extraer e imprimir el arreglo en las posiciones 0 y 1 y verificar que el arreglo
+        //contenga al final 48 posiciones
+
+  let arreglo = [];
+
+  // Generar 50 números aleatorios distintos entre 0 y 50
+  while (arreglo.length < 50) {
+    let numero = Math.floor(Math.random() * 51);
+    if (!arreglo.includes(numero)) {
+      arreglo.push(numero);
+    }
+  }
+
+  // Obtener las posiciones 0 y 1 sin eliminarlas
+  let posicioncero = arreglo[0];
+  let posicionuno = arreglo[1];
+
+  // Mostrar los elementos separados por ---
+  arreglo.forEach(element => {
+    document.write(element + "---");
+  });
+
+  document.write("<br><br>El arreglo contiene " + arreglo.length + " posiciones.<br>");
+  document.write("El elemento en la posición 0 es: " + posicioncero + "<br>");
+  document.write("El elemento en la posición 1 es: " + posicionuno);
+</script>
+</body>
+</html>
