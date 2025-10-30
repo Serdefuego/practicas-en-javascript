@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let arreglo=[]
+
+        let aleatorio=(arreglo)=>{
+          while (arreglo.length!=50){
+                  let numero=Math.floor(Math.random()*50)+1
+                  if(!arreglo.includes(numero)){
+                    arreglo.push(numero)
+                  }
+                 arreglo.sort((a,b)=>a-b)
+
+            }
+            
+            document.write(arreglo)       
+
+        }
+
+        let cortararreglo=(arreglo)=>{
+         arreglo.splice(0,25)
+         document.write("<br>"+arreglo)
+        }
+
+
+        aleatorio(arreglo)
+        document.write("<br>"+"el largo del arreglo es de "+arreglo.length)
+
+        cortararreglo(arreglo)
+    </script>
+</body>
+</html>
