@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //crear 2 objetos de producto con numbre de producto y precio y luego aumentar con una funcion el 20% al precio
+
+        let almacen=[]
+
+        let cargarProducto=(almacen)=>{
+            let producto={}
+            
+            let nombre=prompt("ingrese nombre de producto")
+            let precio=parseFloat(prompt("ingrese valor del producto"))
+            
+            producto["nombre del producto"]=nombre
+            precio["precio del producto"]=precio
+
+            almacen.push(producto)
+        }
+
+        for(i=0;i<=2;i++){
+            cargarProducto(almacen)
+        }
+
+        for (item in almacen){
+            for(Element of item){
+                document.write(Element)
+            }
+        }
+        
+        
+
+    </script>
+</body>
+</html>
