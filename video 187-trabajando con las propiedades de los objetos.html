@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let computadora1 = {
+        cpu: "i7",
+        memoria_ram: "16gb"
+    };
+
+    let imprimir_propiedades = (pc) => {
+        for (let propiedades in pc) {
+            document.write(propiedades +":"+pc[propiedades]+ "<br>");
+        }
+    };
+
+    computadora1["disco_duro"] = "1tb";
+
+    let crear_propiedad = (pc) => {
+        let nombre = prompt("Ingrese nombre de propiedad");
+        if (!(nombre in pc)) { // corregido con paréntesis
+            let valor = prompt("Ingrese valor para la propiedad");
+            pc[nombre] = valor;
+        } else {
+            alert("Ya existe esa propiedad");
+        }
+    };
+
+    imprimir_propiedades(computadora1);
+</script>
+</body>
+</html>
