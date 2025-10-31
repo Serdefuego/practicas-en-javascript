@@ -2,32 +2,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mayor Puntaje</title>
 </head>
 <body>
     <script>
 
-        let jugadores=[]
+        let jugadores = [];
 
-        let cargar=(jugadores)=>{
-            
-            jugador={}
+        let cargar = (jugadores) => {
+            let jugador = {}; // siempre usar let o const
 
-            let nombre=prompt("ingrese nombre")
-            let puntaje=parseInt(prompt("ingrese puntaje"))
-            let nivel=parseInt(prompt("ingrese nivel"))
+            let nombre = prompt("Ingrese nombre");
+            let puntaje = parseInt(prompt("Ingrese puntaje"));
+            let nivel = parseInt(prompt("Ingrese nivel"));
         
-            jugador["nombre"]=nombre
-            jugador["puntaje"]=puntaje
-            jugador["nivel"]=nivel
+            jugador["nombre"] = nombre;
+            jugador["puntaje"] = puntaje;
+            jugador["nivel"] = nivel;
 
-            jugadores.push(jugador)
-
+            jugadores.push(jugador);
         }
 
-        let mayorPuntaje(jugadores)=>{
+        let mayorPuntaje = (jugadores) => {
+            if (jugadores.length === 0) {
+                document.write("No hay jugadores cargados.");
+                return;
+            }
+
+            let mayor = jugadores[0]; // asumimos que el primero tiene el mayor puntaje
             
+            for (let jugador of jugadores) {
+                if (jugador.puntaje > mayor.puntaje) {
+                    mayor = jugador;
+                }
+            }
+
+            document.write("🏆 El jugador con mayor puntaje es: " + mayor.nombre + "<br>");
+            document.write("Puntaje: " + mayor.puntaje + "<br>");
+            document.write("Nivel: " + mayor.nivel + "<hr>");
         }
+
+        // Ejemplo de uso
+        cargar(jugadores);
+        cargar(jugadores);
+        cargar(jugadores);
+        mayorPuntaje(jugadores);
 
     </script>
 </body>

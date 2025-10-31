@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let productos=[]
+
+        let carga=(productos)=>{
+            let objeto={}
+
+            let nombre_del_producto=prompt("ingrese nombre del producto")
+            let precio_del_producto=parseFloat(prompt("ingrese precio del producto"))
+
+            objeto["nombre"]=nombre_del_producto
+            objeto["precio"]=precio_del_producto
+
+            productos.push(objeto)
+        }
+
+        let mayor_precio=(productos)=>{
+            let mayor=productos[0]
+
+            for(item of productos){
+                if (item.precio> mayor.precio){
+                    mayor=item
+                }
+              }
+             document.write("el producto mas caro es: "+mayor.nombre+" a un valor de "+mayor.precio)
+            }
+        
+            carga(productos)
+            carga(productos)
+            carga(productos)
+
+            mayor_precio(productos)
+    </script>
+</body>
+</html>

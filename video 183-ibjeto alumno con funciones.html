@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let alumnos = [];
+
+    let ingreso = (alumnos) => {
+        let usuario = {};
+
+        let nombre = prompt("Ingrese nombre del estudiante");
+        let notaUno = parseInt(prompt("Ingrese nota 1"));
+        let notaDos = parseInt(prompt("Ingrese nota 2"));
+        let notaTres = parseInt(prompt("Ingrese nota 3"));
+
+        let notas = [];
+        notas.push(notaUno, notaDos, notaTres);
+
+        usuario["nombre"] = nombre;
+        usuario["notas"] = notas;
+
+        alumnos.push(usuario);
+    }
+
+    let promedio = (alumnos) => {
+        for (let estudiante of alumnos) {
+            document.write("Estudiante: " + estudiante.nombre + "<br>");
+            
+            let notas = estudiante.notas;
+            let suma = notas.reduce((acum, valor) => acum + valor, 0);
+            let promedio = suma / notas.length;
+
+            document.write("Su promedio es: " + promedio.toFixed(2) + "<hr>");
+        }
+    }
+
+    // Cargar algunos alumnos
+    for (let i = 0; i < 2; i++) {
+        ingreso(alumnos);
+    }
+
+    // Mostrar los promedios
+    promedio(alumnos);
+</script>
+</body>
+</html>
