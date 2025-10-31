@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let cliente={}
+        let cargar=(cliente)=>{
+
+      
+            let nombre=prompt("ingrese nombre")
+            let codigo=prompt("ingrese codigo del cliente")
+            let mail=prompt("ingrese mail")
+
+            cliente.codigo=codigo
+            cliente.nombre=nombre
+            cliente.mail=mail
+
+        }
+        
+        let imprimir=(cliente)=>{
+            for (propiedades in cliente){
+                document.write(propiedades+" : "+cliente[propiedades])
+                document.write("<br>")
+            }
+        }
+
+        cargar(cliente)
+        imprimir(cliente)
+    </script>
+</body>
+</html>

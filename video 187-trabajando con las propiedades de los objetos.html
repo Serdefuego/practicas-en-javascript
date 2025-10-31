@@ -21,7 +21,7 @@
 
     let crear_propiedad = (pc) => {
         let nombre = prompt("Ingrese nombre de propiedad");
-        if (!(nombre in pc)) { // corregido con paréntesis
+        if (!(nombre in pc)) { 
             let valor = prompt("Ingrese valor para la propiedad");
             pc[nombre] = valor;
         } else {
