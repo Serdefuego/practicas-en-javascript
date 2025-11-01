@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <body>
+    
+    <script>
+        let numero = parseInt(prompt("Ingrese el número del que desea ver la tabla"));
+        let termino = parseInt(prompt("Ingrese el número final de la tabla"));
+
+        // Función constructora del objeto tabla
+        let tabla = (numero, termino) => {
+            let tablaDeMultiplicar = {
+                numero: numero,
+                termino: termino,
+                imprimir: function() {
+                    for (let i = 0; i <= this.termino; i++) {
+                        document.write(this.numero + " * " + i + " = " + (this.numero * i) + "<br>");
+                    }
+                }
+            };
+            return tablaDeMultiplicar;
+        }
+
+        // Crear el objeto y mostrar la tabla
+        let miTabla = tabla(numero, termino);
+        miTabla.imprimir();
+    </script>
+</body>
+</html>
