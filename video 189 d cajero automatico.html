@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+            let usuario=[]
+
+            function login(usuario){
+                let user=prompt("ingrese nombre")
+                for(item of usuario){
+                    if (user==item.nombre){
+                        opccion()
+                    }else{
+                        alert("ese usuario no existe ")
+                        cargar(usuario)
+                        opccion()
+                    }
+                }
+            }
+
+            function retirar(usuario){
+                let nombre_usuario=prompt("ingrese nombre del usuario del que quiere retirar el dinero")
+                let cantidad=parseInt(prompt("ingrese cantidad de dinero que quiere retirar"))
+                
+                for (item of usuario){
+                    if(nombre_usuario==item.nombre){
+                        let retiro=item.monedero-cantidad
+                        alert("usted retiro "+ cantidad+ " y cuenta con"+ item.monedero)
+                    }
+                }
+            }
+
+            function imprimir(usuario){
+                let nombre_usuario=prompt("ingrese nombre del usuario del que quiere mostrar los datos")
+                for(item of usuario){
+                    if (nombre_usuario==item.nombre){
+                        document.write("su nombre es: "+item.nombre+"<br>")
+                        document.write("cuenta con un monto de: "+item.monedero+"<br>")
+                    }
+                }
+            }
+
+            function eliminar(usuario){
+
+            }
+
+            function opccion(){
+                let  opp=prompt("ingrese 1 para cargar nuevo usuario"+"<br>"+
+                                "2 para cagar dinero"+"<br>"+
+                                "3 para retirar dinero"+"<br>"+
+                                "4 para eliminar usuario"+"<br>"+
+                                "5 para mostrar cantidad de ususarios en la base de datos"+"<br>"+
+                                "0 para salir")
+                switch (opp) {
+                    case "1":
+                        
+                        break;
+                    case "2":
+                       
+                        break;
+                    case "3":
+                             retirar(usuario)
+                        break;
+                     case "4":
+                              eliminar(usuario)
+                        break; 
+                          case "5":
+                             imprimir(usuario)
+                        break;
+                     case "0":
+                             alert("racias por utilizar el servicio")
+                        break;                         
+
+                    default:
+                        break;
+                }
+            }
+           
+            function cargar(usuario){
+                let nueva_persona={}
+                let nombre=prompt("ingrese nombre")                
+                let monedero=prompt("ingrese monto inicial")
+
+                nueva_persona.nombre=nombre
+                nueva_persona.monedero=monedero
+
+                usuario.push(nueva_persona)
+            }
+    
+            login(usuario)
+
+
+
+
+
+
+    </script>
+</body>
+</html>

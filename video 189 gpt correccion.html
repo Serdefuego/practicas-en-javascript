@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Usuarios</title>
+</head>
+<body>
+<script>
+    let usuarios = [];
+
+    function cargar(usuarios) {
+        let nueva_persona = {};
+        nueva_persona.nombre = prompt("Ingrese nombre del usuario");
+        nueva_persona.monedero = parseFloat(prompt("Ingrese monto inicial"));
+        usuarios.push(nueva_persona);
+        alert("Usuario cargado con éxito.");
+    }
+
+    function retirar(usuarios) {
+        let nombre_usuario = prompt("Ingrese nombre del usuario del que quiere retirar dinero");
+        let cantidad = parseFloat(prompt("Ingrese cantidad de dinero a retirar"));
+
+        for (let item of usuarios) {
+            if (nombre_usuario === item.nombre) {
+                if (cantidad <= item.monedero) {
+                    item.monedero -= cantidad;
+                    alert(`Usted retiró ${cantidad} y ahora cuenta con ${item.monedero}`);
+                } else {
+                    alert("Fondos insuficientes.");
+                }
+                return; // corta el bucle si encontró el usuario
+            }
+        }
+        alert("Ese usuario no existe.");
+    }
+
+    function imprimir(usuarios) {
+        let nombre_usuario = prompt("Ingrese nombre del usuario que desea mostrar");
+        for (let item of usuarios) {
+            if (nombre_usuario === item.nombre) {
+                document.write(`Su nombre es: ${item.nombre}<br>`);
+                document.write(`Cuenta con un monto de: ${item.monedero}<br>`);
+                document.write("<hr>");
+                return;
+            }
+        }
+        alert("Usuario no encontrado.");
+    }
+
+    function eliminar(usuarios) {
+        let nombre_usuario = prompt("Ingrese nombre del usuario que desea eliminar");
+        let indice = usuarios.findIndex(u => u.nombre === nombre_usuario);
+        if (indice >= 0) {
+            usuarios.splice(indice, 1);
+            alert("Usuario eliminado con éxito.");
+        } else {
+            alert("Usuario no encontrado.");
+        }
+    }
+
+    function opcion(usuarios) {
+        let opp;
+        do {
+            opp = prompt(
+                "Ingrese una opción:\n" +
+                "1 - Cargar nuevo usuario\n" +
+                "2 - Retirar dinero\n" +
+                "3 - Eliminar usuario\n" +
+                "4 - Mostrar datos de usuario\n" +
+                "5 - Mostrar cantidad total de usuarios\n" +
+                "0 - Salir"
+            );
+
+            switch (opp) {
+                case "1":
+                    cargar(usuarios);
+                    break;
+                case "2":
+                    retirar(usuarios);
+                    break;
+                case "3":
+                    eliminar(usuarios);
+                    break;
+                case "4":
+                    imprimir(usuarios);
+                    break;
+                case "5":
+                    alert(`Cantidad de usuarios registrados: ${usuarios.length}`);
+                    break;
+                case "0":
+                    alert("Gracias por utilizar el servicio.");
+                    break;
+                default:
+                    alert("Opción inválida.");
+            }
+        } while (opp !== "0");
+    }
+
+    function login(usuarios) {
+        if (usuarios.length === 0) {
+            alert("No hay usuarios cargados, debe crear uno nuevo.");
+            cargar(usuarios);
+        }
+        opcion(usuarios);
+    }
+
+    // 🟢 Inicia el programa
+    login(usuarios);
+</script>
+</body>
+</html>
