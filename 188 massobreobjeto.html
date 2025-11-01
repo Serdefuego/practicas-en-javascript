@@ -19,16 +19,30 @@
             cliente.mail=mail
 
         }
+
+
         
         let imprimir=(cliente)=>{
             for (propiedades in cliente){
+
+                //esta parte del codigo muestra el nombre y el valor de la propiedad 
                 document.write(propiedades+" : "+cliente[propiedades])
                 document.write("<br>")
             }
         }
 
+
+      
+
         cargar(cliente)
         imprimir(cliente)
+
+          //cambiando valores por asignacion
+
+        cliente.nombre="juan"
+        cliente.mail="9878979889"
+
+         imprimir(cliente)
     </script>
 </body>
 </html>
