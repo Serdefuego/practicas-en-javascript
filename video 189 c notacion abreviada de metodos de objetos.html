@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let persona={
+            nombre:"marcos",
+            edad:36,
+            imprimir(){
+                document.write("su nombre es: "+this.nombre)
+                document.write("<br>")
+                document.write("su edad es :"+this.edad)
+                document.write("<br>")
+            },
+            proyeccion(){
+                let resulado=this.edad +5
+                document.write("dentro de 5 años usted tendra "+ resulado +" años")
+                document.write("<br>")
+            }
+        }
+        
+        persona.imprimir()
+        persona.proyeccion()
+    </script>
+</body>
+</html>

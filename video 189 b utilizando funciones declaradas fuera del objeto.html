@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // fijate atentamente como declaro la funcion con la palabra function
+        // y ademas no pueden ser arrow function
+        
+       
+
+        let persona1={
+            nombre:"marcos",
+            edad:36,
+            metodo:imprimir
+        }
+        
+        let persona2={
+            nombre:"julieta",
+            edad:33,
+            metodo:imprimir
+        }
+
+
+        function imprimir(){
+                    document.write("el nombre es :"+this.nombre+"<br>")
+                    document.write("la edad es :"+this.edad+"<br>")
+                    document.write("<hr>")
+                }
+
+
+
+        persona1.metodo()
+        persona2.metodo()
+    </script>
+</body>
+</html>
