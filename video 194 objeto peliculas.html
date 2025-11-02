@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const pelicula={
+        titulo:"la guerra de las galaxias",
+        duracion:120,
+        descripccion:"una pelicula de ciencia ficcion epica que sigue a un grupo de heros en su lucha contra el imperio galactico",
+        actores:["Mark Hamill","Harrison Ford","Carrie Fisher"],
+        calificacion:8.7,
+        genero:["ciencia ficcion", "aventura"],
+        director:{
+            nombre:"George lucas",
+            PeliculasFamosas:["la guerra de las Galaxia", " indana jones"]
+        },
+        imprimir(){
+            document.write("titulo: "+this.titulo+"<br>")
+            document.write("cantidad de actores: "+this.actores.length+"<br>")
+            document.write("estos son los actores de la pelicula: "+"<br>")
+            this.actores.forEach(element => {
+                document.write(element + "<br>")
+            });
+        }
+
+               
+       }
+       pelicula.genero.push("fantasia")
+       pelicula.calificacion=9
+       document.write("la cantidad de peliculas del director es de: "+pelicula.director.PeliculasFamosas.length+"<br>")
+       pelicula.imprimir()
+       //imprimir el titulo de la pelicula , la cantidad de actores principales
+       //sus nombres en un metodo que se le debe agregar al objeto
+       //agregar el genero "Fantasia"
+
+
+
+    </script>
+
+</body>
+</html>
