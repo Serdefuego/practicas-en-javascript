@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    const curso = {
+        nombre: "React",
+        duracion: 40,
+        descripcion: "Introducción a la biblioteca React para el desarrollo de interfaces visuales",
+        instructor: {
+            nombre: "Ana Martínez",
+            experiencia: 2,
+            descripcion: "Instructora con más de 5 años de experiencia en desarrollo web"
+        },
+        prerrequisitos: ["HTML", "JavaScript"],
+
+        // Método original
+        imprimir() {
+            document.write("📘 El nombre del curso es: " + this.nombre + "<br>");
+            document.write("👩‍🏫 El nombre del instructor es: " + this.instructor.nombre + "<br>");
+            document.write("⏱️ La duración del curso es de: " + this.duracion + " horas<br><br>");
+        },
+
+        // ✅ Nuevo método pedido en el enunciado
+        mostrarDetalles() {
+            document.write("<h3>Detalles del Curso:</h3>");
+            document.write("Curso: " + this.nombre + "<br>");
+            document.write("Duración: " + this.duracion + " horas<br>");
+            document.write("Instructor: " + this.instructor.nombre + "<br>");
+            document.write("Prerrequisitos: " + this.prerrequisitos.join(", ") + "<br>");
+        }
+    };
+
+    // Modificaciones pedidas
+    curso.prerrequisitos.push("CSS");  // agrega CSS
+    curso.instructor.experiencia = 4;  // cambia experiencia a 4 años
+    delete curso.instructor.descripcion; // elimina la descripción del instructor
+
+    // Mostrar resultados
+    curso.imprimir();
+    curso.mostrarDetalles();
+</script>
+</body>
+</html>
