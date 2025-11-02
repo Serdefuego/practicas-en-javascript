@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   let bolillero = [];
+
+    // Función para llenar el bolillero con 50 números sin repetir
+    let bolillaAleatoria = (bolillero) => {
+        while (bolillero.length < 50) {
+            let azar = Math.floor(Math.random() * 50) + 1;
+            if (!bolillero.includes(azar)) {
+                bolillero.push(azar);
+            }
+        }
+    }
+
+    
+         bolillaAleatoria(bolillero)
+      
+
+        let bolas={
+            primer:bolillero[0],
+            segundo:bolillero[1],
+            tercero:bolillero[2],
+            imprimir(){
+                document.write("el primer premio es :"+this.primer)
+                document.write("<br>")
+                 document.write("el segundo premio es :"+this.segundo)
+                document.write("<br>")
+                 document.write("el tercer premio es :"+this.tercero)
+                document.write("<br>")
+            }
+        }
+       
+
+        bolas.imprimir()
+    </script>
+</body>
+</html>
