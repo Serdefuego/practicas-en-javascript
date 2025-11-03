@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+  let elfo ={
+        raza:"elfo",
+        ataque:10,
+        defensa:5,
+        aliado:["brujo","enano","humano"],
+        poder:{
+            camuflaje:"activo",
+            hablar(){
+                document.write("hola soy un ",elfo.raza +"<br>")
+                 document.write("mi ataque es de ",elfo.ataque +"<br>")
+                  document.write("mi defensa ",elfo.defensa +"<br>")
+                   document.write("soy aliado de"+"<br>")
+                  this.aliado.forEach(element => {
+                     document.write(element +"<br>")
+                });
+                     document.write("mi poder esta en estado ",this.poder.camuflaje +"<br>")
+
+            }
+        }
+    }
+    elfo.poder.hablar()
+    </script>
+  
+</body>
+</html>

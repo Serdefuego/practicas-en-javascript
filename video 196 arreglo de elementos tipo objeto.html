@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const paises = [
+            {
+                nombre: "Argentina",
+                capital: "Buenos Aires",
+                poblacion: 46_000_000,
+                moneda: "Peso Argentino",
+                idioma: "Español",
+                agricultura: ["trigo", "maiz", "soja"],
+                expectativavida: {
+                    hombres: 75,
+                    mujeres: 79
+                }
+            },
+            {
+                nombre: "Brasil",
+                capital: "Brasilia",
+                poblacion: 200_000_000,
+                moneda: "Real",
+                idioma: "Portugues",
+                agricultura: ["trigo", "cebada"],
+                expectativavida: {
+                    hombres: 74,
+                    mujeres: 78
+                }
+            },
+            {
+                nombre: "Uruguay",
+                capital: "Montevideo",
+                poblacion: 3_000_000,
+                moneda: "Peso Uruguayo",
+                idioma: "Español",
+                agricultura: ["soja"],
+                expectativavida: {
+                    hombres: 81,
+                    mujeres: 84
+                }
+            },
+            {
+                nombre: "Chile",
+                capital: "Santiago",
+                poblacion: 19_000_000,
+                moneda: "Peso Chileno",
+                idioma: "Español",
+                agricultura: ["maiz", "cebada"],
+                expectativavida: {
+                    hombres: 80,
+                    mujeres: 82
+                }
+            }
+        ]
+    
+    //imprimir todos los datos de los paises
+
+    for(pais of paises){
+        document.write("el nombre del pais es: ",pais.nombre,"<br>")
+        document.write("la capital es:  ",pais.capital,"<br>")
+        document.write("su poblacion: ",pais.poblacion,"<br>")
+        document.write("su moneda es:  ",pais.moneda,"<br>")
+        document.write("curltivan: "+"<br>")
+        pais.agricultura.forEach(element => {
+            document.write(element+"<br>")            
+        });
+        document.write("la expectativa de vida en hombres es de: "+this.pais.expectativavida.hombres+"<br>")
+        document.write("la expectativa de vida en mujeres es de: "+this.pais.expectativavida.mujeres+"<br>")
+        document.write("<Hr>")
+    }
+
+    </script>
+</body>
+</html>
