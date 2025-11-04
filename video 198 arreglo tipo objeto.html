@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const deportistas = [
+            {
+                nombre: "Juan",
+                apellido: "Perez",
+                edad: 20,
+                deporte: "Pesas",
+                medallas: [
+                    {
+                        tipo: "oro",
+                        cantidad: 2
+                    },
+                    {
+                        tipo: "bronce",
+                        cantidad: 1
+                    }
+                ]
+            },
+            {
+                nombre: "Pedro",
+                apellido: "Gonzalez",
+                edad: 25,
+                deporte: "Futbol",
+                medallas: [
+                    {
+                        tipo: "oro",
+                        cantidad: 1
+                    },
+                    {
+                        tipo: "plata",
+                        cantidad: 3
+                    },
+                    {
+                        tipo: "bronce",
+                        cantidad: 3
+                    }
+                ]
+            },
+            {
+                nombre: "Maria",
+                apellido: "Lopez",
+                edad: 22,
+                deporte: "Tenis",
+                medallas: []
+            },
+            {
+                nombre: "Ana",
+                apellido: "Martinez",
+                edad: 21,
+                deporte: "Natacion",
+                medallas: [
+                    {
+                        tipo: "plata",
+                        cantidad: 1
+                    }
+                ]
+            },
+            {
+                nombre: "Marta",
+                apellido: "Gomez",
+                edad: 20,
+                deporte: "Natacion",
+                medallas: [
+                    {
+                        tipo: "plata",
+                        cantidad: 1
+                    },
+                    {
+                        tipo: "bronce",
+                        cantidad: 1
+                    }
+                ]
+            }
+        ]
+
+     for (const deport of deportistas) {
+            document.write(`Nombre: ${deport.nombre}<br>Apellido: ${deport.apellido}<br>Edad: ${deport.edad}<br>Deporte: ${deport.deporte}<br>`);
+
+            if (deport.medallas.length > 0) {
+                document.write("<b>Medallas:</b><br>");
+                for (const premio of deport.medallas) {
+                    document.write(`Tipo: ${premio.tipo}<br>Cantidad: ${premio.cantidad}<br>`);
+                }
+            } else {
+                document.write("No tiene medallas<br>");
+            }
+
+            document.write("<hr>");
+        }
+
+        //imprimir los deportistas con medallas de oro
+        //UTILIZO EL METODO FIND
+
+            for (const depo of deportistas) {
+            let medallaOro = depo.medallas.find(med => med.tipo === "oro");
+            if (medallaOro) {
+                document.write(`${depo.nombre} tiene ${medallaOro.cantidad} medallas de oro<br>`);
+            }
+        }
+        document.write("<hr>")
+
+        //IMPRIMIR LA CANTIDAD DE MEDALLAS DE LOS DEPORTISTAS
+
+      for ( depo of deportistas) {
+        let cant = 0;
+
+        for ( med of depo.medallas) {
+            cant += med.cantidad; // sumamos la cantidad de medallas
+        }
+
+        document.write(`${depo.nombre} posee ${cant} medallas en total<br>`);
+     }
+
+     //cantidad de medallas de plata
+    document.write("<hr>")
+    document.write("<hr>")
+    document.write("<hr>")
+
+     for(depo of deportistas){
+        let plata=depo.medallas.find(medallita=>medallita.tipo=="plata")
+        if(plata){
+            document.write("tiene medalla de plata "+depo.nombre+"<br>")
+        }
+     }
+    </script>
+</body>
+</html>
