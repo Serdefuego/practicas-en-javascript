@@ -129,6 +129,15 @@
             document.write("tiene medalla de plata "+depo.nombre+"<br>")
         }
      }
+
+
+     for(depo of deportistas){
+        for(medalla of depo.medallas){
+            if(medalla.tipo=="plata"){
+                alert("aca hay plata")
+            }
+        }
+     }
     </script>
 </body>
 </html>
