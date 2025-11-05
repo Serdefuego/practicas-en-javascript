@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const inmuebles = [
+            {
+                id: 1,
+                tipo: "Casa",
+                precio: 10000,
+                caracteristicas: {
+                    cuartos: 4,
+                    baños: 2,
+                    garage: true
+                },
+                ubicacion: {
+                    ciudad: "Córdoba",
+                    calle: "Colon 112"
+                }
+            },
+            {
+                id: 2,
+                tipo: "Departamento",
+                precio: 20000,
+                caracteristicas: {
+                    cuartos: 3,
+                    baños: 1,
+                    garage: false
+                },
+                ubicacion: {
+                    ciudad: "Córdoba",
+                    calle: "Lima 234"
+                }
+            },
+            {
+                id: 3,
+                tipo: "Departamento",
+                precio: 30000,
+                caracteristicas: {
+                    cuartos: 5,
+                    baños: 2,
+                    garage: true
+                },
+                ubicacion: {
+                    ciudad: "Córdoba",
+                    calle: "Urquiza 765"
+                }
+            },
+            {
+                id: 4,
+                tipo: "Casa",
+                precio: 12000,
+                caracteristicas: {
+                    cuartos: 3,
+                    baños: 1,
+                    garage: false
+                },
+                ubicacion: {
+                    ciudad: "Carlos Paz",
+                    calle: "San Martin 765"
+                }
+            }
+        ]
+
+        //imprimir todos los datos de los inmuebles
+
+ inmuebles.forEach(Element => {
+    document.write(`ID: ${Element.id}<br>`)
+    document.write(`Tipo: ${Element.tipo}<br>`)
+    document.write(`Precio: ${Element.precio}<br>`)
+    document.write(`Cantidad de cuartos: ${Element.caracteristicas.cuartos}<br>`)
+    document.write(`Cantidad de baños: ${Element.caracteristicas.baños}<br>`)
+    document.write(`Garage: ${Element.caracteristicas.garage ? "Sí" : "No"}<br>`)
+    document.write("<hr>")
+})
+     // utilizar filter para imprimir los inmuebles con mas de 4 cuartos
+
+     inmuebles.forEach(Element=>{
+        if(Element.caracteristicas.cuartos>=4){
+            document.write(`el id: ${Element.id} posee ${Element.caracteristicas.cuartos} cuartos <br>`)
+        }
+     })
+
+     // confecciona una funcion que imprima todas la viviendas de un cierto tipo que llegue como parametro
+     
+     function tipoDepto(inmuebles){
+        let tipo=prompt("ingrese el tipo de inmueble que está buscando")
+        inmuebles.filter(Element=>{
+            if (Element.toUpperCase==tipo.toUpperCase){
+                document.write(Element.id,"cumple con su caracteristica")
+            }else{
+                  alert("lo que busca no existe")
+            }
+        })
+     }
+
+     tipoDepto(inmuebles)
+
+     //aqui esta bien echo
+     function tipoDepto(inmuebles) {
+    let tipo = prompt("Ingrese el tipo de inmueble que está buscando").toUpperCase();
+    let encontrados = inmuebles.filter(Element => Element.tipo.toUpperCase() === tipo);
+
+    if (encontrados.length > 0) {
+        document.write(`<h3>Resultados encontrados para tipo: ${tipo}</h3>`);
+        encontrados.forEach(Element => {
+            document.write(`ID: ${Element.id}<br>`);
+            document.write(`Tipo: ${Element.tipo}<br>`);
+            document.write(`Precio: ${Element.precio}<br>`);
+            document.write(`Ubicación: ${Element.ubicacion.ciudad}, ${Element.ubicacion.calle}<br>`);
+            document.write("<hr>");
+        });
+    } else {
+        alert("No existe ningún inmueble de ese tipo.");
+    }
+}
+
+
+tipoDepto(inmuebles);
+
+//con el metodo filter encontra los que salgan menos de 20000
+
+let barato =inmuebles.filter(bulin=>bulin.precio > 2000)
+barato.forEach(bulo=>{
+    document.write("<hr>")
+    document.write(` el ${bulo.id} en ${bulo.ubicacion.ciudad} vale ${bulo.precio} <br>`)
+    document.write("<hr>")
+
+})
+
+
+    </script>
+</body>
+</html>
