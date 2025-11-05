@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+         function Instrumento(nombre,tipo,tamaño,octava){
+            this.nombre=nombre,
+            this.tipo=tipo,
+            this.tamaño=tamaño,
+            this.octava=octava,
+            this.imprimir=function(){
+                document.write(`usted ah elegido ${this.nombre}<br>`)
+                document.write(`es del tipo ${this.tipo}<br>`)
+                document.write(`posee un tamaño de ${this.tamaño}<br>`)
+                document.write(`cuenta con ${this.octava} octavas <br>`)
+            }
+        }
+
+        let flauta=new Instrumento("flauta","viento","40cm",3)
+        flauta.imprimir()
+    </script>
+</body>
+</html>
