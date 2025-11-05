@@ -7,12 +7,12 @@
 <body>
     <script>
 
-
          function Instrumento(nombre,tipo,tamaño,octava){
             this.nombre=nombre,
             this.tipo=tipo,
             this.tamaño=tamaño,
             this.octava=octava,
+
             this.imprimir=function(){
                 document.write(`usted ah elegido ${this.nombre}<br>`)
                 document.write(`es del tipo ${this.tipo}<br>`)
@@ -23,6 +23,7 @@
 
         let flauta=new Instrumento("flauta","viento","40cm",3)
         flauta.imprimir()
+        
     </script>
 </body>
 </html>

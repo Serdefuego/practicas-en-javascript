@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Persona (nombre,apellido,edad){
+            this.nombre=nombre,
+            this.apellido=apellido,
+            this.edad=edad,
+            this.saludar=function(){
+                document.write(`hola mi nombre es ${this.nombre} y apellido ${this.apellido} ,tengo ${this.edad} <br>`)
+            }
+        }
+
+        let arregloPersona=[]
+
+        for(i=0;i<=3;i++){
+            
+            let nombre=prompt("ingrese nombre de persona "+ i)
+            let apellido=prompt("ingrese apellido de persona "+i)
+            let edad=parseInt(prompt("ingrese edad de la persona "+i))
+            
+            let pers=new Persona(nombre,apellido,edad)
+
+            arregloPersona.push(pers)
+        }
+
+        arregloPersona.forEach(humano=>{
+            humano.saludar()
+        })
+    </script>
+</body>
+</html>
