@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+        function Persona(nombre, apellido, edad, interes) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.interes = interes;
+            this.imprimir = function() {
+                document.write(`Nombre: ${this.nombre} ${this.apellido}<br>`);
+                document.write(`Edad: ${this.edad}<br>`);
+                document.write(`Intereses: ${this.interes}<br>`);
+                document.write("<hr>");
+            }
+        }
+
+        let arregloDePersonas = [];
+
+        for (let i = 0; i < 3; i++) {
+            let nombre = prompt("Ingrese el nombre de la persona " + (i + 1));
+            let apellido = prompt("Ingrese el apellido de la persona " + (i + 1));
+            let edad = parseInt(prompt("Ingrese la edad de la persona " + (i + 1)));
+            let interes = prompt("Ingrese los intereses de la persona " + (i + 1));
+
+            let persona = new Persona(nombre, apellido, edad, interes);
+            arregloDePersonas.push(persona);
+        }
+
+        arregloDePersonas.forEach(element => {
+            element.imprimir();
+        });
+        
+</script>
+</body>
+</html>
