@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+ let arreglo = [
+    {
+        sala: "Naranja",
+        estudiantes: ["Juan", "Paco", "Pedro", "Magalí", "Sara", "Lucas"],
+        señorita: "Laura",
+        instituto: {
+            nombre: "merequetengue",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Verde",
+        estudiantes: ["Sofía", "Tomás", "Luna"],
+        señorita: "María del Carmen",
+        instituto: {
+            nombre: "picaflor ",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Amarilla",
+        estudiantes: ["Benjamín", "Emilia", "Noah", "Lucía", "Kiara", "Renzo", "Mora", "Gael"],
+        señorita: "Carolina",
+        instituto: {
+            nombre: "Cuchurrumi",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Turquesa",
+        estudiantes: ["Ambar", "Thiago", "Malena", "Dante", "Julieta"],
+        señorita: "Romina",
+        instituto: {
+            nombre: "pachamama matera",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Violeta",
+        estudiantes: ["Valentina", "Ezequiel", "Ciro", "Milena", "Lautaro", "Jazmín"],
+        señorita: "Vanesa",
+        instituto: {
+            nombre: "jardin los pitufos",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Rosa",
+        estudiantes: ["Camila", "Ariana", "León", "Francesca", "Lucas"],
+        señorita: "Paola",
+        instituto: {
+            nombre: "los beatles",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Azul",
+        estudiantes: ["Martina", "Agustín", "Benicio", "Mía", "Renata", "Tomás", "Emma"],
+        señorita: "Silvina",
+        instituto: {
+            nombre: "igme",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Roja",
+        estudiantes: ["Julio", "Amira", "Emanuel", "Carmen", "Esteban"],
+        señorita: "Patricia",
+        instituto: {
+            nombre: "Constancio C. Vigil",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Celeste",
+        estudiantes: ["Bautista", "Abril", "Ignacio", "Olivia", "Santino", "Eva"],
+        señorita: "Daniela",
+        instituto: {
+            nombre: "rosario vera",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    },
+    {
+        sala: "Gris",
+        estudiantes: ["Felipe", "Micaela", "Nicolás", "Candela"],
+        señorita: "Eliana",
+        instituto: {
+            nombre: "inmaculada concepccion",
+            telefono: 4228548,
+            mail: "constancio@gmail.com"
+        }
+    }
+];
+
+//nombre del instituto
+//color de la sala
+//señorita a cargo
+//cantidad de estudiantes
+
+for(jadin of arreglo){
+    document.write(`nombre del instituto: ${jadin.instituto.nombre}<br>`)
+     document.write(`sala color: ${jadin.sala}<br>`)
+      document.write(`nombre de la señoita a cargo es: ${jadin.señorita}<br>`)
+        document.write(`posee una cantidad de : ${jadin.estudiantes.length} estudiantes<br>`)
+            document.write("<hr>")
+    
+}
+
+//buscar el nombre del estudiante pedro y en que jardin se encuentra
+
+for(let jardin of arreglo){
+    if (jardin.estudiantes.find(Element=>Element.toUpperCase()==="PEDRO")){
+        alert(`pedro se encuentra en el jardin ${jardin.instituto.nombre}`)
+    }
+}
+
+
+    </script>
+</body>
+</html>
