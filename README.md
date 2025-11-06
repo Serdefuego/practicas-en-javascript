@@ -1,1 +1,1 @@
-Estos ejercicios ,corresponden a un curso que tome, los subi a modo de practica.
+Estos ejercicios ,corresponden a un curso que tomé, todo lo que voy practicando ,lo voy pensando a modo de material pedagogico para incorporarlo para mis futuras clases como tutor de programacion en javascript.

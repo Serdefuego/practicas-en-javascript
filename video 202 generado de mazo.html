@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let palos=["basto","oro","copa","espada"]
+        let mazoDeNaipes=[]
+
+        palos.forEach(palo=>{
+        for(i=1;i<=12;i++){
+            
+            let carta={
+                palo:palo,
+                numero:i,
+                imprimir:function imprimir(){
+                 document.write(`la carta es de ${this.palo} y su numero es ${this.numero} <br>`)
+                 document.write("<hr>")   
+                }
+            }
+            mazoDeNaipes.push(carta)
+
+         }
+        })
+
+        mazoDeNaipes.forEach(naipe=>{
+            naipe.imprimir()})
+            
+    </script>
+</body>
+</html>

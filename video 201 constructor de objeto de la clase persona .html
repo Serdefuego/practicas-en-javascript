@@ -7,28 +7,39 @@
 <body>
     <script>
 
+        //aqui el constructor de la clase persona
+        
         function Persona (nombre,apellido,edad){
             this.nombre=nombre,
             this.apellido=apellido,
             this.edad=edad,
+        //aqui el metodo saludar de la clase persona
             this.saludar=function(){
                 document.write(`hola mi nombre es ${this.nombre} y apellido ${this.apellido} ,tengo ${this.edad} <br>`)
             }
         }
 
+        //aqui el arreglo vacio que alojara cada persona que se cree en el ciclo for
         let arregloPersona=[]
 
-        for(i=0;i<=3;i++){
-            
+        //Aqui el ciclo for para crear 3 personas
+        for(i=1;i<=3;i++){
+
+            //aqui pido los parametros nombre apellido edad
+
             let nombre=prompt("ingrese nombre de persona "+ i)
             let apellido=prompt("ingrese apellido de persona "+i)
             let edad=parseInt(prompt("ingrese edad de la persona "+i))
-            
+
+            //aqui instanciando una variable con la clase persona
             let pers=new Persona(nombre,apellido,edad)
 
+            //insertando dentro del arreglo la persona por medio del metodo push
             arregloPersona.push(pers)
         }
 
+        //recorriendo el arreglo mediante un foreach llamando al metodo saludar de la clase persona de cada persona
+        
         arregloPersona.forEach(humano=>{
             humano.saludar()
         })
