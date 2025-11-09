@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            // arreglo que aloja personas
+                let arreglo = [];
+
+            // constructor de objeto persona
+                function Persona(nombre, documento) {
+                this.nombre = nombre;
+                this.documento = documento;
+                this.imprimir = function() {
+                    document.write(`Hola, mi nombre es ${this.nombre} y mi DNI es ${this.documento}<br>`);
+                };
+                }
+
+            // función para cargar personas
+                let cargar = (arreglo) => {
+                for (let i = 0; i < 3; i++) {
+                    let nombre = prompt("Ingrese nombre:");
+                    let documento = parseInt(prompt("Ingrese documento:"));
+
+                    let usuario = new Persona(nombre, documento);
+
+                    let verificado = arreglo.some(item => item.documento === usuario.documento);
+
+                    if (!verificado) {
+                    arreglo.push(usuario);
+                    } else {
+                    alert("Ese usuario ya fue cargado, intente con otro documento.");
+                    i--; // resta 1 al contador para repetir la carga
+                }
+            }
+
+            // Mostrar los resultados
+                document.write("<h3>Personas cargadas:</h3>");
+                arreglo.forEach(persona => persona.imprimir());
+                };
+
+            // ejecutar la función
+                cargar(arreglo);
+    </script>
+</body>
+</html>

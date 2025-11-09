@@ -5,36 +5,47 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        
-        let arregloUsuarios=[]
+<script>
+    let arregloUsuarios = []
 
-         function Usuario(nombre,apellido,edad){
-            this.nombre=nombre,
-            this.apellido=apellido,
-            this.edad=edad,
-            this.imprimir=function(){
-                document.write(`hola mi nombre es ${this.nombre} <br>,mi apellido es ${this.apellido} <br>, y mi edad es ${this.edad}`)
-            }
-
-         }
-        for(i=0;i<3;i++){
-            let nombre=prompt("ingrese nombre de usuario")
-            let apellido=prompt("ingrese apellido")
-            let edad= parseInt(prompt("ingrese edad"))
-
-            let usuario=new Usuario(nombre,apellido,edad)
-            if(!arregloUsuarios.apellido.some(persona=>persona.nombre && persona.apellido)){
-                arregloUsuarios.push(usuario)
-            }else{
-                document.write("ese usuario fue cargado")
-            }
-            
-          
+    function Usuario(nombre, apellido, edad) {
+        this.nombre = nombre,
+        this.apellido = apellido,
+        this.edad = edad,
+        this.imprimir = function() {
+            document.write(`Hola mi nombre es ${this.nombre} <br>Mi apellido es ${this.apellido} <br>Y mi edad es ${this.edad}<br><br>`)
         }
+    }
 
-    </script>
+    for(let i = 0; i < 3; i++) {
+        let nombre = prompt("Ingrese nombre de usuario")
+        let apellido = prompt("Ingrese apellido")
+        let edad = parseInt(prompt("Ingrese edad"))
 
+        // Verificar si el usuario ya existe
+        let usuarioExiste = arregloUsuarios.some(persona => 
+            persona.nombre === nombre && persona.apellido === apellido
+        )
+
+        if(!usuarioExiste) {
+            let usuario = new Usuario(nombre, apellido, edad)
+            arregloUsuarios.push(usuario)
+            document.write(`Usuario ${nombre} ${apellido} agregado correctamente.<br>`)
+        } else {
+            document.write("Ese usuario ya fue cargado<br>")
+            i-- // Para repetir esta iteración
+        }
+    }
+
+    // Mostrar todos los usuarios al final
+    document.write("<br><strong>Usuarios registrados:</strong><br>")
+    arregloUsuarios.forEach(usuario => {
+        usuario.imprimir()
+    })
+
+
+
+</script>
    
 </body>
 </html>
