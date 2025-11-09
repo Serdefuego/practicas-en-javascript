@@ -27,6 +27,25 @@
 
         mazoDeNaipes.forEach(naipe=>{
             naipe.imprimir()})
+
+
+       //cuantas cartas tiene
+       
+       let cantDeCartas=mazoDeNaipes.length
+       document.write("la cantidad de cartas del mazo es de "+ cantDeCartas)
+
+        let barajar = (mazoDeNaipes) => {
+            // Copia del mazo original (opcional, para no modificar el original)
+            let barajado = [...mazoDeNaipes].sort(() => Math.random() - 0.5);
+
+            // Mostrar el mazo barajado
+            barajado.forEach(naipe => {
+                naipe.imprimir();
+            });
+
+            // Retornar el nuevo mazo barajado por si lo querés usar después
+            return barajado;
+        };
             
     </script>
 </body>

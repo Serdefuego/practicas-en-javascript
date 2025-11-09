@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let arregloUsuarios=[]
+
+         function Usuario(nombre,apellido,edad){
+            this.nombre=nombre,
+            this.apellido=apellido,
+            this.edad=edad,
+            this.imprimir=function(){
+                document.write(`hola mi nombre es ${this.nombre} <br>,mi apellido es ${this.apellido} <br>, y mi edad es ${this.edad}`)
+            }
+
+         }
+        for(i=0;i<3;i++){
+            let nombre=prompt("ingrese nombre de usuario")
+            let apellido=prompt("ingrese apellido")
+            let edad= parseInt(prompt("ingrese edad"))
+
+            let usuario=new Usuario(nombre,apellido,edad)
+            if(!arregloUsuarios.apellido.some(persona=>persona.nombre && persona.apellido)){
+                arregloUsuarios.push(usuario)
+            }else{
+                document.write("ese usuario fue cargado")
+            }
+            
+          
+        }
+
+    </script>
+
+   
+</body>
+</html>
