@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arreglousuarios=[]
+
+        function Persona(nombre,dni){
+            this.nombre=nombre,
+            this.dni=dni,
+            this.hola=function(){
+                document.write(`hola mi nombre es ${this.nombre} y mi dni es ${this.dni}<br>`)
+            }
+        }
+
+        for(i=0;i<2;i++){
+            let nombre=prompt("ingrese nombre")
+            let dni=parseInt(prompt("ingrese dni"))
+
+            let persona=new Persona(nombre,dni)
+
+            let incluido=arreglousuarios.some(humano=>humano.dni==persona.dni)
+
+            if(incluido){
+                i--
+                alert("ese usuario ya exite")
+            }else{
+                arreglousuarios.push(persona)
+            }
+
+        }
+
+        arreglousuarios.forEach(element => {
+            element.hola()
+        });
+    </script>
+</body>
+</html>
