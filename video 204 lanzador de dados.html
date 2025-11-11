@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //arreglo de dados
+        let cubitero=[]
+
+        //defino la clase dado con un constructor
+        class Dado {
+            constructor(numero) {
+                this.numero=numero,
+                this.imprimir=function(){
+                    document.write(`el numero que ha salido es ${this.numero} <br>`)
+                }
+            }
+        }
+        //ciclo for para generar dado aleatorio y  pushearlo dentro del arreglo cubitero
+
+        for (i=0;i<6;i++){
+
+          let valorAleatorio=Math.floor(Math.random()*6)+1
+
+          let dado=new Dado(valorAleatorio)
+
+          cubitero.push(dado)
+        }
+
+        //foreach para recorrer el arrego cubitero y ejecutar la funcion imprmir de cada dado
+        cubitero.forEach(dado=>dado.imprimir())
+
+        //arreglo para guardar dado
+        let meza=[]
+
+        //menu para guardar numeros en la mesa y volver a lazar
+         let menu=(cubitero)=>{
+            let resultado=cubitero.map(dado=>dado.numero)
+            alert(`la tirada fue de ${resultado}`)
+            cubitero.forEach(dado=>{
+                alert(`${dado.numero}, desea guardarlo?`)
+                let opccion=prompt("si o no")
+                if(opccion=="si"){
+                    meza.push(dado.numero)
+                }
+            })
+            
+         }
+
+         menu(cubitero)
+         document.write(`usted guardo en meza ${meza}`)
+    
+    </script>
+</body>
+</html>
