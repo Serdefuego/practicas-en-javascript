@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //constructor de objeto clase dado
+
+        function Dado(numero){
+            this.numero=numero
+            this.imprimir=function (){
+                document.write(`salio el numero ${this.numero}`)
+            }
+        }
+
+        //arreglo vacio para ir guardando los dados
+        let manojo=[]
+
+        //ciclo for para ir generando 6 dados aleatorios e ir introduciendolos en el arreglo "manojo"
+        for (i=0;i<5;i++){
+
+            let aleatoreo= Math.floor(Math.random()*6)+1
+
+            let dado= new Dado (aleatoreo)
+
+            manojo.push(dado)
+        }
+
+        // uina funcion para contar las cantidades de dados de cada valor obtenidos en la tirada
+        let cantidades =(manojo)=>{
+            let uno=0
+            let dos=0
+            let tres=0
+            let cuatro=0
+            let sinco=0
+            let seis=0
+
+            //ciclo for in para recorrer cada objeto clase dado en su propiedad numero e ir sumando las veces que sale
+              for(dado of manojo){
+         
+            switch(dado.numero){
+                    case 1:
+                        uno++
+                        break
+                    case 2:
+                        dos++
+                        break
+                    case 3:
+                        tres++
+                        break
+                    case 4:
+                        cuatro++
+                        break
+                    case 5:
+                        sinco++
+                        break
+                    case 6:
+                        seis++
+                        break
+                }
+        }
+        return[uno,dos,tres,cuatro,sinco,seis]
+        }
+
+        let valoresCant= cantidades(manojo)
+
+                //llamada a la funcion cantidad
+        document.write(`salieron ${valoresCant[0]} unos <br>`)
+        document.write(`salieron ${valoresCant[1]} dos <br>`)
+        document.write(`salieron ${valoresCant[2]} tres <br>`)
+        document.write(`salieron ${valoresCant[3]} cuatro <br>`)
+        document.write(`salieron ${valoresCant[4]} sinco <br>`)
+        document.write(`salieron ${valoresCant[5]} seis <br>`)
+
+
+       
+    </script>
+</body>
+</html>
