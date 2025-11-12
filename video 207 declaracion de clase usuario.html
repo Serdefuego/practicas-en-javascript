@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //creo una isntancia de clase usuario
+
+        class Usuario {
+            constructor(nombre,apellido,documento) {
+                this.nombre=nombre,
+                this.apellido=apellido,
+                this.documento=documento
+            }
+            imprimir(){
+                document.write(`hola mi nombre es ${this.nombre},${this.apellido} <br>
+                mi documento es  ${this.documento} <br>`)
+            }
+        }
+
+        //creo un arreglo vacio para ir guardando usuarios
+        let persona=[]
+
+        // creo una funcion para crear personas
+
+        let crear=(persona)=>{
+            
+            let nombre=prompt("ingrese nombre")
+            let apellido=prompt("ingrese apellido")
+            let documento=parseInt(prompt("ingrese documento"))
+
+            let usuario=new Usuario(nombre,apellido,documento)
+
+            if(!persona.filter(objeto=>objeto.documento==usuario.documento)){
+                persona.push(usuario)
+            }else{
+                alert("esa persona ya se cargo intente nuevamente")
+                crear(persona)
+            }
+
+            //ahora un ciclo para cargar 3 personas
+            for(i=0;i<2;i++){
+                crear(persona)
+            }
+
+            //utilizo el metodo foreach para llamar al metodo imprimir del objeto Usuario
+            array.forEach(element => {
+                element.imprimir()
+            });
+        }
+
+    </script>
+</body>
+</html>
