@@ -25,7 +25,7 @@
 
         // creo una funcion para crear personas
 
-        let crear=(persona)=>{
+        let crear=(persona,i)=>{
             
             let nombre=prompt("ingrese nombre")
             let apellido=prompt("ingrese apellido")
@@ -33,24 +33,27 @@
 
             let usuario=new Usuario(nombre,apellido,documento)
 
-            if(!persona.filter(objeto=>objeto.documento==usuario.documento)){
+            if(!persona.some(objeto => objeto.documento === usuario.documento)){
                 persona.push(usuario)
             }else{
                 alert("esa persona ya se cargo intente nuevamente")
                 crear(persona)
+                i--
             }
 
-            //ahora un ciclo para cargar 3 personas
-            for(i=0;i<2;i++){
+           
+        }
+
+         //ahora un ciclo para cargar 3 personas
+            for(i=0;i<3;i++){
                 crear(persona)
+                return i
             }
 
             //utilizo el metodo foreach para llamar al metodo imprimir del objeto Usuario
-            array.forEach(element => {
+            persona.forEach(element => {
                 element.imprimir()
             });
-        }
-
     </script>
 </body>
 </html>
