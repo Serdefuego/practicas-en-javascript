@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Persona {
+            constructor(nombre,edad) {
+                this.nombre=nombre,
+                this.edad=edad
+            }
+        }
+
+        const humano = new Persona("marcos",36);
+
+        const nombre=humano.nombre
+        const edad=humano.edad
+
+        document.write(`este humano se llama ${nombre} y tiene ${edad} años de edad`)
+    </script>
+</body>
+</html>
