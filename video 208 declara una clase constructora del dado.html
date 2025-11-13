@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //instanciando una clase dado
+        class Dado {
+            constructor(numero) {
+                this.numero=numero
+            }
+            imprimir(){
+                document.write(`numero ${this.numero} <br>`)
+            }
+        }
+
+        //creando un arreglo para alojar dados
+         let arregloDados=[]
+
+        //funcion carga dados aleatorios
+        let aleatoreo=(arregloDados)=>{          
+            let numerorandom=Math.floor(Math.random()*6)+1
+            let dado=new Dado(numerorandom)
+            arregloDados.push(dado)            
+        }
+
+        //llamar con un ciclo for a la funcion aleatorio para cargar
+        for(let i=0;i<6;i++){
+            aleatoreo(arregloDados)
+        }
+
+       arregloDados.forEach(dado=>{
+        dado.imprimir()
+       })
+
+
+        </script>
+</body>
+</html>
