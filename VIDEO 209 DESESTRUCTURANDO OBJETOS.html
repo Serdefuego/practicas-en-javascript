@@ -21,13 +21,13 @@
             }
             ]
 
-            //primero creo una variable con el metodo de desestructuracion ,llamada pago y desestructuro al primero objeto del arreglo
-            const {pago}=empleado[1]
+        // Desestructuramos la propiedad correcta: sueldos //toma la propiedad sueldos del objeto “juan”.
+        const { sueldos } = empleado[1];
 
-
-            const[sueldoUno]=pago
-            document.write(`aqui obeservamos el primer sueldo del primer objeto del arreglo ${sueldoUno}`)
+        // [sueldoUno] = sueldos → toma el primer elemento del arreglo [1230, 44, 6747].
+        const [sueldoUno] = sueldos;
             
+       document.write(`Aquí observamos el primer sueldo del segundo objeto del arreglo: ${sueldoUno}`);
     </script>
    
 </body>
