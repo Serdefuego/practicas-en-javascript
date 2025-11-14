@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let palabra=prompt("ingrese palabra")
+        let vocal=prompt("que vocal desea contar?")
+        let cuentaVocal=(palabra,vocal)=>{
+            
+            let contador=0
+            for(i=0;i<palabra.length;i++){
+                if(vocal.toUpperCase()==palabra[i].toUpperCase()){
+                    contador++
+                }
+            }
+            return(contador)
+        }
+
+        document.write(`en la palabra ${palabra} , que usted ha ingresado hay ${cuentaVocal(palabra,vocal)} letras ${vocal} `)
+    </script>
+</body>
+</html>
