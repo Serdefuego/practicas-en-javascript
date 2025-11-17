@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let personas=[
+            {
+                nombre:"juan",
+                edad:36
+            },
+            {
+                nombre:"paco",
+                edad:15
+            },
+            {
+                nombre:"pedro",
+                edad:89
+            },
+            {
+                nombre:"jacinto",
+                edad:78
+            }
+        ]
+
+        personas.forEach(persona=>{
+            if(persona.nombre.toUpperCase().startsWith("PE")){
+              //creo un h1  
+             let h1 = document.createElement("h1");
+
+            // al H1 le asing un texto con el metodo .textContent=
+
+             h1.textContent = `${persona.nombre} !!!! comienza con "pe"!!!!`;
+
+             // llamo al objeto document.body y utilizo el metodo .appendChild(h1) y le mando el h1
+             document.body.appendChild(h1);
+                
+            }else{
+                let h1 = document.createElement("h1");
+                h1.textContent = ` ${persona.nombre} no empieza con "pe"`;
+                document.body.appendChild(h1);
+            }
+        })
+    </script>
+</body>
+</html>
