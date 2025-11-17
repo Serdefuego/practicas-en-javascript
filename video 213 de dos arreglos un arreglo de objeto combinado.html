@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+       
+
+        let platoUno=["pizza","pollo","pure","empanada"]
+        let postre=["alfajor","helado","snacks","flan"]
+
+        let combinar=(platoUno,postre)=>{   
+            
+            let combinado=[]
+
+            for(i=0;i<platoUno.length;i++){
+                for(j=0;j<postre.length;j++){
+                    let objetoComida={
+                    plato:platoUno[i],
+                    postre:postre[j]
+                }
+                combinado.push(objetoComida)
+                }
+              
+            }
+            
+            
+            return(combinado)
+        }
+    combinar(platoUno,postre).forEach(plato=>{
+        document.write(`${plato.plato} y ${plato.postre} <br>`)
+    })
+    </script>
+</body>
+</html>
