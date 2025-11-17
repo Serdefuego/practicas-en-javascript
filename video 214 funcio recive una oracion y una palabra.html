@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let palabra=prompt("ingrese palabra")
+        let oracion=prompt("ingrese oración")
+
+  
+
+        let reemplaza = (oracion, palabra) => {
+
+                // 1. crear string de asteriscos
+
+                let asteriscos = "";
+                for (let letra of palabra) {
+                    asteriscos += "*";
+                }
+                // 2. reemplazar palabra por asteriscos UTILIZANDO EL METODO replaceALL
+                
+                let nuevaOracion = oracion.replaceAll(palabra, asteriscos);
+
+                // 3. mostrar resultado
+                 document.write(nuevaOracion);
+            }
+
+        
+        reemplaza(oracion,palabra)
+    </script>
+</body>
+</html>
