@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="saludo">hola</h1>
+    <p>mi nombre es marcos</p>
+    <script>
+
+        // se le agrega un hashtag antes del id
+        let saludo=document.querySelector("#saludo")
+        saludo.textContent="saludo cambiado"
+
+        //aqui creo una variable donde llamare al metodo create element del document y le paso que cree un "h2"
+        let titulo_dos=document.createElement("h2")
+        //aqui llamo al metodo .textContent del titulo_dos para asignarle un texto 
+        titulo_dos.textContent="este es un titulo creado desde js"
+        //aqui llamo al objeto document luego al subelemento body y llamo al metod appendChild
+        document.body.appendChild(titulo_dos)
+    </script>
+</body>
+</html>
