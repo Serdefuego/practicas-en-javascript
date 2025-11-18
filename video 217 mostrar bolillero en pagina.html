@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        document.body.appendChild("<h1> estos son todos los numeros generados</h2>")
+
+        //creo un generador de numeros aleatorios
+      
+        let arregloDeNumeros=[]
+       
+       //mientras el arreglo sea menor igual a 50  se repetira el bucle
+        while(arregloDeNumeros.length<=50){
+            let bolillero=Math.floor(Math.random()*60)+1
+            if(!arregloDeNumeros.includes(bolillero)){
+            arregloDeNumeros.push(bolillero)
+            }        
+        }
+
+        let lista=document.createElement("ul")
+        document.body.appendChild(lista)
+
+
+
+        arregloDeNumeros.forEach(numero=>{
+                let item=document.createElement("li")
+                item.textContent=numero
+                lista.appendChild(item)
+        })
+
+       
+        document.body.appendChild="<h2>estos son los primeros 6 numeros</h2>"
+
+        
+        let lista_dos=document.createElement("ul")
+        for(i=0;i<=6;i++){
+        let itemDos=document.createElement("li")
+        itemDos.textContent=arregloDeNumeros[i]     
+        }
+        
+    </script>
+</body>
+</html>
