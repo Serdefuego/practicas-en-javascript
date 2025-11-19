@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const chistes = [
+    "Conocí a mi novia en un ascensor. Dice que soy el amor de subida.",
+    "¿Cómo se llama un boomerang que no vuelve? Palo",
+    "El otro día vendí mi aspiradora. Lo único que hacía era acumular polvo.",
+    "Iba a contar un chiste sobre sodio. pero Na"
+       ];
+
+       
+
+        const reemplaza = (chistes) => {
+            chistes.forEach(chiste => {
+
+                // 1️⃣ Definimos reemplazo fuera del if
+                let reemplazo = chiste;
+
+                // 2️⃣ Si tiene punto, lo reemplaza por salto de línea
+                if (chiste.includes(".")) {
+                    reemplazo = chiste.replace(".", "<br>");
+                }
+
+                // 3️⃣ Creamos el párrafo y lo insertamos
+                let muestra = document.createElement("p");
+                muestra.innerHTML = reemplazo;
+                document.body.appendChild(muestra);
+            });
+        };
+
+        reemplaza(chistes);
+
+    </script>
+</body>
+</html>
