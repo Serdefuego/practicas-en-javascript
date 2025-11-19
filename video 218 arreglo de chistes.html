@@ -18,15 +18,15 @@
         const reemplaza = (chistes) => {
             chistes.forEach(chiste => {
 
-                // 1️⃣ Definimos reemplazo fuera del if
+                //  Definimos reemplazo fuera del if
                 let reemplazo = chiste;
 
-                // 2️⃣ Si tiene punto, lo reemplaza por salto de línea
+                //  Si tiene punto, lo reemplaza por salto de línea
                 if (chiste.includes(".")) {
                     reemplazo = chiste.replace(".", "<br>");
                 }
 
-                // 3️⃣ Creamos el párrafo y lo insertamos
+                //  Creamos el párrafo y lo insertamos
                 let muestra = document.createElement("p");
                 muestra.innerHTML = reemplazo;
                 document.body.appendChild(muestra);
