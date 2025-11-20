@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Descubrir si la palabra se encuentra en la frase</h1>
+        <p id="frasesCelebres">todos muchos pocos somos</p>
+    </div>
+       
+    <div>
+        <label for="palabra">Ingrese la palabra</label>
+        <input type="text" id="palabra">
+    </div>
+
+    <div>
+        <input type="button" value="buscar" id="buscar">
+        <p id="resultado"></p>
+    </div>
+      
+    <script>
+
+        let resultado = document.getElementById("resultado");
+
+        let buscar = () => {
+            let frase = document.getElementById("frasesCelebres").textContent;
+            let palabra = document.getElementById("palabra").value.trim();
+            
+            let palabras = frase.split(" ");
+
+            if (palabras.includes(palabra)) {
+                resultado.textContent = `Contiene la palabra "${palabra}"`;
+            } else {
+                resultado.textContent = `No contiene la palabra "${palabra}"`;
+            }
+        }
+
+        document.getElementById("buscar").addEventListener("click", buscar);
+
+    </script>
+</body>
+</html>
