@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>presiona para sumar o restar</h1>
+    <div>
+        <input type="button" value="+" id="botonMas">
+        <input type="button" value="-" id="botonMenos">
+    </div>
+   
+    <p id="numero">0</p>
+
+    <script>
+
+        let sumar=()=>{
+            let numero=parseInt(document.getElementById("numero").textContent)
+            numero++
+            document.getElementById("numero").textContent = numero;
+        }
+        let restar=()=>{
+            let numero=parseInt(document.getElementById("numero").textContent)
+            numero--
+            document.getElementById("numero").textContent = numero;
+            let color=["yellow","blue","green","orange"]
+          
+
+            document.body.style.backgroundColor =  color[Math.floor(Math.random() * color.length)];
+
+        }
+        document.getElementById("botonMas").addEventListener("click",sumar)
+
+        document.getElementById("botonMenos").addEventListener("click",restar)
+    </script>
+
+</body>
+</html>

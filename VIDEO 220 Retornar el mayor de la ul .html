@@ -16,14 +16,22 @@
 
     <script>
 
-        let numeros=document.getElementById("lista").children
+        let nodos = document.getElementById("lista").children;
 
-        let arreglo=numeros.parseInt()
+        // Convertimos la colección de nodos en un arreglo de números
+        let arreglo = [];
 
-        let mayor=document.createElement("h1")
-        mayor.textContent=arreglo.math(max)
-         document.body.append(mayor)
+        for (let i = 0; i < nodos.length; i++) {
+            arreglo.push(Number(nodos[i].textContent));
+        }
 
+        // Obtenemos el mayor con Math.max
+        let mayorValor = Math.max(...arreglo);
+
+        // Mostramos el resultado
+        let mayor = document.createElement("h2");
+        mayor.textContent = "El número mayor es: " + mayorValor;
+        document.body.append(mayor);
 
     </script>
 </body>
