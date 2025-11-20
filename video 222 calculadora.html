@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="numero">ingrese numero</label>
+        <input type="number" id="numero">
+    </div>
+
+    <div>
+        <label for="numerodos">ingrese segundo numero</label>
+        <input type="number" id="numerodos">
+    </div>
+
+    <div>
+        <input type="button" value="sumar" id="sumar">
+        <input type="button" value="restar" id="restar">
+    </div>
+
+    <div>
+        <p id="resultado">resultado</p>
+    </div>
+   
+
+    <script>
+    
+
+   
+      let sumar = () => {
+            let numuno = Number(document.getElementById("numero").value);
+            let numerodos = Number(document.getElementById("numerodos").value);
+
+            let resultado = numuno + numerodos;
+            document.getElementById("resultado").textContent = resultado;
+        }
+
+        let restar = () => {
+            let numuno = Number(document.getElementById("numero").value);
+            let numerodos = Number(document.getElementById("numerodos").value);
+
+            let resultado = numuno - numerodos;
+            document.getElementById("resultado").textContent = resultado;
+        }
+
+        document.getElementById("sumar").addEventListener("click",sumar)
+        document.getElementById("restar").addEventListener("click",restar)
+
+    </script>
+</body>
+</html>

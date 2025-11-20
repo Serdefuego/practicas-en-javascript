@@ -21,14 +21,16 @@
             let numero=parseInt(document.getElementById("numero").textContent)
             numero++
             document.getElementById("numero").textContent = numero;
+            
+            let color=["yellow","blue","green","orange"]
+            document.body.style.backgroundColor =  color[Math.floor(Math.random() * color.length)];
         }
         let restar=()=>{
             let numero=parseInt(document.getElementById("numero").textContent)
             numero--
             document.getElementById("numero").textContent = numero;
-            let color=["yellow","blue","green","orange"]
-          
 
+            let color=["yellow","blue","green","orange"]
             document.body.style.backgroundColor =  color[Math.floor(Math.random() * color.length)];
 
         }
