@@ -25,8 +25,9 @@
         let resultado = document.getElementById("resultado");
 
         let buscar = () => {
-            let frase = document.getElementById("frasesCelebres").textContent;
-            let palabra = document.getElementById("palabra").value.trim();
+            
+            let palabra = document.getElementById("palabra").value.trim().toLowerCase();
+            let frase = document.getElementById("frasesCelebres").textContent.toLowerCase();
             
             let palabras = frase.split(" ");
 
