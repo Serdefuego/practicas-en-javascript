@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>el nombre de tu hijo</h2>
+    <div>
+         <label for="primer">ingrese el primer nombre</label>
+         <input type="text" id="primer">
+    </div>
+     <div>
+         <label for="primer">ingrese el apellido</label>
+         <input type="text" id="apellido">
+    </div>
+    <div>
+        <p>resultado</p>
+        <ul id="lista"></ul>
+    </div>
+    <input type="button" value="generar" id="boton">
+   
+
+
+    <script>
+
+        let nombres=["juan","pedro","marcos","lucas","damian","gonzalo","patricio","manuel"]
+        let lista=document.getElementById("lista")
+        
+        document.getElementById("boton").addEventListener("click",(nombres,lista)=>{
+
+            let primero=document.getElementById("primer").value
+            let apellido=document.getElementById("apellido").value
+
+      
+
+            nombre.forEach(nombre => {
+
+                    let li=document.createElement("li")
+                    li.textContent=primero," ",nombre," ",apellido
+                    lista.appendChild(li)       
+
+            });
+        })
+
+    </script>
+</body>
+</html>

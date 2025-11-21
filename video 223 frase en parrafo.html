@@ -25,7 +25,7 @@
         let resultado = document.getElementById("resultado");
 
         let buscar = () => {
-            
+
             let palabra = document.getElementById("palabra").value.trim().toLowerCase();
             let frase = document.getElementById("frasesCelebres").textContent.toLowerCase();
             
@@ -36,6 +36,7 @@
             } else {
                 resultado.textContent = `No contiene la palabra "${palabra}"`;
             }
+            
         }
 
         document.getElementById("buscar").addEventListener("click", buscar);
