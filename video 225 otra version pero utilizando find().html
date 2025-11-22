@@ -1,0 +1,45 @@
+<div>
+    <h1>Contador de calorías</h1>
+</div>
+
+<div>
+    <label for="fruta">Ingrese nombre de una fruta para conocer sus calorías</label>
+    <input type="text" id="fruta">
+</div>
+
+<div>
+    <input type="button" value="Buscar" id="boton">
+    <p id="resultado"></p>
+</div>
+
+<script>
+  let arregloFrutas = [
+        { nombre: "Manzana", calorias: 52 },
+        { nombre: "Banana", calorias: 89 },
+        { nombre: "Naranja", calorias: 47 },
+        { nombre: "Pera", calorias: 57 },
+        { nombre: "Uva", calorias: 69 },
+        { nombre: "Frutilla", calorias: 32 },
+        { nombre: "Sandía", calorias: 30 },
+        { nombre: "Melón", calorias: 34 },
+        { nombre: "Durazno", calorias: 39 },
+        { nombre: "Kiwi", calorias: 61 }
+    ];
+
+    document.getElementById("boton").addEventListener("click", () => {
+        
+        let frutaIngresada = document.getElementById("fruta").value.trim().toLowerCase();
+        let resultado = document.getElementById("resultado");
+
+        // Buscar la fruta usando find
+        let frutaEncontrada = arregloFrutas.find(f => f.nombre.toLowerCase() === frutaIngresada);
+
+        if (frutaEncontrada) {
+            resultado.textContent = 
+                `Las calorías de 100g de ${frutaEncontrada.nombre} son ${frutaEncontrada.calorias}.`;
+        } else {
+            resultado.textContent = 
+                "Esa fruta no se encuentra en nuestra base de datos.";
+        }
+    });
+</script>

@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label for="numUno">Ingrese número</label>
+<input type="number" id="numUno">
+
+<label for="numDos">Ingrese número</label>
+<input type="number" id="numDos">
+
+<label for="suma">Sumar</label>
+<input type="radio" name="operacion" id="suma">
+
+<label for="resta">Restar</label>
+<input type="radio" name="operacion" id="resta">
+
+<input type="button" value="Realizar" id="boton">
+
+<p id="resultado"></p>
+
+<script>
+    document.getElementById("boton").addEventListener("click", () => {
+
+        let numeroUno = parseInt(document.getElementById("numUno").value);
+        let numeroDos = parseInt(document.getElementById("numDos").value);
+
+        let radioSuma = document.getElementById("suma");
+        let radioResta = document.getElementById("resta");
+
+        let resultado = document.getElementById("resultado");
+
+        if (radioSuma.checked) {
+            resultado.textContent = numeroUno + numeroDos;
+        } else if (radioResta.checked) {
+            resultado.textContent = numeroUno - numeroDos;
+        } else {
+            resultado.textContent = "Seleccione una operación.";
+        }
+    });
+</script>
+</body>
