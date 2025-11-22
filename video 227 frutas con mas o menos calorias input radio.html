@@ -1,0 +1,69 @@
+<h1>Frutas con más o menos de 100 calorías (por 100g)</h1>
+
+<div>
+    <label for="mas100">Frutas con más de 100 calorías</label>
+    <input type="radio" name="calorias" id="mas100">
+
+    <label for="menos100">Frutas con menos de 100 calorías</label>
+    <input type="radio" name="calorias" id="menos100">
+
+    <input type="button" value="Mostrar" id="mostrar">
+</div>
+
+<div>
+    <p>Estas son las frutas:</p>
+    <ul id="lista"></ul>
+</div>
+
+<script>
+    let arregloFrutas = [
+        { nombre: "Manzana", calorias: 52 },
+        { nombre: "Banana", calorias: 89 },
+        { nombre: "Naranja", calorias: 47 },
+        { nombre: "Pera", calorias: 57 },
+        { nombre: "Uva", calorias: 69 },
+        { nombre: "Frutilla", calorias: 32 },
+        { nombre: "Sandía", calorias: 30 },
+        { nombre: "Melón", calorias: 34 },
+        { nombre: "Durazno", calorias: 39 },
+        { nombre: "Kiwi", calorias: 61 }
+    ];
+    //capturo el evento del boton mostrar
+    document.getElementById("mostrar").addEventListener("click", () => {
+
+
+        //hago la captura de los input radio y la lista ul
+        let mas100 = document.getElementById("mas100");
+        let menos100 = document.getElementById("menos100");
+        let lista = document.getElementById("lista");
+
+        // limpiar la lista
+        lista.innerHTML = "";
+
+        //creo una variable vacia para alojar el arreglo de frutas filtradas bajo las condiciones
+        let frutasFiltradas;
+
+        //la condicion si el input esta cheackeado se le asigna el filtro al arreglo de frutas
+        if (mas100.checked) {
+            frutasFiltradas = arregloFrutas.filter(f => f.calorias > 100);
+        } else if (menos100.checked) {
+            frutasFiltradas = arregloFrutas.filter(f => f.calorias < 100);
+        } else {
+            lista.innerHTML = "<li>Seleccione una opción.</li>";
+            return;
+        }
+
+
+        //con un forEach lo que hacemos es que por cada objeto dentro del arreglo de frutas filtradas
+        //vamos a crear un elemento del tipo li y le cambiaremos el contenido de texto , luego con el metodo appendChild insertamos
+        //el elemento li con el texto cambiado dentro de la lista ul
+        frutasFiltradas.forEach(fruta => {
+            let li = document.createElement("li");
+            li.textContent = `${fruta.nombre}: ${fruta.calorias} calorías`;
+            lista.appendChild(li);
+        });
+    });
+</script>
+
+</body>
+</html>
