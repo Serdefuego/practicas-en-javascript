@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>cartelera</h1>
+
+        <div>   <label for="terror">terror</label>
+        <input type="checkbox" name="terror"id="terror">
+
+        <label for="comedia">comedia</label>
+        <input type="checkbox" name="comedia"id="comedia">
+
+        <label for="guerra">guerra</label>
+        <input type="checkbox" name="guerra" id="guerra">
+
+    </div>
+    <div>
+        <input type="button" value="mostrar" id="mostrar">
+    </div>
+    <div>
+
+        <h2>peliculas</h2>
+        <ul id="lista">          
+        </ul>
+    </div>
+ 
+
+<script>
+    const peliculas = [
+        { titulo: "El conjuro", genero: "Terror" },
+        { titulo: "La noche del demonio", genero: "Terror" },
+        { titulo: "El exorcista", genero: "Terror" },
+        { titulo: "La gran estafa", genero: "Comedia" },
+        { titulo: "La máscara", genero: "Comedia" },
+        { titulo: "Rescatando al soldado Ryan", genero: "Guerra" },
+        { titulo: "Apocalipsis Now", genero: "Guerra" },
+        { titulo: "La chaqueta metálica", genero: "Guerra" }
+    ];
+
+    document.getElementById("mostrar").addEventListener("click", ()=>{
+
+        // capturar checkboxes CON LA SINTAXIS .CHECKED
+        let terror = document.getElementById("terror").checked;
+        let comedia = document.getElementById("comedia").checked;
+        let guerra = document.getElementById("guerra").checked;
+
+        // IMPORTANTE limpiar lista antes de agregar
+        let lista = document.getElementById("lista");
+        lista.innerHTML = "";
+
+        // función genérica para no repetir código
+        function mostrarGenero(genero) {
+            let filtradas = peliculas.filter(p => p.genero === genero);
+
+            filtradas.forEach(peli => {
+                let li = document.createElement("li");
+                li.textContent = peli.titulo;
+                //CUIDADO ACA CUANDO INSERTO MEDIANTE APPENDCHILD NO PASAR STRINGS
+                lista.appendChild(li);
+            });
+        }
+
+        if (terror) mostrarGenero("Terror");
+        if (comedia) mostrarGenero("Comedia");
+        if (guerra) mostrarGenero("Guerra");
+
+        // si no marcó nada
+        if (!terror && !comedia && !guerra) {
+            let li = document.createElement("li");
+            li.textContent = "No seleccionaste ningún género.";
+            lista.appendChild(li);
+        }
+    });
+</script>
+
+</body>
+</html>

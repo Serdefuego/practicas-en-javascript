@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>materias</h1>
+
+    <div>
+        <label for="matematica">matematica</label>
+        <input type="checkbox" name="matematica" id="mates">
+
+        <label for="lengua">lengua</label>
+        <input type="checkbox" name="lengua" id="lengua">
+
+        <label for="ingles">ingles</label>
+        <input type="checkbox" name="ingles" id="ingles">
+
+    </div>
+
+    <input type="button" value="mostrar" id="boton">
+    <p id="resultado"></p>
+    
+    <script>
+        document.getElementById("boton").addEventListener("click",()=>{
+            let matesCheca=document.getElementById("mates").checked
+            let lenguaCheca=document.getElementById("lengua").checked
+            let inglesCheca=document.getElementById("ingles").checked
+
+            let arreglo=[matesCheca,lenguaCheca,inglesCheca]
+            let contador=0
+            let resultado=document.getElementById("resultado")
+
+            arreglo.forEach(item=>{
+                if (item){
+                    contador++
+                }
+            })
+
+            if (contador > 1) {
+                    resultado.textContent = "Hay más de un casillero chequeado.";
+                } else if (contador === 1) {
+                    resultado.textContent = "Hay exactamente un casillero chequeado.";
+                } else {
+                    resultado.textContent = "No hay casilleros chequeados.";
+                }
+
+            if(matesCheca){
+                let parrafo=document.createElement("p")
+                parrafo.textContent="checaste matematicas"
+                document.body.appendChild(parrafo)
+            }
+               if(lenguaCheca){
+                let parrafo=document.createElement("p")
+                parrafo.textContent="checaste lengua"
+                document.body.appendChild(parrafo)
+            }
+             if(inglesCheca){
+                let parrafo=document.createElement("p")
+                parrafo.textContent="checaste ingles"
+                document.body.appendChild(parrafo)
+                 }
+            
+        })
+    </script>
+</body>
+</html>
