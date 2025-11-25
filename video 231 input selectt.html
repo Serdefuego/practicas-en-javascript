@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+ <select  id="emojis">
+      <option value="amor">❤</option>
+      <option value="risa">😂</option>
+      <option value="gato">🐱</option>
+      <option value="perro">🐶</option>
+      <option value="sol">☀</option>
+      <option value="lluvia">🌧</option>
+      <option value="música">🎶</option>
+    </select>
+    <div>
+        <label for="palabra">ingrese nombre del emoji que seleccionó</label>
+        <input type="text" id="palabra">
+        <input type="button" value="mostrar" id="boton">
+        <p id="resultado"></p>
+    </div>
+       
+    <script>
+
+        
+        document.getElementById("boton").addEventListener("click",()=>{
+            let resultado=document.getElementById("resultado")
+            let palabra=document.getElementById("palabra").value
+            let seleccinada=document.getElementById("emojis").value
+
+            if(seleccinada==palabra){
+                resultado.textContent="es correcto "
+            }else{
+                resultado.textContent="lo que escribio es incorrecto"
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
