@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="frase" id="frase"></textarea>
+    <div>
+        <input type="button" value="mostrar" id="boton">
+        <p id="resultado"></p>
+    </div>
+    <script>
+
+        document.getElementById("boton").addEventListener("click",()=>{
+            let frase=document.getElementById("frase").value
+            let resultado=document.getElementById("resultado")
+
+            let palabras=frase.split(" ")
+            
+            if(palabras.includes("amor")){
+                resultado.textContent="contiene la palabra amor"
+            }else{
+                resultado.textContent="no la contiene "
+            }
+        })
+    </script>
+</body>
+</html>
