@@ -11,17 +11,27 @@
         <p id="resultado"></p>
     </div>
     <script>
-
+        // en este programa corroboramos si existe la palabra amor dentro del text area
+      
+      //agragamos una escucha de evento al boton
         document.getElementById("boton").addEventListener("click",()=>{
+            
+            //capturamos los valores del textarea
             let frase=document.getElementById("frase").value
+
+            //capturamos el elemento parrafo donde mostramos el resultado
             let resultado=document.getElementById("resultado")
 
+            //creamos un arreglo con las palabras sin espacios
             let palabras=frase.split(" ")
             
+            //preguntamos si dentro del arreglo esta incluida la palabra amor
             if(palabras.includes("amor")){
+
+                //mostramos en el parrafo si contiene o no la palabra
                 resultado.textContent="contiene la palabra amor"
             }else{
-                resultado.textContent="no la contiene "
+                resultado.textContent="no contiene la palabra "
             }
         })
     </script>

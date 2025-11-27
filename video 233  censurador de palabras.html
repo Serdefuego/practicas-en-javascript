@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>cuidado con lo que pones</h1>
+    <div>
+        <textarea name="areaDeTexto" id="areaDeTexto"></textarea>
+    </div>
+
+    <div>
+        <input type="button" value="mostrar" id="boton">
+        <p id="resultado"></p>
+    </div>
+ 
+    <script>
+          let malasPalabras = [
+    "boludo",
+    "pelotudo",
+    "forro",
+    "puto",
+    "mierda",
+    "concha",
+    "conchudo",
+    "puta madre",
+    "garcha",
+    "garche",
+    "garchar",
+    "pajero",
+    "paja",
+    "orto",
+    "culiado",
+    "cagón",
+    "cagar",
+    "cagada",
+    "sorete",
+    "tarado",
+    "mogólico",
+    "zorra",
+    "trolo",
+    "cornudo"
+]
+
+        document.getElementById("boton").addEventListener("click",()=>{
+            let frase=document.getElementById("areaDeTexto").value
+            let resultado=document.getElementById("resultado")
+            let arregloDeFrase=frase.split(" ")
+            
+           for(palabra of malasPalabras){
+
+        
+                let ofenza=false
+                if(arregloDeFrase.includes(palabra)){
+                    ofenza=true
+                    resultado.textContent="hay una palabra ofensiva en el comentario,modifiquelo"
+                     break
+                }else{
+                    resultado.textContent=""
+                }
+               
+            }
+                
+         
+        })
+
+   
+
+    </script>
+</body>
+</html>
