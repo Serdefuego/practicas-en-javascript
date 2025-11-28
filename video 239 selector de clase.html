@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class="terror">Pesadilla en Elm Street</li>
+        <li class="fantasia">La historia sin fin</li>
+        <li class="terror">El conjuro</li>
+        <li class="fantasia">Harry Potter y la piedra filosofal</li>
+        <li class="ficcion">Volver al futuro</li>
+        <li class="terror">It (Eso)</li>
+        <li class="fantasia">El señor de los anillos: La comunidad del anillo</li>
+        <li class="ficcion">Matrix</li>
+        <li class="terror">Actividad paranormal</li>
+        <li class="fantasia">Narnia: El león, la bruja y el ropero</li>
+        <li class="ficcion">Star Wars: Una nueva esperanza</li>
+        <li class="terror">La masacre de Texas</li>
+        <li class="fantasia">Alicia en el país de las maravillas</li>
+        <li class="ficcion">Interestelar</li>
+        <li class="terror">Anabelle</li>
+        <li class="fantasia">El laberinto del fauno</li>
+        <li class="ficcion">Avatar</li>
+        <li class="terror">Siniestro</li>
+        <li class="fantasia">Peter Pan</li>
+    </ul>
+
+    <div>
+        <input type="button" value="fantasia" id="fantasia">
+        <input type="button" value="terror" id="terror">
+        <input type="button" value="ficcion" id="ficcion">
+    </div>
+
+    <div id="resultado">
+
+    </div>
+
+<script>
+       let resultado=document.getElementById("resultado")
+
+    //  FANTASÍA
+    document.getElementById("fantasia").addEventListener("click", () => {
+        //limpio l div resultado
+        resultado.innerHTML=""
+        //capturo todos los nodos de la clase .fantasia
+        let capturaFantasia = document.querySelectorAll(".fantasia");
+
+        //recorro con un for of cada pelicula
+        capturaFantasia.forEach(pelicula => {
+       
+            //creo un elemento h1
+            let item = document.createElement("h1");
+
+            //al elemento h1 le pongo el nombre de la pelicula
+            item.textContent = pelicula.textContent;
+
+            //dentro del div resultado inserto el h1
+            resultado.append(item);
+
+       
+        });
+    });
+
+    //  FICCIÓN
+    document.getElementById("ficcion").addEventListener("click", () => {
+
+        resultado.innerHTML=""
+
+        let capturaFiccion = document.querySelectorAll(".ficcion");
+
+        capturaFiccion.forEach(pelicula => {
+            let item = document.createElement("h1");
+            item.textContent = pelicula.textContent;
+            resultado.append(item);
+            resultado.append(document.createElement("br"));
+        });
+    });
+
+    // TERROR
+    document.getElementById("terror").addEventListener("click", () => {
+        
+        resultado.innerHTML=""
+
+        let capturaTerror = document.querySelectorAll(".terror");
+
+        capturaTerror.forEach(pelicula => {
+            let item = document.createElement("h1");
+            item.textContent = pelicula.textContent;
+            resultado.append(item);
+            resultado.append(document.createElement("br"));
+        });
+    });
+
+</script>
+
+</body>
+</html>
