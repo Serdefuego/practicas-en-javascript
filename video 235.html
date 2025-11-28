@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="clave">ingrese clave</label>
+        <input type="password" id="clave">
+    </div>
+    <div>
+        <label for="claveDos">ingrese nuevamente la clave</label>
+        <input type="password" id="claveDos">
+    </div>
+
+    <input type="button" value="corroborar" id="corroborar">
+
+    <script>
+        document.getElementById("corroborar").addEventListener("click",()=>{
+            let clave=document.getElementById("clave").value
+            let claveDos=document.getElementById("claveDos").value
+            if(clave==""){
+                alert("complete el campo")
+                return
+            }
+             if(claveDos==""){
+                alert("complete el campo")
+                return
+            }
+            if(clave.length>6 && clave.length<20){
+                if(claveDos===clave){
+                    alert("ingresaste correctamente las claves")
+                }else{
+                    alert("hay incoherencias " +clave+" es distinta a "+ claveDos)
+                }
+            }else{
+                alert("la clave no cumple con el tamaño valido")
+            }
+        })
+    </script>
+
+</body>
+</html>

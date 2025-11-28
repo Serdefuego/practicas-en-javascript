@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="password">Ingrese contraseña</label>
+        <input type="password" id="pass">
+    </div>
+   
+    <div>
+        <input type="button" value="verificar" id="boton">
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+
+        let arregloDePass = ["123456", "asdfghjklñ", "0123456789"];
+
+        document.getElementById("boton").addEventListener("click", () => {
+            let pass = document.getElementById("pass").value;
+            let resultado = document.getElementById("resultado");
+
+            // Primero verificamos la longitud
+            if (pass.length <= 5 || pass.length >= 20) {
+                resultado.textContent = "La contraseña no es válida";
+                return;
+            }
+
+            // Ahora revisamos si coincide con alguna contraseña prohibida
+            for (let contraseña of arregloDePass) {
+                if (pass === contraseña) {
+                    resultado.textContent = "La contraseña no es válida";
+                    return;
+                }
+            }
+
+            // Si pasó todas las validaciones
+            resultado.textContent = "La contraseña es válida";
+        });
+
+    </script>
+</body>
+</html>
