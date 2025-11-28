@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <div>
+        <input type="button" value="sumar" id="boton">
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.getElementById("boton").addEventListener("click",()=>{
+            let resultado=document.getElementById("resultado")
+
+            let lista=document.querySelectorAll("li")
+
+            let suma=0
+
+            for (item of lista){
+                let numero=parseInt(item.textContent)
+                suma+=numero
+            }
+
+            resultado.textContent=`la suma de todos los elementos de la lista es ${suma}`
+        })
+    </script>
+</body>
+</html>
