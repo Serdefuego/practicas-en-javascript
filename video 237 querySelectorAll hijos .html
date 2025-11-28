@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="number" name="numero" class="numeros">
+        <input type="number" name="numero" class="numeros">
+        <input type="number" name="numero" class="numeros">
+   
+     </div>
+
+    <input type="button" value="calcular" id="boton">
+
+    <h1 id="resultado"></h1>
+
+    <script>
+        document.getElementById("boton").addEventListener("click",()=>{
+
+            let resultado=document.querySelector("#resultado")
+
+            let valores=document.querySelectorAll(".numeros")
+
+            let suma=0
+
+            valores.forEach(element => {
+                let numero=parseInt(element.value)||0
+                suma+=numero
+            });
+
+            resultado.textContent="resultado: " + suma
+        })
+    </script>
+</body>
+</html>
