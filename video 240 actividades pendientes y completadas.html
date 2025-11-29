@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <ul>
+    <li class="pendiente">Lavar los platos</li>
+    <li class="completadas">Sacar la basura</li>
+    <li class="pendiente">Hacer 10 minutos de estiramientos</li>
+    <li class="completadas">Leer 15 minutos</li>
+    <li class="pendiente">Preparar el almuerzo</li>
+    <li class="completadas">Regar las plantas</li>
+    <li class="pendiente">Ordenar el escritorio</li>
+    <li class="completadas">Hacer una caminata corta</li>
+    <li class="pendiente">Organizar la mochila o cartera</li>
+    <li class="completadas">Enviar un correo importante</li>
+    <li class="pendiente">Hacer compras del día</li>
+    <li class="completadas">Meditar 5 minutos</li>
+    <li class="pendiente">Planificar la semana</li>
+    <li class="completadas">Lavar la ropa</li>
+    <li class="pendiente">Limpiar el baño</li>
+    <li class="completadas">Practicar algo de programación</li>
+    <li class="pendiente">Revisar mensajes pendientes</li>
+    <li class="completadas">Escuchar un podcast educativo</li>
+    <li class="pendiente">Pagar una factura</li>
+    <li class="completadas">Preparar la ropa para mañana</li>
+</ul>
+
+<input type="button" value="completo" id="comp">
+<input type="button" value="pendiente" id="pend">
+
+<div id="resultado">
+
+</div>
+
+<script>
+    //capturo el evento del boton de pendientes id=peb
+
+    document.getElementById("pend").addEventListener("click",()=>{
+
+        //capturo el div resultado
+
+        let resultado=document.getElementById("resultado")
+
+        //capturo todos los elementos de la clase pendiente
+        
+        let pendientes=document.querySelectorAll(".pendiente")
+
+        //cambio el estilo de color de exto de la clase pendientes
+
+        for (let actividad of pendientes) {
+             actividad.style.color = "red"
+             actividad.style.fontSize = "10px"
+        }
+        
+
+        //limpio el div resultado 
+        resultado.innerHTML=" "
+
+        //recorro el nodelist de completas con un for of
+
+        for(actividad of pendientes){
+
+            //creo un elemeto parrafo vacio para luego integrarlo en el div resultado
+            let itemParrafo=document.createElement("p")
+
+            //por cada actividad del nodelist completadas agrego un itemParrafo a el div resultado
+            itemParrafo.textContent=actividad.textContent
+
+            //agrego el item
+
+            resultado.append(itemParrafo)
+        }
+
+         
+
+    })
+
+
+      //capturo el evento del boton de completadas id=comp
+
+    document.getElementById("comp").addEventListener("click",()=>{
+
+        //capturo el div resultado
+
+        let resultado=document.getElementById("resultado")
+
+        //limpio el div resultado 
+        resultado.innerHTML=" "
+
+        //capturo todos los elementos de la clase copletadas
+
+        let completadas=document.querySelectorAll(".completadas")
+
+        //cambio el estilo de color de exto de la clase completadas
+
+        for (let actividad of completadas) {
+             actividad.style.color = "orange"
+        }
+
+        //recorro el nodelist de completas con un for of
+
+        for(actividad of completadas){
+
+            //creo un elemeto parrafo vacio para luego integrarlo en el div resultado
+            let itemParrafo=document.createElement("p")
+
+            //por cada actividad del nodelist completadas agrego un itemParrafo a el div resultado
+            itemParrafo.textContent=actividad.textContent
+
+            //agrego el item
+
+            resultado.append(itemParrafo)
+            
+
+        }
+
+    })
+
+
+</script>
+</body>
+</html>
