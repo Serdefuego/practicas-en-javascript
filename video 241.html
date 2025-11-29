@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="poesia">
+        <p>La luna llena es una <span class="emojis">🌙</span> de plata</p>
+        <p>El viento sopla suave y lleva consigo el aroma de las <span class="emojis">🌸</span></p>
+        <p>Las hojas caen de los árboles como <span class="emojis">🍂</span> en el otoño</p>
+        <p>El mar es un <span class="emojis">🌊</span> infinito de azul cristalino</p>
+        <p>Y tú eres la <span class="emojis">🌟</span> que ilumina mi camino</p>
+    </div>
+    <div>
+        <input type="button" value="transformar" id="boton">
+
+        <p id="resultado"></p>
+    </div>
+
+<script>
+
+    const palabrasConEmojis = [
+        { emoji: "🌙", palabra: "luna" },
+        { emoji: "🌸", palabra: "flores" },
+        { emoji: "🍂", palabra: "hojas" },
+        { emoji: "🌊", palabra: "mar" },
+        { emoji: "🌟", palabra: "estrella" }
+    ]
+
+    document.getElementById("boton").addEventListener("click", () => {
+
+        let spans = document.querySelectorAll(".emojis")
+
+        // Reemplazo el emoji por la palabra
+        
+        for (let span of spans) {
+            //capturo el contenido de la etiqueta span ,que es el emoji
+            let emoji = span.textContent
+
+            // Busco en el arreglo de objeto "palabrasConEmojis" con el metodo find
+            //si el emoji del arreglo coincide con el emoji del span del parrafo
+            let encontrado = palabrasConEmojis.find(elemento => elemento.emoji === emoji)
+
+            // Si lo encuentro, reemplazo por la palabra dentro de la propiedad "palabra" del objeto 
+            //que se encuentra dentro del arreglo de emojis
+
+            if (encontrado) {
+                span.textContent = encontrado.palabra
+            }
+        }
+
+        // Muestro el resultado completo en el <p> capturando el textContent de la etiqueta p de poesia
+        // y cambiando el contenido de texto de la etiqueta p de resultado
+        let poesia = document.querySelector(".poesia").textContent
+        document.getElementById("resultado").textContent = poesia
+    })
+
+</script>
+    
+
+
+</body>
+</html>
