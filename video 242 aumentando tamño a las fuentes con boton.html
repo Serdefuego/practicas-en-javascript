@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="frase">Aprender a programar se aprende programando</p>
+<div>
+    <input type="button" value="aumnetar tamaño" id="aumentar">
+    <input type="button" value="disminuir tamaño" id="disminuir">
+</div>
+<p id="frase" style="font-size:20px;">Aprender a programar...</p>
+
+<script>
+    let frase = document.getElementById("frase");
+
+    document.getElementById("aumentar").addEventListener("click", ()=> {
+        let tamañoActual = parseInt(frase.style.fontSize);
+        frase.style.fontSize = (tamañoActual + 5) + "px";
+    });
+
+    document.getElementById("disminuir").addEventListener("click", ()=> {
+        let tamañoActual = parseInt(frase.style.fontSize);
+
+        if (tamañoActual <= 5) {
+            alert("No se puede reducir más.");
+        } else {
+            frase.style.fontSize = (tamañoActual - 5) + "px";
+        }
+    });
+</script>
+
+
+</body>
+</html>

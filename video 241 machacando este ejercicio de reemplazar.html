@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reemplazo de símbolos</title>
+</head>
+<body>
+
+    <div class="poesia">
+        <p>El cielo es un <span class="simbolos">^</span> lleno de misterios</p>
+        <p>Las montañas se elevan hacia el <span class="simbolos">*</span> brillante</p>
+        <p>Los caminos se ramifican como <span class="simbolos">#</span> entre los bosques</p>
+        <p>La noche cubre todo con un manto <span class="simbolos">@</span> de silencio</p>
+        <p>El amanecer renace con luz <span class="simbolos">%</span></p>
+    </div>
+
+    <div>
+        <input type="button" id="boton" value="Transformar texto">
+        <p id="resultado"></p>
+    </div>
+
+<script>
+
+    const palabrasConSimbolos = [
+        { simbolo: "^", palabra: "cielo" },
+        { simbolo: "*", palabra: "sol" },
+        { simbolo: "#", palabra: "senderos" },
+        { simbolo: "@", palabra: "oscuro" },
+        { simbolo: "%", palabra: "dorada" }
+    ];
+
+    document.getElementById("boton").addEventListener("click", () => {
+
+        // Capturo todos los <span>
+        let oraciones = document.querySelectorAll(".simbolos");
+
+        // Recorro cada <span>
+        for (let span of oraciones) {
+
+            // Capturo el símbolo (contenido del span)
+            let simboloActual = span.textContent;
+
+            // Busco coincidencia en el arreglo
+            let encontrado = palabrasConSimbolos.find(
+                objeto => objeto.simbolo === simboloActual
+            );
+
+            // Si lo encontré, reemplazo el símbolo por la palabra
+            if (encontrado) {
+                span.textContent = encontrado.palabra;
+            }
+        }
+
+        // Muestro el resultado completo
+        let textoFinal = document.querySelector(".poesia").textContent;
+        document.getElementById("resultado").textContent = textoFinal;
+    });
+
+</script>
+
+</body>
+</html>
