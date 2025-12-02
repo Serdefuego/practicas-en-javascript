@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/practicas-en-javascript/video 243.css">
+</head>
+<body>
+
+    <div id="elemento" style="width:200px; height:200px; background:red;"></div>
+
+    <div>
+        <input type="button" value="AGRANDAR" id="agrandar">
+        <input type="button" value="ACHICAR" id="achicar">
+    </div>
+  
+    <script>
+        //capturo el boton agrandar
+        document.getElementById("agrandar").addEventListener("click",()=>{
+            //capturo los valores pasados a entero de lo que hay en el width del style y el el height
+            let elementoWidth = parseInt(document.getElementById("elemento").style.width);
+            let elementoHeight = parseInt(document.getElementById("elemento").style.height);
+
+            //capturo el elemento y accedo a su style y su width y height y le asigno el valor de los valores  
+            //que ya tenia + 100 y le concateno "px"
+            document.getElementById("elemento").style.width = (elementoWidth + 100) + "px";
+            document.getElementById("elemento").style.height = (elementoHeight + 100) + "px";
+        });
+         
+        document.getElementById("achicar").addEventListener("click",()=>{
+
+            let elementoWidth = parseInt(document.getElementById("elemento").style.width);
+            let elementoHeight = parseInt(document.getElementById("elemento").style.height);
+
+            document.getElementById("elemento").style.width = (elementoWidth - 100) + "px";
+            document.getElementById("elemento").style.height = (elementoHeight - 100) + "px";
+        });
+
+    </script>
+
+</body>
+</html>
