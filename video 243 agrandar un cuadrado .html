@@ -12,6 +12,13 @@
     <div>
         <input type="button" value="AGRANDAR" id="agrandar">
         <input type="button" value="ACHICAR" id="achicar">
+        <input type="button" value="COLOR" id="color">
+
+        <select name="color" id="color">
+            <option value="blue">blue</option>
+            <option value="red">red</option>
+            <option value="yellow">yellow</option>
+        </select>
     </div>
   
     <script>
@@ -36,6 +43,23 @@
             document.getElementById("elemento").style.height = (elementoHeight - 100) + "px";
         });
 
+        let respuestaColor=document.getElementById("color").value
+            switch (respuestaColor) {
+                case "blue":
+                    document.getElementById("elemento").style.backgroundColor="blue"
+                 break;
+                case "yellow":
+                     document.getElementById("elemento").style.backgroundColor="yellow"
+                break;
+                case "red":
+                     document.getElementById("elemento").style.backgroundColor="red"
+                break;
+                
+            
+                default:
+                    break;
+            }
+        
     </script>
 
 </body>
