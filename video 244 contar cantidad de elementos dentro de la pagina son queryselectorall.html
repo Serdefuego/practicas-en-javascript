@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+            <p></p>
+            <p></p>
+        </div>
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
+        <h1></h1>
+        <h1></h1>
+        <h2></h2>
+        <h3></h3>
+         <h3></h3>
+          <h3></h3>
+           <h3></h3>
+           <a href=""></a>
+           <iframe src="" frameborder="0"></iframe>
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+
+
+        <p id="resultado"></p>
+    <script>
+    //capturo el nodeList de todos los elementos en dom
+    let elementosHTML=document.querySelectorAll("*")
+
+    //creo un arreglo vacio donde alojare los elemetos
+    //que voy encontrando
+    let arreglo=[]
+    
+    //ahora por cada "elemento" dentro del arreglo "elementosHTML"
+    //creo una variable "referenciaElemento" donde se desarrollara
+    //una busqueda mediante el metodo find sobre el item "elementoDelArregloElementosHTML" 
+
+    elementosHTML.forEach(elementoDelArregloElementosHTML=>{
+    const referenciaElemento=arreglo.find(elementoDelArreglo=>elementoDelArreglo[0]==elementoDelArregloElementosHTML.tagName)
+    
+        if(referenciaElemento==undefined){
+            //esto significa que no hay otro elemento igual dentro del arreglo
+            //lo lo tanto lo vamos a pushear dentro del "arreglo"
+            arreglo.push([elementoDelArregloElementosHTML.tagName,1])
+
+        }else{
+            //si ya se encuantra dentro del arreglo , vamos a acceder a su 
+            //posicion 1 y vamos a aumentar su valor
+            referenciaElemento[1]++
+        }
+    })
+   
+    //ahora pasamos a mostrar en la etiqueta p con el id resultado
+    //el contenido del arreglo
+    document.querySelector(`#resultado`).innerHTML=arreglo.join("<br>")
+
+    </script>
+</body>
+</html>

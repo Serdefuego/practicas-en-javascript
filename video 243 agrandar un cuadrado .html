@@ -14,7 +14,7 @@
         <input type="button" value="ACHICAR" id="achicar">
         <input type="button" value="COLOR" id="color">
 
-        <select name="color" id="color">
+        <select name="color" id="selectColor">
             <option value="blue">blue</option>
             <option value="red">red</option>
             <option value="yellow">yellow</option>
@@ -22,20 +22,21 @@
     </div>
   
     <script>
-        //capturo el boton agrandar
+
+        //capturo el evento click del boton agrandar
         document.getElementById("agrandar").addEventListener("click",()=>{
-            //capturo los valores pasados a entero de lo que hay en el width del style y el el height
+
+            //paso a valor entero el tamaño del width y height ingresando a su atributo style
             let elementoWidth = parseInt(document.getElementById("elemento").style.width);
             let elementoHeight = parseInt(document.getElementById("elemento").style.height);
 
-            //capturo el elemento y accedo a su style y su width y height y le asigno el valor de los valores  
-            //que ya tenia + 100 y le concateno "px"
+            //capturo al elemento accedo a su stylo y tamaño , le sumo 100 a el valor que ya tenia
+            //previamente y le concateno "px"
             document.getElementById("elemento").style.width = (elementoWidth + 100) + "px";
             document.getElementById("elemento").style.height = (elementoHeight + 100) + "px";
         });
          
         document.getElementById("achicar").addEventListener("click",()=>{
-
             let elementoWidth = parseInt(document.getElementById("elemento").style.width);
             let elementoHeight = parseInt(document.getElementById("elemento").style.height);
 
@@ -43,22 +44,25 @@
             document.getElementById("elemento").style.height = (elementoHeight - 100) + "px";
         });
 
-        let respuestaColor=document.getElementById("color").value
+
+        //este evento change lo que hace es capturar el valor luego de cambiarlo
+        document.getElementById("selectColor").addEventListener("change", ()=>{
+
+            //accedo a la etiqueta select y accedo al valor
+            let respuestaColor = document.getElementById("selectColor").value;
+
             switch (respuestaColor) {
                 case "blue":
-                    document.getElementById("elemento").style.backgroundColor="blue"
-                 break;
+                    document.getElementById("elemento").style.backgroundColor = "blue";
+                    break;
                 case "yellow":
-                     document.getElementById("elemento").style.backgroundColor="yellow"
-                break;
+                    document.getElementById("elemento").style.backgroundColor = "yellow";
+                    break;
                 case "red":
-                     document.getElementById("elemento").style.backgroundColor="red"
-                break;
-                
-            
-                default:
+                    document.getElementById("elemento").style.backgroundColor = "red";
                     break;
             }
+        });
         
     </script>
 
