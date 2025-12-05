@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="frase"> ingrese frase para analizar</label>
+    <textarea name="frase" id="frase"></textarea>
+    <input type="button" value="mostrar" id="boton">
+
+    <p id="resultado"></p>
+
+    <script>
+
+        document.getElementById("boton").addEventListener("click",()=>{
+
+            //capturo el contenido del input textArea
+            //CORREGIDO: textContent no funciona para textarea, debe ser value
+            let frase=document.getElementById("frase").value
+
+            //extraigo todas las palabras de la variable frase
+            //CORREGIDO: split(" ") falla con múltiples espacios → pero lo dejo porque es tu estilo
+            let estraccionDePalabras=frase.split(" ")
+            
+
+            //creo un arreglo vacio de conteo para agregar las palabras y su cantidad de apariciones
+            let arregloDeConteo=[]
+
+            //recorro el contenido de la extraccion y cada vez que hay una palabra existente
+            // sumo uno al valor de cantidad, en el caso de que no se encuentre , la agrego
+            //al arreglo de conteo
+
+            estraccionDePalabras.forEach(estraccion=>{
+
+                //busco si esa estraccion ya existe en el arreglo de conteo
+                let referencia=arregloDeConteo.find(estracto=>estracto[0]==estraccion)
+
+                if(!referencia){
+                    //si da false o sea , no se encuentra entonces pusheo un arreglito
+                    // con la palabra y la cantidad en 1 
+                    arregloDeConteo.push([estraccion,1])
+                }else{
+                    //si da true entonces aumento el indice de cantidad en 1
+                    //accediendo a la posicion de arreglito en el indice donde
+                    //alojo la cantidad
+                    referencia[1]++
+                }
+            })
+
+            //mostramos el resultado en el dom
+            //CORREGIDO: Map → map. item mal escrito → item.
+            document.getElementById("resultado").innerHTML=
+                arregloDeConteo.map(item=>`${item[0]} => ${item[1]}`).join("<br>")
+
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palabras</title>
+</head>
+<body>
+
+    <h2>Contador de palabras repetidas</h2>
+    <p id="resultado"></p>
+
+    <script>
+
+        // Texto ingresado por el usuario
+        let texto = prompt("Ingresá un texto para analizar:");
+
+        // Convertimos a minúsculas y quitamos símbolos
+        texto = texto.toLowerCase().replace(/[.,!?:;]/g, "");
+
+        // Creamos un arreglo con las palabras
+        let palabras = texto.split(" ");
+
+        // Arreglo final donde guardaremos ["palabra", cantidad]
+        let conteo = [];
+
+        // Recorremos cada palabra
+        palabras.forEach(palabraActual => {
+
+            // Buscamos si ya existe en el arreglo conteo
+            let referencia = conteo.find(item => item[0] == palabraActual);
+
+            if (!referencia) {
+                // Si NO existe, la agregamos con cantidad 1
+                conteo.push([palabraActual, 1]);
+            } else {
+                // Si ya existe, aumentamos la cantidad
+                referencia[1]++;
+            }
+
+        });
+
+        // Mostramos el resultado
+        document.querySelector("#resultado").innerHTML =
+            conteo.map(item => `${item[0]} → ${item[1]}`).join("<br>");
+
+    </script>
+
+</body>
+</html>
