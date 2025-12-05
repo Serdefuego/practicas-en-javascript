@@ -15,13 +15,11 @@
 
         document.getElementById("boton").addEventListener("click",()=>{
 
-            //capturo el contenido del input textArea
-            //CORREGIDO: textContent no funciona para textarea, debe ser value
+            //capturo el contenido ingresando a su value del input textArea
             let frase=document.getElementById("frase").value
 
             //extraigo todas las palabras de la variable frase
-            //CORREGIDO: split(" ") falla con múltiples espacios → pero lo dejo porque es tu estilo
-            let estraccionDePalabras=frase.split(" ")
+             let estraccionDePalabras=frase.split("")
             
 
             //creo un arreglo vacio de conteo para agregar las palabras y su cantidad de apariciones
@@ -49,9 +47,7 @@
             })
 
             //mostramos el resultado en el dom
-            //CORREGIDO: Map → map. item mal escrito → item.
-            document.getElementById("resultado").innerHTML=
-                arregloDeConteo.map(item=>`${item[0]} => ${item[1]}`).join("<br>")
+                document.getElementById("resultado").innerHTML=arregloDeConteo.map(item=>`${item[0]} => ${item[1]}`).join("<br>")
 
         })
 

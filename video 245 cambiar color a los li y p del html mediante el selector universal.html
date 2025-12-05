@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus mollitia,
+         itaque nulla voluptatibus neque cupiditate ipsam vero quos magni cumque ullam 
+         consequuntur ex incidunt ea reprehenderit impedit autem. Eveniet, qui!</P>
+
+    <ul>
+        <li>jhon</li>
+        <li>paul</li>
+        <li>ringo</li>
+        <li>george</li>
+    </ul>
+
+    <input type="button" value="cambiar color" id="boton">
+
+    <script>
+        document.getElementById("boton").addEventListener("click",()=>{
+
+                let nodelistLI=document.querySelectorAll("li")
+                let nodelistP=document.querySelectorAll("p")
+
+              document.body.style.backgroundColor="green" 
+              
+              nodelistLI.forEach(item=>{
+                item.style.color="blue"
+              })
+
+                 nodelistP.forEach(item=>{
+                item.style.color="white"
+              })
+              
+
+                          
+    
+
+         })
+    </script>
+</body>
+</html>
