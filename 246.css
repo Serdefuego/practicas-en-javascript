@@ -1,0 +1,14 @@
+.class_1{
+    color: red;
+    font-size: 44px;
+}
+
+.class_2{
+    color: yellow;
+    text-transform: uppercase;
+}
+
+.class_3{
+    border:2px solid blue;
+    padding: 10px;
+}
