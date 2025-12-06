@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/practicas-en-javascript/247.css">
+</head>
+<body>
+        <ul>
+            <li>inicio</li>
+            <li>contacto</li>
+            <li>quienes somos</li>
+            <li>preguntas frecuentes</li>
+        </ul>
+
+
+<input type="button" value="menu a izquierda" id="izquierda">
+<input type="button" value="menu a derecha" id="derecha">
+<input type="button" value="menu espaciado" id="espaciado">
+
+<SCript>
+
+    document.getElementById("izquierda").addEventListener("click",()=>{
+        let lista=document.querySelectorAll("ul")
+        lista.forEach(item=>{
+            item.classList.add("class_1")
+        })
+      
+        
+    })
+
+     document.getElementById("derecha").addEventListener("click",()=>{
+             let lista=document.querySelectorAll("ul")
+            lista.forEach(item=>{
+            item.classList.add("class_2")
+        })
+      
+    })
+
+    document.getElementById("espaciado").addEventListener("click",()=>{
+             let lista=document.querySelectorAll("ul")
+            lista.forEach(item=>{
+            item.classList.add("class_3")
+        })
+      
+    })
+
+</SCript>
+
+</body>
+</html>

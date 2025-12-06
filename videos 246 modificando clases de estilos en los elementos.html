@@ -32,41 +32,45 @@
         <input type="button" value="eliminar todas las clases" id="eliminar">
     </div>
 
-    <script>
-        document.getElementById("clase_1").addEventListener("click",()=>{
-            let titulo=document.getElementById("titulo")
+   <script>
 
-            titulo.classList.add("class_1")
-        })
+    //Con el metodo add de la ClassList agrego la clase class_1
+    document.getElementById("clase_1").addEventListener("click",()=>{
+        let titulo=document.getElementById("titulo")
+        titulo.classList.add("class_1")
+    })
 
-          document.getElementById("clase_2").addEventListener("click",()=>{
-            let titulo=document.getElementById("titulo")
+    //Con el metodo add de la ClassList agrego la clase class_2
+    document.getElementById("clase_2").addEventListener("click",()=>{
+        let titulo=document.getElementById("titulo")
+        titulo.classList.add("class_2")
+    })
 
-            titulo.classList.add("class_2")
-        })
+    //Con el metodo add de la ClassList agrego la clase class_3
+    document.getElementById("clase_3").addEventListener("click",()=>{
+        let titulo=document.getElementById("titulo")
+        titulo.classList.add("class_3")
+    })
 
-            document.getElementById("clase_3").addEventListener("click",()=>{
-            let titulo=document.getElementById("titulo")
+    //Con el metodo remove de la ClassList elimino del nodo la clase class_1
+    document.getElementById("eliminarClase1").addEventListener("click",()=>{
+        let titulo=document.getElementById("titulo")
+        titulo.classList.remove("class_1")
+    })
+    // Con el método toggle de classList conmuto la clase:
+    // Si "class_3" no está aplicada → la agrega
+    // Si "class_3" ya está aplicada → la elimina
+    document.getElementById("conmutar").addEventListener("click",()=>{
+        let titulo=document.getElementById("titulo")
+        titulo.classList.toggle("class_3")
+    })
 
-            titulo.classList.add("class_3")
-        })
+    //aqui direcctamente utilizo className para renombra a una clase vacia
+    document.getElementById("eliminar").addEventListener("click",()=>{
+        let titulo=document.getElementById("titulo")
+        titulo.className = "";   
+    })
+</script>
 
-            document.getElementById("eliminarClase1").addEventListener("click",()=>{
-            let titulo=document.getElementById("titulo")
-
-            titulo.classList.remove("class_1")
-        })
-            document.getElementById("conmutar").addEventListener("click",()=>{
-            let titulo=document.getElementById("titulo")
-
-            titulo.classList.toggle("class_3")
-        })
-            document.getElementById("eliminar").addEventListener("click",()=>{
-            let titulo=document.getElementById("titulo")
-
-            titulo.classList.replace("class_2")
-        })
-
-    </script>
 </body>
 </html>
