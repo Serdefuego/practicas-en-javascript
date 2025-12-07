@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="tipos">tipos de control de input</label>
+        <select name="" id="tipos"></select>
+    </div>
+
+    <div>
+        <input type="button" id="mostrar" value="mostrar">
+    </div>
+
+    <div>
+        <input type="text" id="ejemplo">
+    </div>
+
+    <p id="descripccion"></p>
+   
+    <script>
+        //accedemos a la etiqueta select y modificamos los tipos
+        const tiposInput=[
+            {tipo:"text",descripccion:"campo de texto para introducir texto."},
+            {tipo:"number",descripccion:"campo de texto para introducir números"},
+            {tipo:"email",descripccion:"campo de texto para introducir direcciones de correo"},
+            {tipo:"pasword",descripccion:"campo de texto para introducir contraseñas"},
+            {tipo:"checkbox",descripccion:"casilla de verificacion para seleccionar una opcción"},
+            {tipo:"radio",descripccion:"botón de radio para seleccionar una opción"},
+            {tipo:"submit",descripccion:"botón para enviar un formulario"},
+            {tipo:"reset",descripccion:"botóm para recetear un formulario"},
+            {tipo:"file",descripccion:"campo para seleccionar archivos para cargar"},
+            {tipo:"date",descripccion:"campo para introducir una fecha"},
+            {tipo:"time",descripccion:"campo para introdocir una hora"},
+            {tipo:"datetime-local",descripccion:"campo para introducir una fecha y hora local"},
+            {tipo:"week",descripccion:"campo para introducir una semana del año"},
+            {tipo:"range",descripccion:"control deslizante para seleccionar un valor numerico en un rango"},
+            {tipo:"search",descripccion:"campo de búsqueda para buscar dentro del sitio o aplicación"},
+            {tipo:"tel",descripccion:"campo para introducir número de teléfono"},
+            {tipo:"url",descripccion:"campo de texto para introducir una dirección URL"},
+            {tipo:"color",descripccion:"campo para seleccionar un color"}
+        ]
+
+        //dentro de #tipos voy a crear un elemento html option 
+        //que va a tener en su value el tipo 
+        document.querySelector("#tipo").innerHTML=
+        tiposInput.map(elemeto=>`<option value="${elemeto.tipo}">${elemeto.tipo}</option>`).join("")
+
+        document.querySelector("#mostrar").addEventListener("click",()=>{
+            const tipo=document.querySelector("#tipo").value
+            document.querySelector("#ejemplo").type=tipo
+            document.querySelector("#descripcion").textContent=
+            tiposInput.find(elemeto=>elemeto.tipo==tipo).descripccion
+        })
+    </script>
+</body>
+</html>
