@@ -5,23 +5,15 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <label for="tipos">Tipos de control de input</label>
-        <select id="tipos"></select>
-    </div>
+    <label for="selccion"></label>
+    <select name="selector" id="selector"></select>
 
-    <div>
-        <input type="button" id="mostrar" value="Mostrar">
-    </div>
-
-    <div>
-        <input type="text" id="ejemplo">
-    </div>
-
+    <input type="button" value="resultado" id="resultado">
     <p id="descripccion"></p>
-   
+
+
     <script>
-        //aqui el arreglo de objetos con los tipos y ñas descripcciones de los options
+
         const tiposInput = [
             {tipo:"text",descripccion:"Campo de texto para introducir texto."},
             {tipo:"number",descripccion:"Campo para introducir números."},
@@ -43,28 +35,25 @@
             {tipo:"color",descripccion:"Campo para seleccionar un color."}
         ];
 
-        //capturo la etiqueta select para agragarle un innerHTML donde pondre todas las inputs que hay en elarreglo 
-        document.querySelector("#tipos").innerHTML =
+        //capturo el selector para incorporarle las etiquetas
+        let selector=document.getElementById("selector")
 
-        //tiposInput.map(...) recorre cada objeto y devuelve un string HTML <option value="...">...</option> para cada tipo.
-        //join("") une todos esos strings en uno solo (sin comas).
-        //innerHTML = ... inserta ese HTML dentro del <select>, así el desplegable tiene una opción por cada tipo del array.
-            tiposInput.map(obj => `<option value="${obj.tipo}">${obj.tipo}</option>`).join("");
-
-
-        // capturamos el Evento botón mostrar 
-        document.querySelector("#mostrar").addEventListener("click", () => {
-
-            //capturo en una variable lo que selecciono el usuario
-            const tipo = document.querySelector("#tipos").value;
-            //capturo el elemento de ejemplo y le cambio el type al valor de tipo seleccionado
-            document.querySelector("#ejemplo").type = tipo;
-
-            //capturo el elemento donde muestro la descripcion y busco mediante el metodo find dentro de los tipos de input
-            //la descripccion que coincida con el objeto.tipo
-            document.querySelector("#descripccion").textContent =
-                tiposInput.find(obj => obj.tipo === tipo).descripccion;
+        //recorro con un foreach el arreglo de option y cargo dentro del selector con un innerHTML
+        tiposInput.forEach(opcion => {
+            selector.innerHTML += `<option value="${opcion.tipo}">${opcion.tipo}</option>`
         });
+
+        //ahora capturo el evento de la seleccion de las opciones,ingreso a su value y luego 
+        //modifico el textContent de la etiqueta p donde muestro el resultado
+
+        document.getElementById("resultado").addEventListener("click", () => {
+            let resultado = document.getElementById("descripccion");
+            let valor = selector.value;
+
+            let opcion = tiposInput.find(opcion => opcion.tipo === valor);
+
+            resultado.textContent = opcion.descripccion;
+        })
     </script>
 </body>
 </html>
