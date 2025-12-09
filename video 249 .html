@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/practicas-en-javascript/249.css">
+</head>
+<body>
+    <div id="container">
+        <img id="imagen" src="/practicas-en-javascript/imagenes/imagen1.webp" alt="">
+    </div>
+
+    <div>
+        <input type="button" value="atras" id="atras">
+        <input type="button" value="siguiente" id="siguiente">
+    </div>
+
+    <h1 id="valor"></h1>
+
+    <script>
+        let seleccionado = 1;
+
+        function estadoBoton() {
+            // habilito siempre antes de decidir si deshabilito
+            document.getElementById("atras").disabled = false;
+            document.getElementById("siguiente").disabled = false;
+
+            if (seleccionado === 1) {
+                document.getElementById("atras").disabled = true;
+            }
+            if (seleccionado === 4) {
+                document.getElementById("siguiente").disabled = true;
+            }
+        }
+
+        // Llamo una vez al inicio
+        estadoBoton();
+
+        document.getElementById("atras").addEventListener("click", () => {
+            seleccionado -= 1;
+
+            let imagen = document.getElementById("imagen");
+            imagen.src = `/practicas-en-javascript/imagenes/imagen${seleccionado}.webp`;
+
+            estadoBoton();
+
+            document.getElementById("valor").textContent = seleccionado;
+        });
+
+        document.getElementById("siguiente").addEventListener("click", () => {
+            seleccionado += 1;
+
+            let imagen = document.getElementById("imagen");
+            imagen.src = `/practicas-en-javascript/imagenes/imagen${seleccionado}.webp`;
+
+            estadoBoton();
+
+            document.getElementById("valor").textContent = seleccionado;
+        });
+    </script>
+</body>
+</html>
