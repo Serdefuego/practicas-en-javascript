@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.google.com/?zx=1765408749643&no_sw_cr=1">buscador</a>
+    <a href="https://www.instagram.com/">instagram</a>
+    <a href="https://www.facebook.com/">facebook</a>
+
+    <input type="button" value="quitar enlace" id="boton">
+    <input type="button" value="agrgar atributo enlace" id="agregar">
+
+    <script>
+
+        document.getElementById("boton").addEventListener("click",()=>{
+
+            let capturaA=document.querySelectorAll("a")
+
+            //le quiero quitar el atriburo a a todos los enlaces
+            capturaA.forEach(item=>{
+                 item.removeAttribute("href");
+            })
+
+        })
+
+        document.getElementById("agregar").addEventListener("click",()=>{
+            let capturaA=document.querySelectorAll("a")
+
+            capturaA.forEach(item=>{
+                item.setAttribute("p","a")
+            })
+        })
+    </script>
+</body>
+</html>

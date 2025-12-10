@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/practicas-en-javascript/249.css">
+</head>
+<body>
+    <input type="button" value="atras" id="atras">
+    <input type="button" value="siguiente" id="siguiente">
+    <img src="/practicas-en-javascript/imagenes/imagen1.webp" alt="" id="imagen">
+    <h1 id="valor"></h1>
+    <script>
+     
+        let contador=1
+
+        function estadoBoton(){
+            document.getElementById("atras").disabled = false;
+            document.getElementById("siguiente").disabled = false;
+            if(contador<2){
+                document.getElementById("atras").disabled=true
+            }
+            if(contador>3){
+                document.getElementById("siguiente").disabled=true
+            }
+        }
+       
+             
+        document.getElementById("atras").addEventListener("click",()=>{
+            
+            contador--
+            estadoBoton()
+            let valor=document.getElementById("valor")
+            valor.textContent=contador
+                         
+            let imagen=document.getElementById("imagen").src=`/practicas-en-javascript/imagenes/imagen${contador}.webp`
+          
+        })
+        document.getElementById("siguiente").addEventListener("click",()=>{
+       
+            contador++
+            estadoBoton() 
+            let valor=document.getElementById("valor")
+            valor.textContent=contador
+                    
+            let imagen=document.getElementById("imagen").src=`/practicas-en-javascript/imagenes/imagen${contador}.webp`
+         
+        })
+    </script>
+</body>
+</html>
