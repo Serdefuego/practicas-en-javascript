@@ -18,32 +18,53 @@
     <h1 id="valor"></h1>
 
     <script>
+        //creo una variable donde cuento el numero de la seleccion
         let seleccionado = 1;
 
+        //creo una funcion donde habilito o desabilito el atributo disable del boton
+        //dependiendo en el estado en que se encuetre
         function estadoBoton() {
             // habilito siempre antes de decidir si deshabilito
             document.getElementById("atras").disabled = false;
             document.getElementById("siguiente").disabled = false;
 
+            //si la seleccion es 1 entonces desactivo el boton atras
             if (seleccionado === 1) {
                 document.getElementById("atras").disabled = true;
             }
+
+            //si la seleccion es 4 entonces desactivo el boton siguiente
             if (seleccionado === 4) {
                 document.getElementById("siguiente").disabled = true;
             }
         }
 
-        // Llamo una vez al inicio
+        // Llamo una vez al inicio para ver en que numero se encuentra y si hay que desabilitarlo
         estadoBoton();
 
+
+        //capturo el evento click del boton atras y resto 1 al contador seleccion
+        //capturo la imagen
+        //accedo al atributo src de la imagen y le asigno el numero de la seleccion
+        //llamo a la funcion estado boton para analizar en que estado se encuentra
+        //cambio el contenido de texto del h1
+
         document.getElementById("atras").addEventListener("click", () => {
+            //al apretar el boton decrementa el valor de seleccion
             seleccionado -= 1;
 
+            //capturo la imagen en la variable imagen
             let imagen = document.getElementById("imagen");
+
+            //cambio el valor del atributo src accediendo a la ruta de la imagen concatenando en el lugar del numero
+            //el valor de la variable seleccion
             imagen.src = `/practicas-en-javascript/imagenes/imagen${seleccionado}.webp`;
 
+            //hago el llamado de la funcion estadoBoton para ver en que situacion se encuentra y si es necesario
+            //habilitarlo o deshabilitarlo
             estadoBoton();
 
+            //aqui cambio el textContent del elemento h1 donde visualizo el contador
             document.getElementById("valor").textContent = seleccionado;
         });
 
