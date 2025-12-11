@@ -10,15 +10,21 @@
     <a href="https://www.facebook.com/">facebook</a>
 
     <input type="button" value="quitar enlace" id="boton">
-    <input type="button" value="agrgar atributo enlace" id="agregar">
+    <input type="button" value="agregar atributo enlace" id="agregar">
 
     <script>
+
+        // 🔹 Guardamos los enlaces originales antes de quitarlos
+        let enlacesOriginales = [];
+        document.querySelectorAll("a").forEach((item, i) => {
+            enlacesOriginales[i] = item.getAttribute("href");
+        });
 
         document.getElementById("boton").addEventListener("click",()=>{
 
             let capturaA=document.querySelectorAll("a")
 
-            //le quiero quitar el atriburo a a todos los enlaces
+            // 🔸 Le quitamos el atributo href a todos los <a>
             capturaA.forEach(item=>{
                  item.removeAttribute("href");
             })
@@ -26,12 +32,15 @@
         })
 
         document.getElementById("agregar").addEventListener("click",()=>{
+
             let capturaA=document.querySelectorAll("a")
 
-            capturaA.forEach(item=>{
-                item.setAttribute("p","a")
+            // 🔸 Volvemos a colocar el href original
+            capturaA.forEach((item, i)=>{
+                item.setAttribute("href", enlacesOriginales[i]);
             })
         })
+
     </script>
 </body>
 </html>
