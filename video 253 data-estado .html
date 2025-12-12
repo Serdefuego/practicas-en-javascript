@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="actividades">
+        <li data-estado="completada">correr</li>
+        <li data-estado="completada">desayunar</li>
+        <li data-estado="completada">reunion</li>
+        <li data-estado="pendiente">almorzar</li>
+        <li data-estado="pendiente">cenar</li>
+    </ul>
+
+    <input type="button" id="boton" value="cantidad de tareas completadas">
+
+    <script>
+        let actividades=document.querySelectorAll("li")
+        
+        document.getElementById("boton").addEventListener("click",()=>{
+            for (actividad of actividades){
+                let elemento=document.createElement("p")
+                elemento.textContent=`${actividad.textContent} = ${actividad.dataset.estado}`
+                if(actividad.dataset.estado=="completada"){
+                    document.body.append(elemento)
+                }
+                
+            }
+        })
+
+    </script>
+</body>
+</html>
