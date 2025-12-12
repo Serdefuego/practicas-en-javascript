@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li data-precio="200" data-nombre="guitarra">fender </li>
+         <li data-precio="200" data-nombre="bajo">cort</li>
+          <li data-precio="200" data-nombre="saxofon">yamaha</li>
+    </ul>   
+    <input type="button" value="mostrar atributos no estandar" id="boton">
+    <ul id="resultado">
+
+    </ul>
+
+    <script>
+        let resultado=document.getElementById("resultado")
+        let lista=document.querySelectorAll("li")
+        document.getElementById("boton").addEventListener("click",()=>{ 
+           
+      
+            lista.forEach(item=>{
+                let itemsLista=document.createElement("li") 
+                itemsLista.textContent=`nombre : ${item.dataset.nombre} - precio: ${item.dataset.precio}-Marca:${item.textContent} `
+                resultado.append(itemsLista)
+            })
+        })
+
+    </script>
+    
+</body>
+</html>
