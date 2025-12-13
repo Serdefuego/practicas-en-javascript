@@ -17,18 +17,30 @@
     <input type="button" id="boton" value="cantidad de tareas completadas">
 
     <script>
+        //capturo el nodelist de los elementos li
         let actividades=document.querySelectorAll("li")
         
+        //capturo el evento del click
         document.getElementById("boton").addEventListener("click",()=>{
-            for (actividad of actividades){
+            //recorro con un for of cada elemento li
+            for (actividad of actividades){ 
+
+                //creo un elemento p vacio por cada li
                 let elemento=document.createElement("p")
+
+                //al p le pongo el nombre y el estado de la actividad accediendo a su dataset
                 elemento.textContent=`${actividad.textContent} = ${actividad.dataset.estado}`
+
+                //si el estado de la actividad se encuentra "completada" la agrego al dom
+                //esto va a mostrar en el navegador solo las actividades completadas
                 if(actividad.dataset.estado=="completada"){
                     document.body.append(elemento)
                 }
                 
             }
         })
+
+    
 
     </script>
 </body>
