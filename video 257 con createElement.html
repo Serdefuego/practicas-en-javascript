@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    table{
+        border-collapse: collapse;
+        width:100%;
+    }
+    th,td{
+        padding:12px;
+        text-align:left;
+        border:1px solid #ddd;
+    }
+    th{
+        background-color: #4caf50;
+        color: white;
+        font-weight:bold;
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Clave</th>
+        </tr>
+    </thead>
+    <tbody>
+         <tr>
+            <td>Juan Perez</td>
+            <td>juan.perez@gmail.com</td>
+            <td>clave1</td>
+        </tr>
+        <tr>
+            <td>Marcos Lagña</td>
+            <td>mnlmutan@gmail.com</td>
+            <td>pepetito</td>
+        </tr>
+        <tr>
+            <td>Julieta Flores</td>
+            <td>julifloremdq@gmail.com</td>
+            <td>luliplon</td>
+        </tr>        
+    </tbody>
+</table>
+<div>
+<label for="nombre"></label>
+ <input type="text" id="nombre">
+ <label for="mail"></label>
+ <input type="text" id="mail">
+ <label for="Clave"></label>
+ <input type="text" id="clave">
+</div>
+<input type="button" value="mandar" id="boton">
+ 
+
+    <script>
+     
+        document.getElementById("boton").addEventListener("click",()=>{
+            //capturo los input y los asigno en una variable
+            let nombre=document.getElementById("nombre").value
+            let mail=document.getElementById("mail").value
+            let clave=document.getElementById("clave").value
+
+            //creo los elelementos tr y td de cada valor
+            let trow=document.createElement("tr")
+            let tdnombre=document.createElement("td")
+            let tdmail=document.createElement("td")
+            let tdclave=document.createElement("td")
+
+            //ca cada elelemento le asigno el valor que ler corresonde
+            tdnombre.textContent=nombre
+            tdclave.textContent=clave
+            tdmail.textContent=mail
+
+            //mediante append inserto los valores al tr
+            trow.append(tdnombre,tdmail,tdclave)
+            //capturo el body de la tabla
+            let tabla = document.querySelector("tbody")
+            //mediante append inserto el trow con todos los items y los valores
+            tabla.append(trow)
+
+
+           
+        })
+
+    </script>
+</body>
+</html>

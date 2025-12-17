@@ -30,10 +30,11 @@
             }
         }
         function captura(){
-            let nombre=document.getElementById("nombre").value
-            let clave=parseInt(document.getElementById("clave").value)
-            let mail=document.getElementById("mail").value
-            return([nombre,clave,mail])
+          return{
+             nombre:document.getElementById("nombre").value,
+             clave:parseInt(document.getElementById("clave").value),
+             mail:document.getElementById("mail").value
+           }
         }
 
         function blanqueo(){
@@ -45,7 +46,7 @@
         
         document.getElementById("boton").addEventListener("click",()=>{
          let valores=captura()
-         let persona=new Usuario(valores[0],valores[1],valores[2])
+         let persona=new Usuario(valores.nombre,valores.clave,valores.mail)
          persona.imprimir()
          blanqueo()
         })
