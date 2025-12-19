@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adivinar el numero</title>
+</head>
+<body>
+    <div>
+        <label for="numero">ingrese número para ver si gana</label>
+        <input type="number" id="numero">
+    </div>  
+    <ol id="lista"></ol>
+    <input type="button" value="probar" id="boton">
+   
+    <script>
+           //declaro una variable con el numero a obtener
+            let ganador=parseInt((Math.random()*50)+1)
+       
+        function borrar(){
+            let ingresoBorrar=document.getElementById("numero")
+            ingresoBorrar.value=""
+        }
+
+        document.getElementById("boton").addEventListener("click",()=>{
+         
+      
+            let lista=document.getElementById("lista")
+            let ingreso=parseInt(document.getElementById("numero").value)
+            if(ingreso>ganador){
+                let li=document.createElement("li")
+                li.textContent=`el numero que pense es menor a ${ingreso} `
+                lista.append(li)
+            }else if(ingreso<ganador){
+                let li=document.createElement("li")
+                li.textContent=`el numero que pense es mayor a ${ingreso} `
+                lista.append(li)
+            }else if(ingreso==ganador){
+                let li=document.createElement("li")
+                li.textContent=`el numero que pense ${ingreso} usted ganó `
+                lista.append(li)
+            }
+            borrar()
+        })
+    </script>
+</body>
+</html>

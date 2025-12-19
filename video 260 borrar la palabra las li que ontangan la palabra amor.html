@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+<h1>Frases célebres</h1>
+<ul id="frases">
+    <li>"La guerra es la continuación de la política por otros medios". - Carl von Clausewitz</li>
+    <li>"La libertad no es nada más que una oportunidad para ser mejor". - Albert Camus</li>
+    <li>"El patriotismo es la virtud de los depravados". - Oscar Wilde</li>
+    <li>"La vida es como una bicicleta, para mantener el equilibrio hay que seguir adelante". - Albert Einstein</li>
+    <li>"El arte de la guerra es el arte de la paz". - Sun Tzu</li>
+    <li>"La educación es el arma más poderosa que puedes usar para cambiar el mundo". - Nelson Mandela</li>
+    <li>"La guerra no es una aventura. Es una enfermedad". - Antoine de Saint-Exupéry</li>
+</ul>
+
+<input type="button" id="boton1" value="Borrar frases que contengan la palabra 'guerra'">
+
+<script>
+ 
+    document.getElementById("boton1").addEventListener("click",()=>{
+    //capturo  los elementos li dentro del ul
+    let arreglo=document.querySelectorAll("#frases li");
+    for(lifrase of arreglo ){
+        //ahora utilizo includes para preguntar si dentro del textContent del li includes("guerra")
+        if(lifrase.textContent.toLowerCase().includes("guerra")){
+            lifrase.remove()
+        }
+    }
+
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const usuarios=[
+            {nombre:"Marcos",estado:true},
+            {nombre:"Julieta",estado:false},
+            {nombre:"Lucas",estado:true},
+            {nombre:"cecilia",estado:false},
+            {nombre:"Martina",estado:true},
+            {nombre:"Juani",estado:false},
+            {nombre:"Damito",estado:true},
+            {nombre:"Marta",estado:false},
+        ]
+
+        //creo el boton 
+        let boton=document.createElement("button")
+        //con el setAtribute le agrego un id
+        boton.setAttribute("id","boton")
+        //con el textContent le pongo un texto visible
+        boton.textContent="eliminar"
+        //con el append lo meto en el body
+        document.body.append(boton)
+        //creo un contenedor ol
+        let lista=document.createElement("ol")
+        //meto el ol dentro del body
+        document.body.append(lista)
+        //recorro el arreglo de usuarios con un forEach y voy creando un elemento li
+        //por cada element, ademas le pongo el nombre y el estado con textContent
+        //finalmente lo inserto con el append dentro del ol
+        usuarios.forEach(element => {
+            let li=document.createElement("li")
+            //aqui consulto si el estado del elemento esta en false
+            //le agrego un atributo no estandar que diga mal ,del modo contrario
+            //le agrego uno que diga bien
+            if(element.estado==false){
+                
+                li.setAttribute("estado","mal")
+            }else{
+                li.setAttribute("estado","bien")
+            }
+            li.textContent=`${element.nombre} , ${element.estado}`
+            lista.append(li)
+            
+        });
+
+
+        boton.addEventListener("click",()=>{
+            let todosLi=document.querySelectorAll("li")
+            for(listas of todosLi){
+                if(listas.getAttribute("estado")=="mal"){
+                    listas.remove()
+                }
+            }
+           
+        })
+    </script>
+</body>
+</html>
