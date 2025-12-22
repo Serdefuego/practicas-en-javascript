@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="texto">ingrese texto</label>
+        <input type="text" id="ingreso">
+    </div>
+  
+    <p id="parrafo"></p>
+    <script>
+
+        //primer dasafio de l video
+
+        document.getElementById("ingreso").addEventListener("keyup",()=>{
+            let valor=document.getElementById("ingreso").value
+            let parrafo=document.getElementById("parrafo")
+            parrafo.textContent=valor
+        })
+
+        // segundo desafio
+
+        let div = document.createElement("div")
+        let input = document.createElement("input")
+        let label = document.createElement("label")
+        let p=document.createElement("p")
+
+        input.type = "text"
+        input.setAttribute("id", "binario")
+        p.setAttribute("id","parrafo2")
+
+        label.textContent = "binario"
+        label.setAttribute("for", "binario")
+
+        div.append(label, input,p)
+        document.body.append(div)
+
+          
+        document.getElementById("binario").addEventListener("keydown",()=>{
+          
+            let input = document.getElementById("binario")
+            let parrafo2 = document.getElementById("parrafo2")
+
+            input.addEventListener("input", () => {
+            let ultimoCaracter = input.value.slice(-1)
+
+            if (ultimoCaracter !== "0" && ultimoCaracter !== "1") {
+                input.value = input.value.slice(0, -1)
+                return
+            }
+
+            parrafo2.textContent += ultimoCaracter
+            })
+        })
+
+    </script>
+</body>
+</html>
