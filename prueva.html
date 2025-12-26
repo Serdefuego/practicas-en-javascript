@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <input type="text" id="email">
+<script>
+ //Escuchar el evento "Enter" en el input
+//Validar que no esté vacío (trim)
+//Mostrar alerta o mensaje si está vacío
+  document.getElementById("email").addEventListener("keypress",(tecla)=>{
+    let texto=document.getElementById("email").value
+    if(tecla.key=="Enter"){
+        if(texto==""){
+                alert("Esta vacio")
+    }
+    }
+  
+  })
+ 
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nombre">ingrese nombre del usuario</label>
+    <input type="text" id="nombre">
+
+    <script>
+        let arregloDeUsuarios=[]
+       
+        document.getElementById("nombre").addEventListener("keypress",(evento)=>{
+            if(evento.key=="Enter"){
+          
+                let usuario={}
+                let nombre=document.getElementById("nombre").value
+                usuario["nombre"]=nombre
+                arregloDeUsuarios.push(usuario)
+
+                
+                        let p =document.createElement("p")
+                        p.textContent=usuario.nombre
+                        document.body.append(p)
+                     
+            }
+        })
+
+     
+
+    </script>
+</body>
+</html>
+
+ 

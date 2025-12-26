@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let divi=document.createElement("div")
+        divi.setAttribute("id","contenedor")
+        let label=document.createElement("label")
+        label.setAttribute("for","texto")
+        label.textContent="ingrese texto"
+        let areaDeTexto=document.createElement("textarea")
+        areaDeTexto.setAttribute("id","texto")
+        divi.append(label,areaDeTexto)
+        document.body.append(divi)
+     
+        let resultado=document.createElement("p")
+        resultado.setAttribute("id","cantidad")
+        document.body.append(resultado)
+
+        document.getElementById("texto").addEventListener("input",(evento)=>{
+               let cantidad=document.getElementById("texto").value.length
+               if(cantidad>50){
+                alert("ya no puede escribir más")
+                let valorAEliminar=document.getElementById("texto").value
+                valorAEliminar.slice(0, -1)
+               }else{
+                document.getElementById("cantidad").textContent=cantidad
+               }
+               
+
+
+        })
+    </script>
+</body>
+</html>
