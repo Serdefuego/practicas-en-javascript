@@ -5,34 +5,48 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        let divi=document.createElement("div")
-        divi.setAttribute("id","contenedor")
-        let label=document.createElement("label")
-        label.setAttribute("for","texto")
-        label.textContent="ingrese texto"
-        let areaDeTexto=document.createElement("textarea")
-        areaDeTexto.setAttribute("id","texto")
-        divi.append(label,areaDeTexto)
-        document.body.append(divi)
-     
-        let resultado=document.createElement("p")
-        resultado.setAttribute("id","cantidad")
-        document.body.append(resultado)
+  <script>
+    //creo un div contenedor 
+    let divi = document.createElement("div")
+    divi.setAttribute("id","contenedor")
+    //creo una etiqueta label
+    let label = document.createElement("label")
+    label.setAttribute("for","texto")
+    label.textContent = "Ingrese texto"
 
-        document.getElementById("texto").addEventListener("input",(evento)=>{
-               let cantidad=document.getElementById("texto").value.length
-               if(cantidad>50){
-                alert("ya no puede escribir más")
-                let valorAEliminar=document.getElementById("texto").value
-                valorAEliminar.slice(0, -1)
-               }else{
-                document.getElementById("cantidad").textContent=cantidad
-               }
-               
+    //creo un input textArea
+    let areaDeTexto = document.createElement("textarea")
+    areaDeTexto.setAttribute("id","texto")
 
+    //inserto dentro del divi el label y el textArea
+    divi.append(label, areaDeTexto)
+    document.body.append(divi)
 
-        })
-    </script>
+    //creo e inserto un p donde pondre la cant de caracteres escritos en el textArea
+    let resultado = document.createElement("p")
+    resultado.setAttribute("id","cantidad")
+    document.body.append(resultado)
+
+    //capturo el texto dentro del textArea
+    const texto = document.getElementById("texto")
+    //capturo el p donde alojare imprimire la cantidad de caracteres
+    const cantidadP = document.getElementById("cantidad")
+    //establezcon una variable con 50 que sera el max de caracteres
+    const MAX = 50
+
+    texto.addEventListener("input", () => {
+        //declaro una variable que tendra el length del textArea
+        let cantidad = texto.value.length
+
+        //si la cantidad supera al max entonces el value del textArea se recorta en el caracter 50
+        //se vuelve asignar cantidad en 50 y luego el p imprime la cantidad 
+        if (cantidad > MAX) {
+            texto.value = texto.value.slice(0, MAX)
+            cantidad = MAX
+        }
+
+        cantidadP.textContent = cantidad
+    })
+</script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .verde{background-color: green;
+        width: 200px;
+        height: 200px;}
+        .rojo{background-color: red;
+         width: 200px;
+        height: 200px;}
+        .azul{background-color: blue;
+         width: 200px;
+        height: 200px;}
+    </style>
+    <div class="rojo" id="rojo">
+    </div>
+    <div class="verde" id="verde">
+    </div>
+    <div class="azul" id="azul">
+    </div>
+
+    <script>
+        let verde=document.getElementsByClassName("green")
+        let rojo=document.getElementsByClassName("rojo")
+        let azul=document.getElementsByClassName("azul")
+
+       document.getElementById("verde").addEventListener("mouseover",()=>{
+            document.body.style.backgroundColor="green"
+        })
+
+         document.getElementById("verde").addEventListener("mouseleave",()=>{
+            document.body.style.backgroundColor="white"
+        })
+
+         document.getElementById("rojo").addEventListener("mouseover",()=>{
+            document.body.style.backgroundColor="red"
+        })
+        
+        document.getElementById("rojo").addEventListener("mouseleave",()=>{
+            document.body.style.backgroundColor="white"
+        })   
+
+        document.getElementById("azul").addEventListener("mouseover",()=>{
+            document.body.style.backgroundColor="blue"
+        })
+         document.getElementById("azul").addEventListener("mouseleave",()=>{
+            document.body.style.backgroundColor="white"
+        })
+    </script>
+</body>
+</html>
