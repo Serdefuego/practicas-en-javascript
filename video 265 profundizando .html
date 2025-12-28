@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--dejo el style aca para hacer mas comodo-->
+    <style>
+        .rojo { background-color: red; }
+        .verde { background-color: green; }
+        .azul { background-color: blue; }
+        .blanco { background-color: white; }
+
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+
+    <div id="panel">
+    <div class="box rojo" data-color="rojo"></div>
+    <div class="box verde" data-color="verde"></div>
+    <div class="box azul" data-color="azul"></div>
+
+    <!-- dejo el script aca para hacer mas comodo -->
+
+    <script>
+        //Cambiar el color de fondo del <body> al pasar el mouse por cajas de colores, usando un solo evento y sin estilos inline.
+            let contenedor=document.getElementById("panel").addEventListener("mouseover",(evento)=>{
+              
+                if(evento.target==document.getElementById("panel")){
+                    if(evento.target==document.getElementsByClassName("box rojo")){
+                        document.body.classList.add("rojo")
+                    }
+                 }
+            })
+        
+    </script>
+</body>
+</html>
