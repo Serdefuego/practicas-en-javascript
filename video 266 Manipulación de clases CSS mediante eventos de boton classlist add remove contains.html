@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .blanco{background-color: aqua;}
+        .rojo{background-color: red;}
+    </style>
+                                                    <!--     Con UN solo botón: si está rojo → pasa a blanco
+                                                    si está blanco → pasa a rojo   Usando:classList.contains() -->
+
+
+<input type="button" value="cambia" id="cambia">
+
+<script>
+    //primero predetermino un estado para el dom con un classlit de color blanco
+    document.body.classList.add("blanco")
+
+    //capturo el evento click del boton
+    document.getElementById("cambia").addEventListener("click",()=>{
+        //pregunto si la clase del dom esta en banco entonces procedo a removerla y luego a cambiarla a rojo
+       if(document.body.classList.contains("blanco")){
+        document.body.classList.remove("blanco")
+        document.body.classList.add("rojo")
+
+         //sino ,si la clase del dom esta en rojo entonces procedo a removerla y luego a cambiarla a blanco
+       } else if(document.body.classList.contains("rojo")){
+            document.body.classList.remove("rojo")
+            document.body.classList.add("blanco")
+        }
+       
+    })
+
+</script>
+</body>
+</html>

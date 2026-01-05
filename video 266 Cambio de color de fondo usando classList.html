@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .rojo{
+            background-color: red;
+        }
+        .blanco{
+            background-color: white;
+        }
+    </style>
+    <input type="button" value="rojo" id="rojo">
+    <input type="button" value="blanco" id="blanco">
+    <script>
+
+document.getElementById("rojo").addEventListener("click",()=>{
+     document.body.classList.remove("blanco")
+    document.body.classList.add("rojo")    
+})
+document.getElementById("blanco").addEventListener("click",()=>{
+    document.body.classList.remove("rojo") 
+    document.body.classList.add("blanco")    
+})
+
+
+/* 📄 CONSIGNA — Nivel Inicial / Fundamentos
+Crear una página web que contenga:
+Dos botones:
+uno con la etiqueta “rojo”
+otro con la etiqueta “blanco”
+Al hacer click en cada botón:
+el fondo de la página debe cambiar al color indicado por el botón
+El cambio de color debe realizarse:
+usando clases CSS
+manipuladas desde JavaScript
+🎯 Objetivos del ejercicio
+Practicar addEventListener
+Practicar classList.add() y classList.remove()
+Separar estilos (CSS) de lógica (JS)
+Entender que el botón no cambia el color directamente, sino el estado del body */
+
+    </script>
+</body>
+</html>
