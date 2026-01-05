@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Consigna – JavaScript
+Desarrollar una lista de tareas usando HTML, CSS y JavaScript puro.
+Requisitos:
+Input + botón Agregar
+Las tareas se guardan en un array de objetos:
+{ id, texto, estado }
+Renderizar la lista desde JavaScript (nada escrito a mano en HTML)
+Cada tarea debe tener:
+Texto
+Botón Completar (cambia estado y se refleja visualmente)
+Botón Eliminar (borra solo esa tarea)
+El estado debe manejarse en JS, no solo con CSS -->
+<h1>lista de tareras</h1>
+<input type="text" id="valor">
+<ul id="lista"></ul>
+<input type="button" value="agregar" id="agregar">
+<input type="button" value="imprimir" id="imprimir">
+
+<script>
+    let contenedorDeTareas=document.getElementById("lista")
+    let arregloTareas=[]
+    let contador=0
+
+    function crearTarea(){
+        contador++
+         let valor=document.getElementById("valor").value
+         if(valor!=""){
+                let li=document.createElement("li")
+                li.textContent=valor
+              //esto no me esta funcionando
+               let estado = document.createElement("input")
+                    estado.type = "checkbox"
+                   
+                let eliminar=document.createElement("input")
+                    eliminar.value="eliminar"
+                    eliminar.type="button" 
+
+                li.append(estado,eliminar)
+                    contenedorDeTareas.append(li)
+                document.getElementById("valor").value=""
+
+                let tarea={
+                    id:contador,
+                    nombre:valor,
+                    estado:estado.value
+                }
+                arregloTareas.push(tarea)
+                }else{
+                    alert("complete el campo")
+                }
+
+                eliminar.addEventListener("click",()=>{
+                    li.remove()
+                    arregloTareas.unshift()
+                })
+                estado.addEventListener("change", () => {
+                console.log("cambia estado")
+                })
+   
+    }
+  
+    document.getElementById("agregar").addEventListener("click",()=>{
+        crearTarea()
+    })
+   
+    document.getElementById("imprimir").addEventListener("click",()=>{
+        arregloTareas.forEach(item=>{
+            let p=document.createElement("p")
+            p.textContent=`${item.id}-${item.nombre}-${item.estado}`
+            document.body.appendChild(p)
+        })
+    })
+
+</script>
+</body>
+</html>

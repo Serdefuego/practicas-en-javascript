@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+           .contenedor{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cuadro{
+        width:100px;
+        height:100px;
+        margin:10px;
+        cursor: pointer;
+        border: 5px solid black;
+    }
+
+    .rojo{ background-color: red; }
+    .blanco{
+        background-color: white;
+        outline: 5px solid black;
+    }
+    </style>
+
+    <div class="contenedor">
+        <div class="cuadro rojo" data-color="rojo"></div>
+        <div class="cuadro blanco" data-color="blanco"></div>
+    </div>
+
+    
+    <script>
+        //capturo el contenedor con un queryselector accediendo al nombre de la clase
+            const contenedor = document.querySelector(".contenedor");
+        //capturo el evento del doble click
+        contenedor.addEventListener("dblclick",(evento)=>{
+            //si el evento en el target donde se  realizo dblclick contiene un elemento con la 
+            //clase "cuadro" entonces:
+            if(evento.target.classList.contains("cuadro")){
+                //primero quito las clases previas
+                document.body.classList.remove("rojo","blanco")
+
+                //luego agrego el color del data color
+                document.body.classList.add(evento.target.dataset.color)
+            }
+        })
+    </script>
+
+</body>
+</html>
