@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!--  Toggle con texto (muy leve subida)
+👉 1 botón
+👉  cambio de color azul a verde
+👉 El texto del botón debe indicar el color actual -->
+
+<h1 id="texto">texto coloreado</h1>
+
+<style>
+    .azul{color: blue;
+    text-align: center;}
+
+    .verde{color: green;
+    text-align: center;
+    font-size: 50px;}
+
+    body{background-color: black;}
+
+    h1{color: white;
+    text-align: center;}
+
+    button{align-items: center;}
+</style>
+
+<input type="button" value="boton" id="boton">
+
+<script>
+    let texto=document.getElementById("texto")
+    document.getElementById("texto").classList.add("azul")
+    document.getElementById("boton").value="ahora estas en azul"
+
+    function cambiarAzul(){
+          document.getElementById("boton").value="ahora estas en azul"
+          document.getElementById("texto").classList.remove("verde")
+          document.getElementById("texto").classList.add("azul")
+        }
+
+    function cambiarVerde(){
+          document.getElementById("boton").value="ahora estas en verde"
+          document.getElementById("texto").classList.remove("azul")
+          document.getElementById("texto").classList.add("verde")
+        }
+      
+    
+
+    document.getElementById("boton").addEventListener("click",()=>{
+        if(document.getElementById("texto").classList.contains("azul")){
+            cambiarVerde()
+        }else{
+             cambiarAzul()
+        }
+        
+    })
+</script>
+</body>
+</html>
