@@ -14,21 +14,24 @@ Usar una sola clase de estado en el body>
  -->
 
  <style>
-    body{
-        background-color: black;
-    }
+        body{
+            background-color: black;
+        }
 
-    .amarillo{
-        color: yellow;
-        text-align: center;
-    }
-    .azul{
-        color: blue;
-        text-align: center;
-    }
-    button{
-        justify-content: center;
-    }
+        body.amarillo h1,
+        body.amarillo p{
+            color: yellow;
+            text-align: center;
+        }
+
+        body.azul h1,
+        body.azul p{
+            color: blue;
+            text-align: center;
+        }
+        button{
+            justify-content: center;
+        }
  </style>
  <h1 id="titulo">titulo</h1>
 
