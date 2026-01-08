@@ -5,7 +5,17 @@
     <title>Document</title>
 </head>
 <body>
-<!--    -->
+<!-- 
+    Desarrollar una aplicación web de Lista de Tareas que cumpla con los siguientes requisitos:
+1️⃣ Agregar tareas
+El usuario debe poder escribir una tarea en un campo de texto.
+Al presionar el botón “Agregar”, la tarea debe mostrarse en una lista.
+Si el campo está vacío, no debe agregarse la tarea y debe mostrarse un aviso.
+2️⃣ Marcar tareas como realizadas
+Al hacer click sobre una tarea:
+Se debe marcar como realizada
+Visualmente debe verse tachada y cambiar de color
+Si se vuelve a hacer click, debe regresar al estado original (pendiente).   -->
 
 
 <style>
@@ -27,27 +37,36 @@
 </div>
 
 <script>
+    //capturo ul el input y el boton
     const lista = document.getElementById("lista");
     const input = document.getElementById("texto");
     const boton = document.getElementById("boton");
 
+    //creo la funcion para agregar tarea
     function agregarTarea() {
+        //si el input esta vacio sale un alert y vuelve
         if (input.value === "") {
             alert("Complete el campo de texto");
             return;
         }
 
+        //crea un li
         const li = document.createElement("li");
+        //al li se le asigna el value del input
         li.textContent = input.value;
 
+        //aqui se captura el click en la li y se le hace un toogle de class
         li.addEventListener("click", () => {
             li.classList.toggle("hecho");
         });
 
+        //se agrega un child "li" al ul
         lista.appendChild(li);
+        //se se asigna"" al value del input para vaciar el cuadro de texto
         input.value = "";
     }
 
+    //se captura el evento del boton y directamente se llama a la funcion
     boton.addEventListener("click", agregarTarea);
 </script>
 
