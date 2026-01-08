@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--     📄 CONSIGNA
+Crear una página web que cumpla con lo siguiente:
+1️⃣ Estructura
+Un h1 con un texto cualquiera Un p con un texto cualquiera Un botón con texto inicial: “Cambiar tema”
+2️⃣ Estados (OBLIGATORIO)
+Debe existir un solo estado global, manejado mediante clases en el body.
+Estados posibles:
+claro
+oscuro
+3️⃣ Comportamiento
+Al hacer click en el botón:
+Si el estado es claro:
+el fondo se vuelve claro
+el texto se vuelve oscuro
+el botón debe decir: “Tema oscuro”
+Si el estado es oscuro:
+el fondo se vuelve oscuro
+el texto se vuelve claro
+el botón debe decir: “Tema claro”
+4️⃣ Reglas (muy importantes)
+❌ NO usar style.background =
+❌ NO usar más de un addEventListener
+❌ NO usar dataset
+❌ NO usar variables globales innecesarias
+✅ Usar classList.contains()
+✅ Usar CSS que dependa del estado del body
+🧠 Lo que se evalúa
+Lectura de estado
+Cambio de estado
+Coherencia visual
+Claridad de código
+Diseño mental (no solo que “ande”) -->
+<style>
+    .claro{
+        background-color: beige;
+        color: black;
+        text-align: center;
+    }
+    .oscuro{
+        background-color: black;
+        color: aqua;
+        text-align: center;
+    }
+    
+</style>
+<div id="elementos">
+    <h1>titulo</h1>
+    <p>parrafo</p>
+</div>
+<input type="button" value="modo claro" id="boton">
+
+<script>
+    document.body.classList.add("claro")
+      
+    //funcion para cambiar de style
+        function cambiaStyle(){
+
+            if(document.body.classList.contains("claro")){
+                document.body.classList.remove("claro")
+                document.body.classList.add("oscuro")
+                document.getElementById("boton").value="modo oscuro"
+
+            }else if (document.body.classList.contains("oscuro")){
+                document.body.classList.remove("oscuro")
+                document.body.classList.add("claro")
+                document.getElementById("boton").value="modo claro"
+            }
+        }
+
+    //capturo evento del boton y llama a la funcion
+    document.getElementById("boton").addEventListener("click",()=>{
+        cambiaStyle()
+    })
+</script>
+</body>
+</html>

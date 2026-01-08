@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--     Crear una página con:
+🧱 HTML
+Un <h1> con el título: “Lista de tareas”
+Un <input type="text">
+Un <button> que diga “Agregar”
+Un <ul> vacío
+
+🧠 REGLAS OBLIGATORIAS
+Las tareas se guardan en un array de JavaScript
+NO crear <li> manualmente en HTML
+Cada vez que cambia el array → se vuelve a renderizar toda la lista
+Cada tarea debe tener:
+texto
+estado: pendiente o hecha
+
+🎨 COMPORTAMIENTO
+Al agregar:
+Se agrega una tarea pendiente
+El input se limpia
+Al hacer click en una tarea:
+Cambia su estado (pendiente ↔ hecha)
+Visual:
+pendiente → texto blanco
+hecha → texto gris + tachado (line-through)
+
+🚫 PROHIBIDO
+❌ innerHTML +=
+❌ Variables globales innecesarias
+❌ Manipular estilos desde JS
+❌ Copiar código viejo sin entender
+
+✅ LO QUE VOY A EVALUAR
+Uso correcto de array
+Función render() clara
+Estado bien manejado
+Código explicable
+Que funcione sin bugs -->
+
+<style>
+    div{
+        text-align: center;
+        color:black
+    }
+</style>
+
+<div>
+    <h1>lista de tareas</h1>
+    <input type="text" id="texto">
+    <input type="button" value="agregar" id="boton">
+    <ul id="lista"></ul>
+</div>
+
+<script>
+    let lista=document.getElementById("lista")
+    
+    function vacio(){
+            let texto=document.getElementById("texto")
+            if(texto.value==""){
+                alert("complete el campo de texto")
+                lista.remove(li)
+            }
+    }
+    function cargaTexto(){
+        let texto=document.getElementById("texto")
+        let li=document.createElement("li")
+        li.textContent=texto.value
+        lista.append(li)
+        document.getElementById("texto").value=""
+    }
+
+    function limpiaTexto(){
+        texto.textContent=""
+    }
+    function hecha(){
+        
+    }
+    document.getElementById("boton").addEventListener("click",()=>{
+     vacio()   
+     cargaTexto()
+     limpiaTexto()
+    })
+</script>
+
+</body>
+</html>
