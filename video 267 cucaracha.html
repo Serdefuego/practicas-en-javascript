@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    .cucaracha{
+        position: absolute;
+        width: 50px;
+        height: 70px;
+        cursor: pointer;
+    }
+</style>
+
+<p>cantidad de cucarachas pisadas <span id="cantidad">0</span></p>
+
+<script>
+    //capturo el span de cantidad
+    const cantidad = document.querySelector("#cantidad")
+
+    //repito 20 veces la insercion de cucarachas
+    for (let i = 0; i < 20; i++) {
+
+        //creo un elemento img
+        const img = document.createElement("img")
+        //le agrego la clase cucharacha mediante classList.add
+        img.classList.add("cucaracha")
+        //accedo al atributo src de la img para ubicarla
+         img.src = "/imagenes/cuca.jpg"
+
+         //capturo el ancho y el alto del window
+        const ancho = window.innerWidth - 80
+        const alto = window.innerHeight - 80
+
+        //creo posiciones aleatorias tomando como referencias los valores del ancho y largo
+        const posx = Math.floor(Math.random() * ancho)
+        const posy = Math.floor(Math.random() * alto)
+
+        //
+        img.style.left = posx + "px"
+        img.style.top = posy + "px"
+
+        const grados = Math.floor(Math.random() * 360)
+        img.style.transform = `rotate(${grados}deg)`
+
+        document.body.append(img)
+
+        img.addEventListener("click", (evento) => {
+            evento.target.remove()
+            cantidad.textContent = parseInt(cantidad.textContent) + 1
+        })
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .cucaracha{
+             /*  de esta forma no se vera afectada por 
+            las propiedades top y left */
+            position: absolute;
+            width: 50px;
+            height: 70px;          
+        }
+    </style>
+
+    <p>cantidad de cucararachas pisadas <span id="cantidad">0</span></p>
+    <script>
+        
+        //capturo al span cantidad mediante querySelector
+        const cantidad=document.querySelector("#cantidad")
+
+        for(i=0;i<20;i++){
+            //creo una etiqueta img
+            const img=document.createElement("img")
+            //le agrego la clase cucaracha mediante classList
+            img.classList.add("cucaracha")
+            //capturo el ancho y alto del windows mediante innerWidth
+            const ancho = window.innerWidth - 80
+            const alto=window.innerHeight-80
+
+            //creo una posicion aleatoria donse se ubica la cucaracha
+            const posx=Math.floor(Math.random()*ancho)
+            const posy=Math.floor(Math.random()*alto)
+           //aqui accedo al style y a left y right y le reasigno la posicion
+            img.style.left=posx+"px"
+            img.style.right=posy+"px"
+            //ahora voy a rotar la img  
+            const grados=Math.floor(Math.random()*360)
+            img.style.transform=`rotate(${grados}deg)`
+            document.body.append(img)
+            img.addEventListener("click",(evento)=>{
+                evento.target.remove()
+                const actual=parseInt(cantidad.textContent)+1
+                cantidad.textContent=actual
+            })
+        }   
+    </script>
+</body>
+</html>
