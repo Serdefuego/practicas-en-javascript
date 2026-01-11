@@ -39,15 +39,20 @@
         const posx = Math.floor(Math.random() * ancho)
         const posy = Math.floor(Math.random() * alto)
 
-        //
+        //aqui le asigno la posicion x y
         img.style.left = posx + "px"
         img.style.top = posy + "px"
 
+        //configuro la rotacion
         const grados = Math.floor(Math.random() * 360)
+        //rota la imagen
         img.style.transform = `rotate(${grados}deg)`
 
+        //agrega la imagen con todas las configuraciones
         document.body.append(img)
 
+        //capturo el click del mause y se remueve lo que este en el target mediante el metodo remove
+        //y se actualiza el balor del span cantidad
         img.addEventListener("click", (evento) => {
             evento.target.remove()
             cantidad.textContent = parseInt(cantidad.textContent) + 1
