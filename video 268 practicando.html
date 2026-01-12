@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="nombre">nombre</label>
+        <input type="text" name="" id="nombre">
+    </div>
+    <div>
+        <label for="edad">edad</label>
+        <input type="number" id="edad">
+    </div>
+    <div>
+        <label for="dni">dni</label>
+        <input type="number" id="dni">
+    </div>
+    <input type="button" value="cargar" id="cargar">
+    <input type="button" value="mostrar" id="mostrar">
+    <script>
+        let arreglo = []
+
+        function capturaDatos() {
+            let nombre = document.querySelector("#nombre")
+            let edad = document.getElementById("edad")
+            let dni = document.getElementById("dni")
+
+            if (nombre.value == "" || edad.value == "" || dni.value == "") {
+                alert("complete los campos")
+            } else {
+                let persona = {
+                    nombre: nombre.value,
+                    edad: edad.value,
+                    dni: dni.value
+                }
+                arreglo.push(persona)
+            }
+        }
+        //esta funcion limpia los input
+        function borraTexto() {
+            document.querySelector("#nombre").value = ""
+            document.getElementById("edad").value = ""
+            document.getElementById("dni").value = ""
+        }
+
+        function borraUl() {
+            let ul = document.querySelector("ul");
+            if (ul) {
+                ul.remove();
+            }
+        }
+        //capturo el boton cargar
+        document.getElementById("cargar").addEventListener("click", () => {
+            capturaDatos()
+            borraTexto()
+
+        })
+
+        //capturo el boton mostrar
+        document.getElementById("mostrar").addEventListener("click", () => {
+            borraUl()
+            let ul = document.createElement("ul")
+            document.body.append(ul)
+            arreglo.forEach(elemento => {
+                let li = document.createElement("li")
+                li.textContent = `nombre:${elemento.nombre}-edad: ${elemento.edad}-dni:${elemento.dni}`
+                ul.append(li)
+            });
+        })
+    </script>
+</body>
+
+</html>
