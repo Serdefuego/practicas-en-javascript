@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Personas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FORMULARIO DE CARGA -->
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" />
+    </div>
+
+    <div>
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" />
+    </div>
+
+    <div>
+        <label for="dni">DNI</label>
+        <input type="number" id="dni" />
+    </div>
+
+    <button id="cargar">Cargar</button>
+    <button id="mostrar">Mostrar</button>
+
+    <!-- CONTENEDOR DE ERRORES -->
+    <div id="error" class="error"></div>
+
+    <!-- CONTENEDOR DE LISTA -->
+    <ul id="lista"></ul>
+
+    <script>
+        /********************************************************
+         * ESTADO DE LA APLICACIÓN
+         * Acá se guardan las personas cargadas
+         ********************************************************/
+        const personas = [];
+
+        /********************************************************
+         * CAPTURA LOS DATOS DEL FORMULARIO
+         * Devuelve un objeto persona o null si hay error
+         ********************************************************/
+        function obtenerDatosFormulario() {
+            const nombre = document.getElementById("nombre").value.trim();
+            const edad = Number(document.getElementById("edad").value);
+            const dni = Number(document.getElementById("dni").value);
+
+            if (nombre === "" || isNaN(edad) || isNaN(dni)) {
+                mostrarError("Todos los campos son obligatorios");
+                return null;
+            }
+
+            if (edad <= 0) {
+                mostrarError("La edad debe ser mayor a 0");
+                return null;
+            }
+
+            return {
+                nombre,
+                edad,
+                dni
+            };
+        }
+
+        /********************************************************
+         * AGREGA UNA PERSONA AL ARRAY
+         ********************************************************/
+        function agregarPersona(persona) {
+            personas.push(persona);
+        }
+
+        /********************************************************
+         * LIMPIA EL FORMULARIO
+         ********************************************************/
+        function limpiarFormulario() {
+            document.getElementById("nombre").value = "";
+            document.getElementById("edad").value = "";
+            document.getElementById("dni").value = "";
+        }
+
+        /********************************************************
+         * MUESTRA UN MENSAJE DE ERROR EN PANTALLA
+         ********************************************************/
+        function mostrarError(mensaje) {
+            document.getElementById("error").textContent = mensaje;
+        }
+
+        /********************************************************
+         * LIMPIA MENSAJES DE ERROR
+         ********************************************************/
+        function limpiarError() {
+            document.getElementById("error").textContent = "";
+        }
+
+        /********************************************************
+         * RENDERIZA LA LISTA COMPLETA DE PERSONAS
+         ********************************************************/
+        function renderLista() {
+            const lista = document.getElementById("lista");
+            lista.innerHTML = "";
+
+            personas.forEach(persona => {
+                const li = document.createElement("li");
+                li.textContent = `Nombre: ${persona.nombre} | Edad: ${persona.edad} | DNI: ${persona.dni}`;
+                lista.appendChild(li);
+            });
+        }
+
+        /********************************************************
+         * EVENTO BOTÓN CARGAR
+         ********************************************************/
+        document.getElementById("cargar").addEventListener("click", () => {
+            limpiarError();
+
+            const persona = obtenerDatosFormulario();
+            if (!persona) return;
+
+            agregarPersona(persona);
+            limpiarFormulario();
+        });
+
+        /********************************************************
+         * EVENTO BOTÓN MOSTRAR
+         ********************************************************/
+        document.getElementById("mostrar").addEventListener("click", () => {
+            renderLista();
+        });
+    </script>
+
+</body>
+</html>
