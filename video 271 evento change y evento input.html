@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+    
+    <body>
+        <div>
+            <h1>fruta</h1>
+        </div>
+        <div>
+            <select name="frutas" id="frutas"></select>
+            <p id="precio"></p>
+        </div>
+        <div>
+            <label for="cantidad">valor por cantidad</label>
+            <input type="range" max="10" name="cantidad" id="cantidad">
+            <p id="cant">0</p>
+            <p id="valor"></p>
+        </div>
+
+<script>
+    //arreglo de frutas
+        let frutas=[{nombre:"pera",precio:2.00},{nombre:"manzana",precio:1.00},{nombre:"durazno",precio:4.00}]
+    //caturo el selector de frutas    
+        let selectorFrutas=document.getElementById("frutas")
+    //capturo el rango para amentar o disminuir cantidad    
+        let rango=document.getElementById("cantidad")
+    //recorro el arreglo de frutas y le pongo el nombre al select    
+        frutas.forEach((fruta)=>{
+            let opccion=document.createElement("option")
+            opccion.textContent=fruta.nombre
+            selectorFrutas.append(opccion)
+        })
+     //aumento o disminuyo el numero que mientra la cantidad   
+        rango.addEventListener("change",()=>{
+          
+            document.getElementById("cant").textContent=cant++
+        })
+    //ahora hago la busqueda con un filter de lo que se seleccione en en input select
+
+    function buscar(fruta){
+        frutas.find(Element=>{
+            if(Element.nombre==fruta){
+                document.write(Element.precio)
+                return(Element.precio)
+            }
+        })
+    }
+
+    function valorFruta(){
+        document.getElementById("valor")
+        valor.textContent=rango*valorFruta
+    }
+    switch (selectorFrutas.value) {
+        case "pera":
+           let busqueda= buscar("pera")
+           valorFruta(busqueda)
+            break;
+        case "manzana":
+            buscar("manzana")
+            break;   
+         case "durazno":
+             buscar("durazno")
+            break;     
+    
+        default:
+            break;
+    }
+        
+
+</script>
+</body>
+</html>

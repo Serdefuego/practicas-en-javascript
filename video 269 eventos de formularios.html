@@ -1,24 +1,38 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div>
         <h1>formulario</h1>
     </div>
     <div>
-       <!--  action especifica la url a la que se envia el form -->
-       <form action="http://www.scratchya.com.ar/cursojs/procesarformulario.php" method="post">
-        <label for="nombre">ingrese nombre</label>
-        <input type="text" name="nombre" id="nombre">
-        <label for="email">ingrese mail</label>
-        <input type="text" id="email">
-        
-        <input type="submit" value="confirmar">
-       </form>
+        <!--  action especifica la url a la que se envia el form -->
+        <form id="formulario1" action="http://www.scratchya.com.ar/cursojs/procesarformulario.php" method="post">
+            <label for="nombre">ingrese nombre</label>
+            <input type="text" name="nombre" id="nombre">
+            <label for="email">ingrese mail</label>
+            <input type="text" id="email">
+
+            <input type="submit" value="confirmar">
+        </form>
 
     </div>
+    <script>
+        document.querySelector("#formulario1").addEventListener("click",(evento)=>{
+            const nombre=document.querySelector("#nombre")
+            const email=document.querySelector("#email")
+            if(nombre.vale=="" || email.value==""){
+                alert("ingrese los dos datos")
+                //de esta forma el submit no envia los datos
+                evento.preventDefault()
+            }
+        })
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1>signo del sodiaco</h1>
+  </div>  
+
+  <div>
+    <form action="https://www.scratchya.com.ar/cursojs/imprimirsigno.php" method="post">
+        <label for="signo">ingrese signo</label>
+        <input type="text" name="signo" id="signo">
+        <input type="submit" id="boton">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("boton").addEventListener("click",(evento)=>{
+        const signo=document.getElementById("signo")
+        
+        if(signo.value==""){
+            alert("complete el campo de signo")
+            evento.preventDefault()
+        }
+    })
+  </script>
+</body>
+</html>
