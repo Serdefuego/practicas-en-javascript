@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Frutas</h1>
+
+    <!-- SELECTOR DE FRUTAS -->
+    <select id="frutas"></select>
+
+    <!-- PRECIO UNITARIO -->
+    <p id="precio"></p>
+
+    <!-- CANTIDAD -->
+    <label for="cantidad">Cantidad</label>
+    <input type="range" id="cantidad" min="0" max="10" value="0" />
+    <p id="cant">0</p>
+
+    <!-- PRECIO TOTAL -->
+    <p id="valor"></p>
+
+    <script>
+        
+        let arregloFrutal=[{nombre:"pera",precio:1},{nombre:"manzana",precio:2},{nombre:"banana",precio:3},]
+        //capturo el selector
+        let selector=document.getElementById("frutas")
+        //capturo el parrafo donde se le cambiara el valor del precio
+        let precioUnitario=document.getElementById("precio")
+        //capturo el input range cantidad
+        let cantidad=document.getElementById("cantidad")
+        //capturo el parrafo donde se muestra la cantidad que indica el input rango
+        let muestraCantidad=document.getElementById("cant")
+        //capturo el parrafo donde se muestra el valor total que sera la multiplicacion de la cantidad por el precio
+        let valorTtotal=document.getElementById("valor")
+        
+       //recorro con un foreach el arreglo de fruta y voy creando por cada fruta una etiqueta option
+       //a la que le asigno el nombre del objeto fruta y luego la agrego al select
+        arregloFrutal.forEach(fruta=>{
+            let opccion=document.createElement("option")
+            opccion.textContent=fruta.nombre
+            selector.append(opccion)
+        })
+
+        //capturo el vento input range y le asigno el valor de cantidad al parrafo 
+          cantidad.addEventListener("input",()=>{
+            let valorRango=parseInt(cantidad.value)
+            muestraCantidad.textContent=valorRango })
+
+            function cantiadCompra(fruta){
+                  let valorRango=parseInt(cantidad.value)
+                  let frutaSelecta=arregloFrutal.find(fruta=>{
+                        if (fruta==fruta.nombre){
+                        return(fruta.precio) 
+                        }                  
+                    })
+                 let resultado=valorRango*frutaSelecta   
+                 valorTtotal.textContent=resultado
+            }
+        
+        selector.addEventListener("change",()=>{
+            switch (selector.value) {
+                case "pera":
+                  cantiadCompra(pera)
+                    break;
+                  case "manzana":
+                 cantiadCompra(mazana)
+                    break;    
+                case "banana":
+                     cantiadCompra(banana)
+                    break;    
+                 
+            
+                default:
+                    break;
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

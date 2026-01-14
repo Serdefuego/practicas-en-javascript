@@ -1,75 +1,94 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    </head>
-    
-    <body>
-        <div>
-            <h1>fruta</h1>
-        </div>
-        <div>
-            <select name="frutas" id="frutas"></select>
-            <p id="precio"></p>
-        </div>
-        <div>
-            <label for="cantidad">valor por cantidad</label>
-            <input type="range" max="10" name="cantidad" id="cantidad">
-            <p id="cant">0</p>
-            <p id="valor"></p>
-        </div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frutas</title>
+</head>
 
-<script>
-    //arreglo de frutas
-        let frutas=[{nombre:"pera",precio:2.00},{nombre:"manzana",precio:1.00},{nombre:"durazno",precio:4.00}]
-    //caturo el selector de frutas    
-        let selectorFrutas=document.getElementById("frutas")
-    //capturo el rango para amentar o disminuir cantidad    
-        let rango=document.getElementById("cantidad")
-    //recorro el arreglo de frutas y le pongo el nombre al select    
-        frutas.forEach((fruta)=>{
-            let opccion=document.createElement("option")
-            opccion.textContent=fruta.nombre
-            selectorFrutas.append(opccion)
-        })
-     //aumento o disminuyo el numero que mientra la cantidad   
-        rango.addEventListener("change",()=>{
-          
-            document.getElementById("cant").textContent=cant++
-        })
-    //ahora hago la busqueda con un filter de lo que se seleccione en en input select
+<body>
 
-    function buscar(fruta){
-        frutas.find(Element=>{
-            if(Element.nombre==fruta){
-                document.write(Element.precio)
-                return(Element.precio)
-            }
-        })
-    }
+    <h1>Frutas</h1>
 
-    function valorFruta(){
-        document.getElementById("valor")
-        valor.textContent=rango*valorFruta
-    }
-    switch (selectorFrutas.value) {
-        case "pera":
-           let busqueda= buscar("pera")
-           valorFruta(busqueda)
-            break;
-        case "manzana":
-            buscar("manzana")
-            break;   
-         case "durazno":
-             buscar("durazno")
-            break;     
-    
-        default:
-            break;
-    }
-        
+    <!-- SELECTOR DE FRUTAS -->
+    <select id="frutas"></select>
 
-</script>
+    <!-- PRECIO UNITARIO -->
+    <p id="precio"></p>
+
+    <!-- CANTIDAD -->
+    <label for="cantidad">Cantidad</label>
+    <input type="range" id="cantidad" min="0" max="10" value="0" />
+    <p id="cant">0</p>
+
+    <!-- PRECIO TOTAL -->
+    <p id="valor"></p>
+
+    <script>
+        /*************************************************
+         * DATOS DEL ARREGLO DE FRUTAS
+         *************************************************/
+        const frutas = [
+            { nombre: "pera", precio: 2 },
+            { nombre: "manzana", precio: 1 },
+            { nombre: "durazno", precio: 4 }
+        ];
+
+        /*************************************************
+         * ELEMENTOS DEL DOM
+         *************************************************/
+        const selectorFrutas = document.getElementById("frutas");
+        const rango = document.getElementById("cantidad");
+        const precioTexto = document.getElementById("precio");
+        const cantidadTexto = document.getElementById("cant");
+        const valorTotalTexto = document.getElementById("valor");
+
+        /*************************************************
+         * CARGA EL SELECT CON LAS FRUTAS
+         *************************************************/
+        frutas.forEach(fruta => {
+            const option = document.createElement("option");
+            option.value = fruta.nombre;
+            option.textContent = fruta.nombre;
+            selectorFrutas.appendChild(option);
+        });
+
+        /*************************************************
+         * BUSCA UNA FRUTA POR NOMBRE
+         *************************************************/
+        function buscarFruta(nombre) {
+            return frutas.find(fruta => fruta.nombre === nombre);
+        }
+
+        /*************************************************
+         * CALCULA Y MUESTRA EL PRECIO
+         *************************************************/
+        //esta funcion se encuentra dentro del evento selector de frutas
+        function actualizarPrecio() {
+            //esta variable obtiene el llama a la funcion buscar fruta y si la encuentra devuelve true
+            const frutaSeleccionada = buscarFruta(selectorFrutas.value);
+            //tranforma a numero el valor del rango
+            const cantidad = Number(rango.value);
+
+            if (!frutaSeleccionada) return;
+            //cambia el textcontent del precio y accede al precio de la fruta seleccionada
+            precioTexto.textContent = `Precio unitario: $${frutaSeleccionada.precio}`;
+            //cambia el textcontent del p 
+            cantidadTexto.textContent = cantidad;
+            //realiza la operacion de multiplicar la variable cantidad por el precio dentro de la fruta
+            const total = frutaSeleccionada.precio * cantidad;
+            //muestra el total de la operacion
+            valorTotalTexto.textContent = `Total: $${total}`;
+        }
+
+        /*************************************************
+         * EVENTOS
+         *************************************************/
+        //al cambiar la seleccion de la fruta , se llama a la funcion actualizarPrecio()
+        selectorFrutas.addEventListener("change", actualizarPrecio);
+        //escucha el evento del rango "input" llama actualizar precio 
+        rango.addEventListener("input", actualizarPrecio);
+    </script>
+
 </body>
 </html>
