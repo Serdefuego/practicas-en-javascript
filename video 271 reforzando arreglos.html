@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const alumnos = [
+        { nombre: "Ana", edad: 10, sala: "verde" },
+        { nombre: "Juan", edad: 9, sala: "roja" },
+        { nombre: "Sofía", edad: 10, sala: "verde" },
+        { nombre: "Tomás", edad: 8, sala: "azul" }
+        ]; 
+        
+        let buscado=alumnos.find(a=>a.nombre=="Sofía" )
+        console.log(`el nombre es ${buscado.nombre}`)
+
+        let salaVerde=alumnos.filter(a=>a.sala=="verde")
+       console.log("los alumnos de sala verde son:")
+            salaVerde.forEach(element => {
+                console.log(element.nombre)            
+            });
+
+        //solo un arreglo de nombres usando map
+        let soloNombres=alumnos.map(a=>a.nombre)   
+        console.log("aqui estan solo los nombres")
+         soloNombres.forEach(element => {
+                console.log(element)            
+            });
+
+        //ahora con el metodo reduce sumo todas las edades del arreglo de objetos
+       console.log("la suma de todas las edades es:")
+        let soloEdades=alumnos.reduce((acumulador,objeto)=>{return acumulador+objeto.edad},0 )     
+        console.log(soloEdades)
+
+        //contar la suma de las edades de los alumnos de sala roja
+        console.log("la suma de las edades de sala roja")    
+        let salaRoja=alumnos.filter(objeto=>objeto.sala==="verde")
+        let alumnosDRoja=salaRoja.reduce((acumulados,objeto)=>{return acumulados+objeto.edad},0)
+        console.log(alumnosDRoja)
+    </script>
+</body>
+</html>

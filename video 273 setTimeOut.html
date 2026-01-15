@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>En 10 segundos se cambiara el color de la pantalla</h1>
+    <input type="button" value="cancelar" id="boton">
+
+<script>
+    function cambiar() {
+        document.body.style.backgroundColor = "green";
+    }
+
+    // guardamos el timeout
+    let temporizador;
+
+    window.onload = () => {
+        temporizador = setTimeout(cambiar, 10000);
+    };
+
+    document.getElementById("boton").addEventListener("click", () => {
+        clearTimeout(temporizador);
+        console.log("Cambio cancelado");
+    });
+</script>
+</body>
+</html>

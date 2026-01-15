@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>cambie el tamaño del texto con este input range</h1>
+
+    <input type="range" name="tamano" id="tamano" min="0" max="10">
+    <p id="rango">0</p>
+
+    <p id="texto">texto de prueba</p>
+
+    <script>
+
+        let rango=document.getElementById("tamano")
+        let valorRango=document.getElementById("rango")
+        let texto=document.getElementById("texto")
+    
+        rango.addEventListener("input",()=>{
+          valorRango.textContent=rango.value
+        texto.style.fontSize=((rango.value)*10)+"px"
+        })
+    </script>
+    
+</body>
+</html>

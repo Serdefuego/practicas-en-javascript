@@ -1,83 +1,68 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frutas</title>
 </head>
-<body>
-     <h1>Frutas</h1>
 
-    <!-- SELECTOR DE FRUTAS -->
+<body>
+
+    <h1>Frutas</h1>
+
     <select id="frutas"></select>
 
-    <!-- PRECIO UNITARIO -->
     <p id="precio"></p>
 
-    <!-- CANTIDAD -->
     <label for="cantidad">Cantidad</label>
     <input type="range" id="cantidad" min="0" max="10" value="0" />
     <p id="cant">0</p>
 
-    <!-- PRECIO TOTAL -->
     <p id="valor"></p>
 
     <script>
-        
-        let arregloFrutal=[{nombre:"pera",precio:1},{nombre:"manzana",precio:2},{nombre:"banana",precio:3},]
-        //capturo el selector
-        let selector=document.getElementById("frutas")
-        //capturo el parrafo donde se le cambiara el valor del precio
-        let precioUnitario=document.getElementById("precio")
-        //capturo el input range cantidad
-        let cantidad=document.getElementById("cantidad")
-        //capturo el parrafo donde se muestra la cantidad que indica el input rango
-        let muestraCantidad=document.getElementById("cant")
-        //capturo el parrafo donde se muestra el valor total que sera la multiplicacion de la cantidad por el precio
-        let valorTtotal=document.getElementById("valor")
-        
-       //recorro con un foreach el arreglo de fruta y voy creando por cada fruta una etiqueta option
-       //a la que le asigno el nombre del objeto fruta y luego la agrego al select
-        arregloFrutal.forEach(fruta=>{
-            let opccion=document.createElement("option")
-            opccion.textContent=fruta.nombre
-            selector.append(opccion)
-        })
+        const arregloFrutal = [
+            { nombre: "pera", precio: 1 },
+            { nombre: "manzana", precio: 2 },
+            { nombre: "banana", precio: 3 }
+        ];
 
-        //capturo el vento input range y le asigno el valor de cantidad al parrafo 
-          cantidad.addEventListener("input",()=>{
-            let valorRango=parseInt(cantidad.value)
-            muestraCantidad.textContent=valorRango })
+        const selector = document.getElementById("frutas");
+        const precioUnitario = document.getElementById("precio");
+        const cantidad = document.getElementById("cantidad");
+        const muestraCantidad = document.getElementById("cant");
+        const valorTotal = document.getElementById("valor");
 
-            function cantiadCompra(fruta){
-                  let valorRango=parseInt(cantidad.value)
-                  let frutaSelecta=arregloFrutal.find(fruta=>{
-                        if (fruta==fruta.nombre){
-                        return(fruta.precio) 
-                        }                  
-                    })
-                 let resultado=valorRango*frutaSelecta   
-                 valorTtotal.textContent=resultado
-            }
-        
-        selector.addEventListener("change",()=>{
-            switch (selector.value) {
-                case "pera":
-                  cantiadCompra(pera)
-                    break;
-                  case "manzana":
-                 cantiadCompra(mazana)
-                    break;    
-                case "banana":
-                     cantiadCompra(banana)
-                    break;    
-                 
-            
-                default:
-                    break;
-            }
-            
-        })
+        // cargar select
+        arregloFrutal.forEach(fruta => {
+            const opcion = document.createElement("option");
+            opcion.value = fruta.nombre;
+            opcion.textContent = fruta.nombre;
+            selector.appendChild(opcion);
+        });
 
+        // buscar fruta
+        function buscarFruta(nombre) {
+            return arregloFrutal.find(fruta => fruta.nombre === nombre);
+        }
+
+        // actualizar valores
+        function actualizar() {
+            const frutaSeleccionada = buscarFruta(selector.value);
+            const cant = Number(cantidad.value);
+
+            if (!frutaSeleccionada) return;
+
+            muestraCantidad.textContent = cant;
+            precioUnitario.textContent = `Precio unitario: $${frutaSeleccionada.precio}`;
+
+            const total = cant * frutaSeleccionada.precio;
+            valorTotal.textContent = `Total: $${total}`;
+        }
+
+        selector.addEventListener("change", actualizar);
+        cantidad.addEventListener("input", actualizar);
     </script>
+
 </body>
 </html>
