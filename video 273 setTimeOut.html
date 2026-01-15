@@ -14,13 +14,15 @@
         document.body.style.backgroundColor = "green";
     }
 
-    // guardamos el timeout
+    // creamos la variable donde guardaremos el timeout
     let temporizador;
 
+    //llamamos al objeto windows y en su atributo onload definimos el temporizador
     window.onload = () => {
         temporizador = setTimeout(cambiar, 10000);
     };
 
+    //capturo el boton cancelar y cancelo con clearTimeOut el temporizador
     document.getElementById("boton").addEventListener("click", () => {
         clearTimeout(temporizador);
         console.log("Cambio cancelado");

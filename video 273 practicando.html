@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>En 10 segundos se cambiara el color de la pantalla</h1>
+    <input type="button" value="cancelar" id="boton">
+    <input type="button" value="pausar" id="pausar">
+    <p id="conteo"></p>
+
+    <script>
+        let intervalo=setTimeout(cambiar,1000)
+        let cuenta=setInterval(imprimir,1000)
+        let i=0
+        let conteo=document.getElementById("conteo")
+        let pausar=document.getElementById("pausar")
+        function cambiar(){
+            document.body.style.backgroundColor="green"
+        }
+        function imprimir(){
+            i++
+           conteo.textContent=i
+        }
+
+
+        document.getElementById("boton").addEventListener("click",()=>{
+            clearTimeout(intervalo)
+        })
+        pausar.addEventListener("click",()=>{
+             clearTimeout(cuenta)
+        })
+    </script>
+</body>
+</html>
