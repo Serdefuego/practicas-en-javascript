@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .fondo{
+            background-color: antiquewhite;
+            color: blue;
+            font-size: xx-large;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <p id="conteo"></p>
+    <input type="button" value="inico" id="iniciar">
+    <input type="button" value="parar" id="parar">
+<script>
+    let p = document.getElementById("conteo");
+    let intervalo;   // ⬅️ variable global
+    let segundos = 0;
+
+    function cambiarFondo() {
+        document.body.classList.add("fondo");
+        segundos++;
+        p.textContent = segundos;
+    }
+
+    function contador() {
+        intervalo = setInterval(cambiarFondo, 1000);
+    }
+
+    document.getElementById("iniciar").addEventListener("click", () => {
+        contador();
+    });
+
+    document.getElementById("parar").addEventListener("click", () => {
+        clearInterval(intervalo);
+    });
+</script>
+</body>
+</html>
