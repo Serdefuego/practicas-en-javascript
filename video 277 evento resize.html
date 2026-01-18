@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>ancho: <span id="x"></span></p>
+    <p>alto: <span id="y"></span></p>
+
+    <script>
+    //capturo los elementos span del body    
+    const x=document.querySelector("#x")
+    const y=document.querySelector("#y")
+
+    //llamamos a la funcion cambiar
+    cambiar()
+
+    //capturo el evento resize del objeto windows 
+    // y llamamos a la funcion cambiar
+    //cuando se umente el tamaño de la pantalla
+    window.addEventListener("resize",cambiar)
+    
+    //creo la funcion cambiar
+
+    function cambiar(){
+        //agrega a los span los valores del window.innerwidht y innerHeight
+        x.textContent=window.innerWidth
+        y.textContent=window.innerHeight
+
+        //crea una variable color que divide al window.innerWidth
+        //  entre el screen.innerWidth y lo multiplica po 255
+        //que son las posibilidades de color
+
+        const color=(window.innerWidth/screen.width)*255
+
+        //aqui cambia color del fondo asignandole el valor color
+        document.body.style.backgroundColor=`rgb(${color},${color},${color})`
+    }
+
+
+
+    </script>
+</body>
+</html>
