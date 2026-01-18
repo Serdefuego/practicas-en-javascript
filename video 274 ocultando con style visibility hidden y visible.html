@@ -1,76 +1,87 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Adivinar número</title>
 
-<body>
     <style>
         .oculto {
             visibility: hidden;
-            text-align: center;
-            font-size: 200px;
-
         }
-
         .mostrado {
             visibility: visible;
+            font-size: 120px;
             text-align: center;
-            font-size: 200px;
         }
     </style>
+</head>
 
-                    <!-- esto se muestra en el html -->
-    <h1>adivinar número</h1>
+<body>
+
+    <h1>Adivinar número</h1>
+
     <p id="numero" class="mostrado"></p>
-    <input type="number" id="adivinado">
-    <input type="button" value="adivinar" id="boton">
+
+    <input type="number" id="entrada">
+    <input type="button" value="Adivinar" id="boton">
+
+    <script>
+
+        //captura el numero en el parrafo numero
+        let numero = document.getElementById("numero")
+        //captura el valor ingresado en el input entrada
+        let entrada = document.getElementById("entrada")
+        //captura el boton para adivinar
+        let boton = document.getElementById("boton")
+
+        //establece una cantidad inicial de digitos de 1
+        let digitos = 1
+        //crea un valor aleatoreo respetando la cantidad de digitos 
+        let valorActual = 0
 
 
-   <script>
-    let numero = document.getElementById("numero")
-    let adivinado = document.getElementById("adivinado")
-    let tamano = 1
-
-    function limpiar() {
-        adivinado.value = ""
-    }
-
-    function nuevoNumero(cifras) {
-        let min = Math.pow(10, cifras - 1)
-        let max = Math.pow(10, cifras) - 1
-        return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-
-    function ocultar() {
-        numero.classList.remove("mostrado")
-        numero.classList.add("oculto")
-    }
-
-    function mostrar() {
-        numero.classList.remove("oculto")
-        numero.classList.add("mostrado")
-    }
-
-    document.getElementById("boton").addEventListener("click", () => {
-        limpiar()
-
-        let random = nuevoNumero(tamano)
-        numero.textContent = random
-        mostrar()
-
-        setTimeout(ocultar, 3000)
-
-        if (Number(adivinado.value) === random) {
-            alert("🎉 Ganaste")
-            tamano++
-        } else {
-            alert("❌ Perdiste")
+        
+        function generarNumero(cantDigitos) {
+            let min = Math.pow(10, cantDigitos - 1)
+            let max = Math.pow(10, cantDigitos) - 1
+            return Math.floor(Math.random() * (max - min + 1)) + min
         }
-    })
-</script>
-</body>
 
+        //funcion que muesta el numero creado
+        function mostrarNumero() {
+            //se establece un numero con la cantidad de digitos correspondiente
+            valorActual = generarNumero(digitos)
+            //muestro en el p el alor creado
+            numero.textContent = valorActual
+            //le asigno al p la clase mostrado
+            numero.className = "mostrado"
+            //establezco un temporizador para ocultar en 3 segundo cambiando la clase a oculto
+            setTimeout(() => {
+                numero.className = "oculto"
+            }, 3000)
+        }
+
+        //capturo el click 
+        boton.addEventListener("click", () => {
+            //se pasa a numero el valor de input y se pregunta si es igual al valor actual
+            if (Number(entrada.value) === valorActual) {
+                alert("✔ Correcto")
+                //se aumenta la cantidad de digitos en 1
+                digitos++
+                //se vacia el campo del input
+                entrada.value = ""
+                //llama a la funcion mostrar numero
+                mostrarNumero()
+            } else {
+                alert("❌ Te equivocaste. Fin del juego.")
+                boton.disabled = true
+                entrada.disabled = true
+            }
+        })
+
+        // Inicio del juego
+        mostrarNumero()
+    </script>
+
+</body>
 </html>

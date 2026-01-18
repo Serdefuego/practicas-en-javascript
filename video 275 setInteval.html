@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="cambiar" id="cambiar">
+    <script>
+        let color=["green","blue","yellow","orange","black","pink"]
+        let i=0
+        function cambiar(){
+            let aumentaI=setInterval(()=>{
+                if(i<5){i++}else{
+                 clearInterval(aumentaI)
+                }
+            },2000)
+            let cambiaColor=setInterval(()=>{
+                document.body.style.backgroundColor=`${color[i]}`
+            },2000)
+        }
+        document.getElementById("cambiar").addEventListener("click",()=>{
+            cambiar()
+            
+
+        })
+
+
+    </script>
+</body>
+</html>
