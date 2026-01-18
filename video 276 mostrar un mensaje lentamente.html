@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="mensaje"></p>
+
+    <script>
+        let frase="hola"
+        let mensaje=document.getElementById("mensaje")
+        let largo=frase.length
+        let acumulador=0
+        function muestra(){
+            let mostrar=setInterval(()=>{
+                        if(acumulador>=largo){
+                            clearInterval(mostrar)
+                            mensaje.textContent=""
+                            acumulador=0
+                            muestra()
+                        }else{
+                            mensaje.textContent=mensaje.textContent+frase[acumulador]
+                            acumulador++
+                        }
+                    },1000)
+        }
+     
+        muestra()
+    </script>
+</body>
+</html>

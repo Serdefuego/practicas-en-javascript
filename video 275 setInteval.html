@@ -6,26 +6,36 @@
 </head>
 <body>
     <input type="button" value="cambiar" id="cambiar">
-    <script>
-        let color=["green","blue","yellow","orange","black","pink"]
-        let i=0
-        function cambiar(){
-            let aumentaI=setInterval(()=>{
-                if(i<5){i++}else{
-                 clearInterval(aumentaI)
+   <script>
+        let colores = ["green", "blue", "yellow", "orange", "black", "pink"];
+        let i = 0;
+        let intervalo = null;
+
+        function cambiar() {
+            // Evita crear múltiples intervalos porque si hay un intervalo fucionando no ejecuta
+            //las siguientes lineas de codigo
+            if (intervalo !== null) return;
+
+            //declaro el intervalo y lo que rrealizara
+            intervalo = setInterval(() => {
+                //le asigno al body el color del arreglo en la posicion i
+                document.body.style.backgroundColor = colores[i];
+                //aumento en 1 i
+                i++;
+
+                //si el valor de i coincide con el largo del arreglo
+                if (i === colores.length) {
+                    //pausar el intervalo
+                    clearInterval(intervalo);
+                    //asignarle null a la variable intevalo
+                    intervalo = null;
+                    //reinicia la variable i en cero
+                    i = 0; // reinicia para próximo click
                 }
-            },2000)
-            let cambiaColor=setInterval(()=>{
-                document.body.style.backgroundColor=`${color[i]}`
-            },2000)
+            }, 2000);
         }
-        document.getElementById("cambiar").addEventListener("click",()=>{
-            cambiar()
-            
 
-        })
-
-
+        document.getElementById("cambiar").addEventListener("click", cambiar);
     </script>
 </body>
 </html>
