@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <label for="nombre">ingrese nombre</label>
+            <input type="text" id="nombre">
+        </div>
+        <div>
+            <label for="clave">ingrese clave</label>
+            <input type="text" name="clave" id="clave">
+        </div>
+        <div>
+            <input type="button" id="mostrar" value="mostrar">
+            <p id="resultado"></p>
+        </div>              
+    </div>
+
+<script>
+    document.getElementById("mostrar").addEventListener("click", () => {
+
+        // capturo valores AL HACER CLICK
+        let nombre = document.getElementById("nombre").value
+        let clave = document.getElementById("clave").value
+
+        // creo el objeto
+        let objeto = {
+            nombre: nombre,
+            clave: clave
+        }
+
+        // convierto a JSON
+        let cadena = JSON.stringify(objeto)
+
+        // muestro resultado
+        document.getElementById("resultado").textContent = cadena
+    })
+</script>
+</body>
+</html>

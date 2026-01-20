@@ -38,6 +38,10 @@
   
     // captura por propagación
     div.addEventListener("input", (evento) => {
+        //pregunta si el item que esta clickeado es un input entoces pone en cero a suma
+        //luego selecciona todos los input dentro del div y los recorre con un foreach
+        //y a la variable suma le acumula los valores pasados a numero 
+        //luego los muestra en el p resultado
         if (evento.target.tagName === "INPUT") {
             suma = 0
 
@@ -50,6 +54,6 @@
         }
     })
 </script>
-    </script>
+
 </body>
 </html>
