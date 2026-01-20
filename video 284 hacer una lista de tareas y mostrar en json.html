@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="tarea">ingrese tarea</label>
+        <input type="text" name="tarea" id="tarea">
+    </div>
+    <div>
+        <input type="button" value="agregar a lista" id="agregar">
+        <input type="button" value="mostrar" id="mostrar">
+        
+        <ul id="lista"></ul>
+
+        <p id="resultado"></p>
+    </div>
+
+<script>
+    //creo un arreglo de tareas para agregar tareas
+    let tareas=[]
+    //capturo el item donde mostrare el string del objeto json de las tareas
+    let resultado=document.getElementById("resultado")
+    //capturo el ul donde pondre las tareas ingresadas
+    let ul=document.getElementById("lista")
+
+    //capturo el boton agregar
+    let agregar=document.getElementById("agregar").addEventListener("click",()=>{
+       //apturo el value del input tarea
+        let tarea=document.getElementById("tarea").value
+        //creo un elemento li
+        let li=document.createElement("li")
+        //le asigno el textconten al li del value de la tarea
+        li.textContent=tarea
+        //agrego el li al ul
+        ul.append(li)
+        //creo un objeto que contendra la propiedad tarea con el value de la tarea
+        let objetoTarea={
+            tarea:tarea
+        }
+        //pusheo el objeto dentro del arreglo de tareas
+        tareas.push(objetoTarea)
+        //limpio el campo del input de tarea
+        document.getElementById("tarea").value=""
+       
+    })
+
+    //capturo el boton que muestra el jsom.stringify(tareas)
+    let mostrar=document.getElementById("mostrar").addEventListener("click",()=>{
+        let cadena=JSON.stringify(tareas)
+        resultado.textContent=cadena
+    })
+</script>
+</body>
+
+</html>
