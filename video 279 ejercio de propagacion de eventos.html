@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <script>
+    let div = document.createElement("div")
+    document.body.append(div)
+
+    let div_2 = document.createElement("div")
+    document.body.append(div_2)
+
+    for (let i = 0; i <= 10; i++) {
+        let boton = document.createElement("button")
+        boton.textContent = i
+        div.append(boton)
+    }
+
+    div.addEventListener("click", (evento) => {
+        if (evento.target.tagName === "BUTTON") {
+            div_2.textContent += evento.target.textContent
+        }
+    })
+</script>
+</body>
+</html>
