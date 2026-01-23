@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+                let ul = document.createElement("ul")
+                document.body.appendChild(ul)
+
+
+                const cadena = `[{"nombre":"China","habitantes":1393},
+                                   {"nombre":"India","habitantes":1366},
+	                           {"nombre":"Estados Unidos","habitantes":329},
+	                           {"nombre":"Indonesia","habitantes":270},
+                                   {"nombre":"Brasil","habitantes":212}]`
+
+
+                function mostrar() {
+
+                    let arregloDePais = JSON.parse(cadena)
+
+                    arregloDePais.forEach(element => {
+                        let li = document.createElement("li")
+                        li.textContent = `nombre:${element.nombre}-habitantes:${element.habitantes}`
+                        ul.appendChild(li)
+                    });
+                }
+
+                let temporizador = setTimeout(mostrar, 2000)
+    </script>
+</body>
+</html>

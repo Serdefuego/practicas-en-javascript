@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tabla dinámica</title>
+<style>
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid black; padding: 8px; }
+th { background: #ddd; text-transform: capitalize; }
+</style>
+</head>
+<body>
+
+<table id="tabla"></table>
+
+<script>
+const cadena = `[
+ {"titulo":"Cien años de soledad","autor":"Gabriel García Márquez","genero":"Realismo mágico","añopublicacion":1967},
+ {"titulo":"1984","autor":"George Orwell","genero":"Ciencia ficción","añopublicacion":1949},
+ {"titulo":"El señor de los anillos","autor":"J.R.R. Tolkien","genero":"Fantasía épica","añopublicacion":1954},
+ {"titulo":"El código Da Vinci","autor":"Dan Brown","genero":"Ficción de suspense","añopublicacion":2003}
+]`;
+
+const datos = JSON.parse(cadena);
+const tabla = document.getElementById("tabla");
+
+/* -------- encabezados -------- */
+const trHead = document.createElement("tr");
+const propiedades = Object.keys(datos[0]);
+
+propiedades.forEach(prop => {
+    const th = document.createElement("th");
+    th.textContent = prop;
+    trHead.appendChild(th);
+});
+
+tabla.appendChild(trHead);
+
+/* -------- filas -------- */
+datos.forEach(objeto => {
+    const tr = document.createElement("tr");
+
+    propiedades.forEach(prop => {
+        const td = document.createElement("td");
+        td.textContent = objeto[prop];
+        tr.appendChild(td);
+    });
+
+    tabla.appendChild(tr);
+});
+</script>
+
+</body>
+</html>

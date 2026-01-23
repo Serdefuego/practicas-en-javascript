@@ -1,0 +1,47 @@
+<table id="tabla"></table>
+
+<script>
+const datos = [
+  { nombre: "Ana", edad: 10 },
+  { nombre: "Juan", edad: 12 }
+];
+
+//capturo la tabla que esta en el body
+const tabla = document.getElementById("tabla");
+
+/creo el elemento table row que sera la cabecera de la tabla/
+const trHead = document.createElement("tr");
+
+//aqui capturo las propiedades del primer objeto de la lista
+const claves = Object.keys(datos[0]);
+
+//por cada clave del primer objeto
+//se crea un table head 
+// se le cambia el textcontent , se le pone el nombre de la clave
+//y se agrega ese th al table row creado al principio
+claves.forEach(clave => {
+
+  const th = document.createElement("th");
+  th.textContent = clave;
+  trHead.appendChild(th);
+});
+//se agrega a la tabla ese table row creado al principio
+tabla.appendChild(trHead);
+
+//ahora pasa a cargar los datos
+//por cada dato del objeto se crea un table row
+//por cada clave se crea un table data
+//al table data se le pone como text content ,el contenido 
+//se agrega ese table data al tr y se agrega a la tabla el tr
+datos.forEach(objeto => {
+  const tr = document.createElement("tr");
+
+  claves.forEach(clave => {
+    const td = document.createElement("td");
+    td.textContent = objeto[clave];
+    tr.appendChild(td);
+  });
+
+  tabla.appendChild(tr);
+});
+</script>
