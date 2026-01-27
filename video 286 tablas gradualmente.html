@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- Obtener todas las claves de todos los objetos (sin repetir)
+🧠 Pista mental
+forEach recorre arrays
+Object.keys(obj) devuelve un array de claves
+necesitás un array donde guardar claves sin repetir -->
+
+<script>
+    let datosRecolectados = [
+    { nombre: "marcos", edad: 36, telefono: 2252411870 },
+    { nombre: "juan", edad: 20 },
+    { nombre: "maxi", edad: 12, dni: 34578965 }
+];
+
+//aqui creo un arreglo ara guardar las keys
+let arregloKeys=[]
+
+//recorro el arreglo principal de objetos
+datosRecolectados.forEach(dato => {
+
+    //por cada key dentro del objeto pregunto si el arreglokeys incluye esa key
+        Object.keys(dato).forEach(key => {
+        if (!arregloKeys.includes(key)) {
+            arregloKeys.push(key);
+        }
+    });
+
+});
+
+
+
+document.write(arregloKeys)
+
+</script>
+</body>
+</html>

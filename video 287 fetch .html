@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="listaArticulos"></ul>
+<script>
+    const promesa1 = fetch("https://www.scratchya.com.ar/cursosjs/recuperararticuloslento.php")
+        .then(respuesta => respuesta.json())
+        .then(articulos => mostrar(articulos));
+
+    function mostrar(articulos) {
+        const arreglo = articulos.map(articulo => `
+        <li>
+            ${articulo.codigo} - 
+            ${articulo.descripcion} - 
+            $${articulo.precio}
+        </li>
+    `);
+
+        document.querySelector("#listaArticulos").innerHTML = arreglo.join("");
+    }
+</script>
+</body>
+</html>

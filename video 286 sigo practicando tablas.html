@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let datosRecolectados=[{
+            nombre:"marcos",
+            edad:"36",
+            telefono:2252411870
+        },{
+            nombre:"juan",
+            edad:"20",
+           
+        },{
+            nombre:"maxi",
+            edad:"12",
+            dni:34578965
+        }]
+
+        // 🔹 1) Obtener TODAS las claves sin repetir
+        //creo un arreglo donde alojaré las claves
+        let claves = [];
+
+        //recorro con un forEach los objetos dentro del arreglo DATOS
+        datosRecolectados.forEach(obj => {
+            //utilizo el metodo Objetc.keys() para acceder a las claves de cada dato
+            Object.keys(obj).forEach(key => {
+                //pregunto si la clave no se encuentra dentro del arreglo la pushea
+                if (!claves.includes(key)) {
+                    claves.push(key);
+                }
+            });
+        });
+
+        // 🔹 2) Crear tabla
+        let tabla = document.createElement("table");
+        
+
+        // se crea ta THEAD con un thead y un tr
+        let thead = document.createElement("thead");
+        let trHead = document.createElement("tr");
+
+        //por cada clave dentro del arreglo claves
+        //crea un th al que le pone el nombre de la key
+        //luego se la inserta al trHead
+        claves.forEach(key => {
+            let th = document.createElement("th");
+            th.textContent = key;
+            trHead.appendChild(th);
+        });
+
+        //se inserta el trHead en el thead y luego el thead a la tabla
+        thead.appendChild(trHead);
+        tabla.appendChild(thead);
+
+        // 🔹 3) se crea un cuerpo de tabla tbody
+        let tbody = document.createElement("tbody");
+
+        //ahora pasamos a recolectar los datos de cada objeto y ponerlos dentro de
+        //los tr en los que incorporamos los td con el dato
+        datosRecolectados.forEach(obj => {
+            //por cada dato se crea un tr
+            let tr = document.createElement("tr");
+
+            //por cada clave del arreglo
+            claves.forEach(key => {
+                //se crea un td
+                let td = document.createElement("td");
+               //al textContent del td se le asigna vacio en el caso de que no exista
+               //sino se le pone el contenido 
+                td.textContent = obj[key] ?? ""; // si no existe, queda vacío
+                //ahora pasamos a agregar el td al tr
+                tr.appendChild(td);
+            });
+            //al tbody le agrego el tr con la informacion 
+            tbody.appendChild(tr);
+        });
+        //agrego el tbody a la tabla y la tabla al documento
+        tabla.appendChild(tbody);
+        document.body.appendChild(tabla);
+</script>
+</body>
+</html>
