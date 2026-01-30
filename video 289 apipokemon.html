@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PokeAPI</title>
+</head>
+<body>
+
+
+<h1>Pokémon</h1>
+<div id="pokemon"></div>
+
+
+<script>
+fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+.then(respuesta => respuesta.json())
+.then(pokemon => mostrar(pokemon))
+
+
+function mostrar(pokemon){
+
+    let keys=Object.keys(pokemon)
+
+
+    for (let propiedad in keys) {
+    let p = document.createElement("p")
+    p.textContent = keys[propiedad] + ": " + pokemon[keys[propiedad]]
+    document.body.append(p)
+
+}}
+</script>
+
+
+</body>
+</html>

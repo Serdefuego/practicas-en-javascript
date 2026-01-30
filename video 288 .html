@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        button{
+            height: 100px;
+            width: 100px;
+            color: black;
+              }
+
+    </style>
+    <h1>votador</h1>
+
+    <div>
+        <label for="cant">ingrese cantidad de votantes</label>
+        <input type="text" id="cant">
+        <p id="resultado">resultado de la votacion</p>
+    </div>
+    
+    <input type="button" value="generar" id="generar">
+    <input type="button" value="contero" id="conteo">
+
+    <script>
+        let rojo=0
+        let azul=0
+
+        let cantidad=document.getElementById("cant")
+
+        function urna(){
+            let div=document.createElement("div")
+            let botonRojo=document.createElement("button")
+            botonRojo.value="rojo"
+            botonRojo.textContent="rojo"
+            let botonAzul=document.createElement("button")
+            botonAzul.value="azul"
+            botonAzul.textContent="azul"
+            div.append(botonAzul,botonRojo)
+            document.body.append(div)            
+        }
+        document.getElementById("generar").addEventListener("click",()=>{
+        for(i=0;i<cantidad.value;i++){
+            urna()
+        }
+        })
+
+        document.body.addEventListener("click",(event)=>{
+            if(event.target.value==="rojo"){
+                rojo++
+               event.target.parentElement.remove()
+            }else if(event.target.value==="azul"){
+                azul++
+                event.target.parentElement.remove()
+            }
+        })
+        document.getElementById("conteo").addEventListener("click",()=>{
+            document.getElementById("resultado").textContent=`azul${azul},rojo ${rojo} `
+            if(rojo>azul){
+                document.body.style.backgroundColor="red"
+            }else{
+                document.body.style.backgroundColor="blue"
+            }
+        })
+    </script>
+
+</body>
+</html>
