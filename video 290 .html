@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Productos</title>
+</head>
+<body>
+
+<div id="rubros">
+  <p data-producto="frutas">Frutas</p>
+  <p data-producto="verduras">Verduras</p>
+  <p data-producto="carnes">Carnes</p>
+</div>
+
+<ul id="lista"></ul>
+
+<script>
+const frutas = [
+  { nombre: "Manzana", color: "Rojo", precio: 500 },
+  { nombre: "Banana", color: "Amarillo", precio: 350 },
+  { nombre: "Naranja", color: "Naranja", precio: 400 },
+  { nombre: "Pera", color: "Verde", precio: 450 }
+];
+
+const carnes = [
+  { nombre: "Carne vacuna", tipo: "Roja", precio: 3200 },
+  { nombre: "Pollo", tipo: "Blanca", precio: 1800 },
+  { nombre: "Cerdo", tipo: "Rosada", precio: 2500 },
+  { nombre: "Pescado", tipo: "Blanca", precio: 3000 }
+];
+
+const verduras = [
+  { nombre: "Lechuga", color: "Verde", precio: 300 },
+  { nombre: "Tomate", color: "Rojo", precio: 600 },
+  { nombre: "Zanahoria", color: "Naranja", precio: 350 },
+  { nombre: "Papa", color: "Marrón", precio: 250 }
+];
+
+// objeto contenedor 👇
+const productos = {
+  frutas,
+  verduras,
+  carnes
+};
+
+const lista = document.getElementById("lista");
+
+function mostrar(array) {
+  lista.innerHTML = array
+    .map(item => `<li>${item.nombre} - $${item.precio}</li>`)
+    .join("");
+}
+
+document.getElementById("rubros").addEventListener("click", (e) => {
+  const tipo = e.target.dataset.producto;
+  if (tipo) {
+    mostrar(productos[tipo]);
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>temperatura</h1>
+    <ul id="lista"></ul>
+    <p id="resultados"></p>
+
+    <script>
+            const provincias = [
+                { provincia: "Buenos Aires", temperatura: 28 },
+                { provincia: "Córdoba", temperatura: 32 },
+                { provincia: "Santa Fe", temperatura: 31 },
+                { provincia: "Mendoza", temperatura: 35 },
+                { provincia: "Tucumán", temperatura: 34 },
+                { provincia: "Misiones", temperatura: 30 },
+                { provincia: "Chubut", temperatura: 18 },
+                { provincia: "Tierra del Fuego", temperatura: 10 }
+            ];
+
+            provincias.forEach(elemento=>{
+                let li=document.createElement("li")
+                li.textContent=elemento.provincia
+                document.getElementById("lista").append(li)
+            })
+
+     document.getElementById("lista").addEventListener("mouseover",(evento)=>{
+               if (evento.target.tagName === "LI"){
+                    let nombre=evento.target.textContent
+                    let busca=provincias.find(lugar=>nombre===lugar.provincia)
+                    document.getElementById("resultados").textContent=`${busca.temperatura}º`
+                }
+            })
+    </script>
+</body>
+</html>

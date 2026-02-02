@@ -21,10 +21,10 @@ function mostrar(pokemon){
 
     let keys=Object.keys(pokemon)
 
-
-    for (let propiedad in keys) {
+    
+    for (let i in keys) {
     let p = document.createElement("p")
-    p.textContent = keys[propiedad] + ": " + pokemon[keys[propiedad]]
+    p.textContent = keys[i] + ": " + pokemon[keys[i]]
     document.body.append(p)
 
 }}
