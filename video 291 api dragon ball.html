@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Personajes de Dragon Ball</h1>
+    <ul id="lista"></ul>
+
+    <script>
+fetch("https://dragonball-api.com/api/characters")
+.then(response => response.json())
+.then(data => {
+console.log(data); // 👈 MIRAMOS QUÉ DEVUELVE
+});
+
+
+
+    //👉 fetch() hace una petición a internet para pedir datos a esa URL (la API de Dragon Ball).
+    //Esto devuelve una promesa (algo que se resolverá en el futuro). 
+
+    fetch("https://dragonball-api.com/api/characters")
+
+
+    //2️⃣ Convertimos la respuesta a JSON
+    /* .then(response => response.json())
+    👉 Cuando llega la respuesta:
+
+    response es lo que envía el servidor.
+    .json() convierte esa respuesta a un objeto de JavaScript que podamos usar.
+    También devuelve otra promesa. */
+
+        .then(response => response.json())
+/* 
+3️⃣ Usamos los datos que llegaron
+.then(data => {
+👉 Cuando ya tenemos el JSON listo, lo recibimos en la variable data.
+const personajes = data.items;
+👉 La API no devuelve directamente un array, sino un objeto con varias cosas.
+Dentro de ese objeto, el array de personajes está en:
+data.items
+Entonces:
+personajes ahora es un array con todos los personajes.
+const lista = document.getElementById("lista");
+👉 Buscamos en el HTML el <ul id="lista"> y lo guardamos en la variable lista para poder agregarle elementos.
+4️⃣ Recorremos todos los personajes
+personajes.forEach(personaje => {
+👉 forEach recorre el array personajes uno por uno.
+En cada vuelta:
+personaje es un personaje distinto (Goku, Vegeta, etc.).
+let li = document.createElement("li");
+👉 Creamos un nuevo elemento <li> (un ítem de lista).
+Aún no está en la página.
+li.textContent = personaje.name;
+👉 Le ponemos como texto el nombre del personaje (por ejemplo: “Goku”).
+lista.appendChild(li);
+👉 Agregamos ese <li> dentro de <ul id="lista"> en el HTML.
+Esto se repite para cada personaje.
+ */
+
+        .then(data => {
+            const personajes = data.items;
+            const lista = document.getElementById("lista");
+
+            personajes.forEach(personaje => {
+                let li = document.createElement("li");
+                li.textContent = personaje.name;
+                lista.appendChild(li);
+            });
+        })
+        .catch(error => console.error("Error al obtener los personajes:", error));
+    </script>
+</body>
+</html>

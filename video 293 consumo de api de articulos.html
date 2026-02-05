@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="montoMin">Monto minimo</label>
+        <input type="number" id="montoMin">
+
+         <label for="montoMax">Monto minimo</label>
+        <input type="number" id="montoMax">
+    </div>
+
+    <input type="button" value="mostrar" id="boton">
+<script>
+    //declaro un arreglo donde voy a alojar el arreglo respuesta
+    let productos = [];
+
+    fetch('https://dummyjson.com/products')
+        .then(respuesta => respuesta.json())
+        .then(data => {console.log(data)
+            productos = data.products; // guardamos el array real
+        });
+
+    function mostrar() {
+        let valormin = Number(document.getElementById("montoMin").value);
+        let valormax = Number(document.getElementById("montoMax").value);
+
+        let filtrados = productos.filter(elementos =>
+           elementos.price >= valormin && elementos.price <= valormax
+        );
+
+        document.body.innerHTML = "<h2>Resultados:</h2>";
+
+        filtrados.forEach(p => {
+            document.write(
+                `<p><strong>${p.title}</strong> - $${p.price}</p>`
+            );
+        });
+    }
+
+    document.getElementById("boton").addEventListener("click", mostrar);
+</script>
+
+</body>
+</html>

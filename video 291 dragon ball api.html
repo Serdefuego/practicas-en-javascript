@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="personajes"></ul>
+    <script>
+   fetch("https://dragonball-api.com/api/characters")
+        .then(respuesta=>respuesta.json())
+        .then(datos=>{
+                     console.log(datos)
+
+                     mostrar(datos) 
+                     buscar(datos)} )
+
+
+ 
+
+function mostrar(datos){
+    datos.items.forEach(personaje => {
+    
+       let li=document.createElement("li")
+       li.textContent=`${personaje.name},${personaje.race}`
+       let imagen=document.createElement("img")
+       imagen.src=personaje.image
+       document.getElementById("personajes").append(li)
+       document.body.append(imagen)
+    });
+}
+function buscar(datos){
+    let nombre = prompt("Ingrese nombre del personaje (ej: Goku)")
+
+    let personaje = datos.items.find(p => p.name === nombre)
+
+    if (personaje) {
+        document.write("<h2>" + personaje.name + "</h2>")
+        document.write("<p>Raza: " + personaje.race + "</p>")
+    } else {
+        alert("Personaje no encontrado 😢")
+    }
+}
+
+
+    </script>
+</body>
+</html>
