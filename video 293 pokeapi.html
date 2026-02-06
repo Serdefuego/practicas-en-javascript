@@ -5,40 +5,63 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        .contenedor{
+            background-color: aquamarine;
+            border-radius: 15px;
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+    </style>
     <h1>pokeapi</h1>
     <div>
         <label for="nombre">ingrese nombre del pokemon</label>
         <input type="text" id="nombre">
-    </div>
-    <script>
-       
-        document.body.addEventListener("keyup",(evento)=>{
-            if (evento.key==="Enter"){
-            let nombre=document.getElementById("nombre").value
-        
-            fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}/`)
-                    .then(respuesta=>respuesta.json())
-            
-                   .then(data=>{card(data)} )
-            }
-                 document.getElementById("nombre").value=" "
-            
-       
-        })
-     
+<script>
+    document.body.addEventListener("keyup", (evento) => {
+        if (evento.key === "Enter") {
 
-        function card(pokemon){
-            let contenedor=document.createElement("div")
-            contenedor.className="contenedor"
-            let identificador=document.createElement("p")
-            identificador.textContent=`id:${pokemon.id} `
-            let nombre=document.createElement("p")
-            nombre.textContent=`nombre: ${pokemon.name} `
-            let img=document.createElement("img")
-            img.src=pokemon.sprites.front_default
-            contenedor.append(nombre,identificador,img)
-            document.body.append(contenedor)
+            let nombre = document.getElementById("nombre").value
+                .toLowerCase()
+                .trim();
+
+            fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}/`)
+                .then(respuesta => respuesta.json())
+                .then(data => card(data))
+                .catch(() => alert("Pokémon no encontrado 😢"));
         }
-        </script>
+    });
+
+    function card(pokemon) {
+
+        // 👉 BORRA la card anterior si existe
+        let anterior = document.querySelector(".contenedor");
+        if (anterior) anterior.remove();
+
+        let contenedor = document.createElement("div");
+        contenedor.className = "contenedor";
+
+        let identificador = document.createElement("p");
+        identificador.textContent = `id: ${pokemon.id}`;
+
+        let nombre = document.createElement("p");
+        nombre.textContent = `nombre: ${pokemon.name}`;
+
+        let img = document.createElement("img");
+        img.src = pokemon.sprites.front_default;
+        img.style.width = "200px";
+        img.style.margin = "0 auto";
+
+        contenedor.append(nombre, identificador, img);
+        document.body.append(contenedor);
+    }
+</script>
 </body>
 </html>
