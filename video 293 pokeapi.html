@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>pokeapi</h1>
+    <div>
+        <label for="nombre">ingrese nombre del pokemon</label>
+        <input type="text" id="nombre">
+    </div>
+    <script>
+       
+        document.body.addEventListener("keyup",(evento)=>{
+            if (evento.key==="Enter"){
+            let nombre=document.getElementById("nombre").value
+        
+            fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}/`)
+                    .then(respuesta=>respuesta.json())
+            
+                   .then(data=>{card(data)} )
+            }
+                 document.getElementById("nombre").value=" "
+            
+       
+        })
+     
+
+        function card(pokemon){
+            let contenedor=document.createElement("div")
+            contenedor.className="contenedor"
+            let identificador=document.createElement("p")
+            identificador.textContent=`id:${pokemon.id} `
+            let nombre=document.createElement("p")
+            nombre.textContent=`nombre: ${pokemon.name} `
+            let img=document.createElement("img")
+            img.src=pokemon.sprites.front_default
+            contenedor.append(nombre,identificador,img)
+            document.body.append(contenedor)
+        }
+        </script>
+</body>
+</html>
