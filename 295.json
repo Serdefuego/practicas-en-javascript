@@ -1,0 +1,22 @@
+{
+  "usuarios": [
+    {
+      "nombre": "Marcos Nahuel Lagña",
+      "edad": 34,
+      "dni": "34549853",
+      "domicilio": "San Clemente del Tuyú, Buenos Aires"
+    },
+    {
+      "nombre": "Ana María Pérez",
+      "edad": 29,
+      "dni": "39124567",
+      "domicilio": "General Lavalle, Buenos Aires"
+    },
+    {
+      "nombre": "Carlos Alberto Gómez",
+      "edad": 41,
+      "dni": "28567432",
+      "domicilio": "Mar del Plata, Buenos Aires"
+    }
+  ]
+}

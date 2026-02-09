@@ -29,31 +29,34 @@
         if (evento.key === "Enter") {
 
             let nombre = document.getElementById("nombre").value
-                .toLowerCase()
-                .trim();
+                .toLowerCase() //PARA A MINUSCULA LO QUE SE ESCRIBE
+                .trim();  //RECORTA LOS ESPACIOS VACIOS
 
             fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}/`)
                 .then(respuesta => respuesta.json())
                 .then(data => card(data))
-                .catch(() => alert("Pokémon no encontrado 😢"));
+                .catch(() => alert("Pokémon no encontrado "));//ESTA LINEA MANEJA LA AUSENCIA DE ELEMENTO
         }
     });
 
     function card(pokemon) {
 
-        // 👉 BORRA la card anterior si existe
+        //  BORRA la card anterior si existe CAPTURA EL CONTENEDOR Y LUEGO LO REMOVE()
         let anterior = document.querySelector(".contenedor");
         if (anterior) anterior.remove();
 
+        //CREA EL CONTENEDOR Y LE ASIGNA LA CLASE CONENEDOR
         let contenedor = document.createElement("div");
         contenedor.className = "contenedor";
 
+        //TOMA EL ID Y EL NOMBRE Y LOS PONE EN UN P
         let identificador = document.createElement("p");
         identificador.textContent = `id: ${pokemon.id}`;
 
         let nombre = document.createElement("p");
         nombre.textContent = `nombre: ${pokemon.name}`;
 
+        //CREA ETIQUETA IMG TOMA EL SRC DE LA RESPUESTA Y ADQUIERE LA IMAGEN LUEGO ASIGNA POR DEFECTO SUS MEDIDAD
         let img = document.createElement("img");
         img.src = pokemon.sprites.front_default;
         img.style.width = "200px";
