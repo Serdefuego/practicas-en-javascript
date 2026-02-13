@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar imagen</title>
+</head>
+<body>
+    <h1>Agregar imagen</h1>
+
+    <form id="formulario1" enctype="multipart/form-data">
+        <div>
+            <label for="texto">Texto de marca de agua</label>
+            <input type="text" name="texto" id="texto">
+        </div>
+
+        <div>
+            <label for="imagen">Imagen</label>
+            <input type="file" name="imagen" id="imagen" accept="image/*">
+            <div id="imagenOriginal"></div>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        const formulario1 = document.getElementById("formulario1");
+        const resultado = document.getElementById("resultado");
+        const imagenOriginal = document.getElementById("imagenOriginal");
+
+        document.getElementById("imagen").addEventListener("change", () => {
+
+            const archivo = document.getElementById("imagen").files[0];
+
+            if (!archivo) return;
+
+            const urlDelObjeto = URL.createObjectURL(archivo);
+
+            const img = document.createElement("img");
+            img.src = urlDelObjeto;
+            img.style.maxWidth = "300px";
+
+            imagenOriginal.innerHTML = ""; // limpia imagen anterior
+            imagenOriginal.appendChild(img);
+        });
+    </script>
+</body>
+</html>
