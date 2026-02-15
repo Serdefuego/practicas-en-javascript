@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <label for="numeros">Ingrese números separados por coma</label>
+        <input type="text" id="numeros">
+    </div>
+    <input type="button" value="Ejecutar" id="boton">
+
+    <div id="resultado"></div>
+
+    <script>
+
+        document.getElementById("boton").addEventListener("click", () => {
+
+            try {
+
+                //capturo los value del input
+                let numero = document.getElementById("numeros").value;
+                //tomo todos los valores y le quito la coma
+                let valores = numero.split(",");
+
+                let numerosConvertidos = valores.map(valor => {
+                    
+                    let n = Number(valor.trim());
+
+                    if (isNaN(n)) {
+                        throw new Error("No es un número válido");
+                    }
+
+                    return n;
+                });
+
+                document.getElementById("resultado").textContent =
+                    "Valores válidos: " + numerosConvertidos.join("  ");
+
+            } catch (error) {
+
+                alert("Ingrese solo valores numéricos separados por coma");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+
+</html>

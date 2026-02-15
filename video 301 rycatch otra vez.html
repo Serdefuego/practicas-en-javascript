@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <label for="numeros">Ingrese números separados por coma</label>
+        <input type="text" id="numeros">
+    </div>
+    <input type="button" value="Ejecutar" id="boton">
+
+    <div id="resultado"></div>
+
+    <script>
+
+        document.getElementById("boton").addEventListener("click", () => {
+
+            try {
+
+                //capturo los value del input
+                let numero = document.getElementById("numeros")
+                
+                //creo un archivo json
+                 let jeison=`[${numero.value}]`
+                 let convertido=JSON.parse(jeison)
+                 let resultado= convertido.reduce((acumulador,valor)=>acumulador+valor)
+                 alert(resultado)
+             
+
+
+            } catch (error) {
+                alert("solo ingrese numeros")
+            }
+
+        });
+
+    </script>
+
+</body>
+
+
+</html>

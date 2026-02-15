@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+
+    <form id="formulario">
+
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" required>
+
+        <label for="profesion">Profesión</label>
+        <input type="text" name="profesion" id="profesion" required>
+
+        <label for="mail">Mail</label>
+        <input type="email" name="mail" id="mail" required>
+
+        <label for="telefono">Teléfono</label>
+        <input type="text" name="telefono" id="telefono" required>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+
+    <div id="resultado"></div>
+
+<script>
+
+    const formulario = document.getElementById("formulario");
+    const resultado = document.getElementById("resultado");
+
+    formulario.addEventListener("submit", (evento) => {
+
+        evento.preventDefault();
+
+        const datosDelFormulario = new FormData(formulario);
+
+        fetch("https://scratchya-com.ar/cursojs/generartarjeta.php", {
+            method: "POST",
+            body: datosDelFormulario
+        })
+        .then(respuesta => respuesta.text())
+        .then(data => {
+            resultado.innerHTML = data; // muestra la tarjeta en pantalla
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
+

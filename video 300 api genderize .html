@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender API</title>
+</head>
+<body>
+    <div>
+        <label for="nombre">Ingrese nombre</label>
+        <input type="text" name="nombre" id="nombre">
+        <input type="button" value="Mostrar" id="boton">
+    </div>
+
+    <div id="resultado"></div>
+
+    <script>
+
+        document.getElementById("boton").addEventListener("click", () => {
+
+            let nombre = document.getElementById("nombre").value;
+
+            fetch(`https://api.genderize.io?name=${nombre}`)
+            .then(respuesta => respuesta.json())
+            .then(persona => {
+
+                let resultados = document.getElementById("resultado");
+
+                if(persona.gender == "male"){
+                    resultados.textContent = "Es hombre";
+                } else if(persona.gender == "female"){
+                    resultados.textContent = "Es mujer";
+                } else {
+                    resultados.textContent = "No se pudo determinar el género";
+                }
+
+            });
+
+        });
+
+    </script>
+</body>
+</html>
