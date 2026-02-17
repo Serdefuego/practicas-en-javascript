@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="areaDeTextos" id="texto"></textarea>
+    <input type="button" value="validar" id="boton">
+
+    <script>
+        document.getElementById("boton").addEventListener("click",()=>{
+        let texto=document.getElementById("texto").value
+            if(!JSON.parse(texto)){
+                alert("no es un formato json")
+            }else{
+                let p=document.createElement("p")
+                p.textContent=JSON.parse(texto)
+                document.body.append(p)
+            }
+        })
+       
+    </script>
+</body>
+</html>
