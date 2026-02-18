@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persona {
+            constructor(nombre,edad) {
+                this.nombre=nombre,
+                this.edad=edad,
+                this.trabajo="sin trabajo"
+                this.imprimir=()=>{
+                    document.write(`mi nombre es:${this.nombre} tengo ${this.edad} y estoy ${this.trabajo} `)
+                }
+                this.fijarTrabajo=()=>{
+                    if(this.edad>18){
+                        this.trabajo="contratado"
+                    }
+                }
+            }
+        }
+
+    let persona1=new Persona("marcos",20)
+    try{
+        if(persona1.edad<18){
+            throw new Error("es menor no puede trabajar aun");
+        }else{
+            persona1.trabajo="contatado"
+        }
+    }catch (error) {
+        alert("error de edad")
+    }finally{
+        persona1.fijarTrabajo()
+        persona1.imprimir()
+        
+    }
+    
+     
+
+    </script>
+</body>
+</html>

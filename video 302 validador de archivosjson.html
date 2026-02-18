@@ -9,17 +9,28 @@
     <input type="button" value="validar" id="boton">
 
     <script>
-        document.getElementById("boton").addEventListener("click",()=>{
-        let texto=document.getElementById("texto").value
-            if(!JSON.parse(texto)){
-                alert("no es un formato json")
-            }else{
-                let p=document.createElement("p")
-                p.textContent=JSON.parse(texto)
-                document.body.append(p)
+        //capturo el evento del boton
+        document.getElementById("boton").addEventListener("click", () => {
+            //capturo el contenido del textarea
+            let texto = document.getElementById("texto").value;
+            //por medio de la validacion trycatch
+
+            //sifunciona pasa esto
+            try {
+
+                let objeto = JSON.parse(texto);
+
+                let p = document.createElement("p");
+                p.textContent = JSON.stringify(objeto);
+                document.body.append(p);
+          //si no funciona lanza un mensaje
+            } catch (error) {
+
+                alert("No es un formato JSON válido");
+
             }
-        })
-       
+
+        });
     </script>
 </body>
 </html>
