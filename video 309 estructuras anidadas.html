@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+        const arreglo = [1,2,3,[10,20,[100,200]],5]
+
+        //declaro una funcion que recorre el array y pregunta si la posicion
+        //i es una arreglo entonces sumaos el valor en el contador
+
+        function sumarArray(arr){
+
+            //se dispone una variable resultado donde se acumulara la suma
+            //de los valores en el arreglo
+            let resultado = 0
+
+            //se recorre con un for el arreglo del primer nivel
+            for(let i = 0; i < arr.length; i++){
+                //si el indice recorrido en la posicion i es un arreglo
+                if(Array.isArray(arr[i])){
+                    //la variable resultado acumulara el valor que retorne la funcion
+                    //aqui es donde se aplica la recursividad, ya que la funcion ingresa
+                    //al arreglo lo recorre , pregunta si el indice es un arreglo , suma el 
+                    //contenido y dlo acumula en la variable resultado
+                    resultado += sumarArray(arr[i])
+                } else {
+                    //del modo contrario simplemente se acumula el valor del indice
+                    resultado += arr[i]
+                }
+            }
+
+            //la funcion devuelve el resultado de la suma de todos los elementos del arreglo
+            return resultado
+        }
+
+        //se declara la variable total que aloja la funcion sumarArray
+        let total = sumarArray(arreglo)
+        document.write(total)
+</script>
+    </body>
+</html>
